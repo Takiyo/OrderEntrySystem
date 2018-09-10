@@ -73,5 +73,15 @@ namespace OrderEntrySystem
             this.Commands.Add(new CommandViewModel("New Product", new DelegateCommand(p => this.CreateNewProduct())));
             this.Commands.Add(new CommandViewModel("New Customer", new DelegateCommand(p => this.CreateNewCustomer())));
         }
+
+        public void ShowAllProducts()
+        {
+            MultiProductViewModel viewModel = this.ViewModels.FirstOrDefault
+                (vm => vm is MultiProductViewModel) as MultiProductViewModel;
+            if (viewModel == null)
+            {
+                MultiProductViewModel mpvm
+            }
+        }
     }
 }

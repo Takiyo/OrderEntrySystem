@@ -1,12 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:OrderEntrySystem">
+    
     <DataTemplate DataType="{x:Type local:ProductViewModel}">
         <local:ProductView/>
     </DataTemplate>
 
     <DataTemplate DataType="{x:Type local:CustomerViewModel}">
         <local:CustomerView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local:MultiProductViewModel}">
+        <local:MultiProductView/>
     </DataTemplate>
 
     <Style x:Key="MainHeaderStyle" TargetType="{x:Type HeaderedContentControl}">

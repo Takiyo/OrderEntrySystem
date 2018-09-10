@@ -8,19 +8,25 @@ using System.Threading.Tasks;
 
 namespace OrderEntrySystem
 {
-    public class MultiProductViewModel
+    public class MultiProductViewModel : WorkspaceViewModel
     {
-        public MultiProductViewModel()
+        public MultiProductViewModel() : base("Products") //placeholder
         {
             AllProducts = new ObservableCollection<ProductViewModel>();
-            ProductViewModel pvm1 = new ProductViewModel();
+            ProductViewModel pvm1 = new ProductViewModel(new Product());
+            ProductViewModel pvm2 = new ProductViewModel(new Product());
+            ProductViewModel pvm3 = new ProductViewModel(new Product());
+
+            AllProducts.Add(pvm1);
+            AllProducts.Add(pvm2);
+            AllProducts.Add(pvm3);
         }
 
         public ObservableCollection<ProductViewModel> AllProducts
         {
             get
             {
-
+                return null; //placeholder
             }
             private set
             {
@@ -28,7 +34,7 @@ namespace OrderEntrySystem
             }
         }
 
-        protected void CreateCommands()
+        protected override void CreateCommands()
         {
 
         }
