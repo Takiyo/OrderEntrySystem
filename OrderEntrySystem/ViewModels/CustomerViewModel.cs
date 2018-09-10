@@ -1,9 +1,11 @@
-﻿using OrderEntryEngine;
+﻿using OrderEntryDataAccess;
+using OrderEntryEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace OrderEntrySystem
 {
@@ -12,9 +14,14 @@ namespace OrderEntrySystem
 
         private Customer customer;
 
-        public CustomerViewModel(Customer customer) : base("Customer")
+        private Repository repository;
+
+        private ICommand saveCommand;
+
+        public CustomerViewModel(Customer customer, Repository repository) : base("Customer")
         {
             this.customer = customer;
+            this.repository = repository;
         }
 
         public string FirstName
@@ -103,6 +110,24 @@ namespace OrderEntrySystem
 
         protected override void CreateCommands()
         {
+        }
+
+        public ICommand SaveCommand
+        {
+            get
+            {
+                if (this.saveCommand == null)
+                {
+                    this.saveCommand = new DelegateCommand(p => this.Save());
+                }
+
+                return this.saveCommand;
+            }
+        }
+
+        public void Save()
+        {
+            this.repository.AddCustomer(this.customer);
         }
     }
 }

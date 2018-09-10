@@ -17,6 +17,8 @@
         <TextBox Height="Auto" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="4" Width="120"/>
         <TextBox Height="Auto" Text="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="6" Width="120"/>
 
+        <Button Content="Save" Command="{Binding SaveCommand}" Grid.ColumnSpan="2" Margin="4,37,0,-37" Grid.Row="6"/>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="4" />

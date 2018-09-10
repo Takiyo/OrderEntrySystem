@@ -60,10 +60,14 @@
     <Compile Include="ViewModels\Framework\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Framework\ViewModel.cs" />
     <Compile Include="ViewModels\Framework\WorkspaceViewModel.cs" />
+    <Compile Include="ViewModels\MultiCustomerViewModel.cs" />
     <Compile Include="ViewModels\MultiProductViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiCustomerView.xaml.cs">
+      <DependentUpon>MultiCustomerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MultiProductView.xaml.cs">
       <DependentUpon>MultiProductView.xaml</DependentUpon>
@@ -87,6 +91,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MultiCustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MultiProductView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -127,6 +135,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\OrderEntryDataAccess\OrderEntryDataAccess.csproj">
+      <Project>{b113bc0d-850f-4ffb-84fb-8a0088eca647}</Project>
+      <Name>OrderEntryDataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OrderEntryEngine\OrderEntryEngine.csproj">
       <Project>{BD1EED41-BD90-4FC8-894B-4EB5E2EC8784}</Project>
       <Name>OrderEntryEngine</Name>

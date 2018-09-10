@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using OrderEntryDataAccess;
 using OrderEntryEngine;
 
 namespace OrderEntrySystem
@@ -11,9 +13,14 @@ namespace OrderEntrySystem
     {
         private Product product;
 
-        public ProductViewModel(Product product) : base("Product")
+        private Repository repository;
+
+        private ICommand saveCommand;
+
+        public ProductViewModel(Product product, Repository repository) : base("Product")
         {
             this.product = product;
+            this.repository = repository;
         }
 
         public string Location
@@ -69,6 +76,25 @@ namespace OrderEntrySystem
 
         protected override void CreateCommands()
         {
+
+        }
+
+        public ICommand SaveCommand
+        {
+            get
+            {
+                if (this.saveCommand == null)
+                {
+                    this.saveCommand = new DelegateCommand(p => this.Save());
+                }
+
+                return this.saveCommand;
+            }
+        }
+
+        public void Save()
+        {
+            this.repository.AddProduct(this.product);
         }
     }
 }

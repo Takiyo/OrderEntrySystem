@@ -1,4 +1,5 @@
-﻿using OrderEntryEngine;
+﻿using OrderEntryDataAccess;
+using OrderEntryEngine;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,9 +15,11 @@ namespace OrderEntrySystem
     {
         private ObservableCollection<WorkspaceViewModel> viewModels;
 
+        private Repository repository;
+
         public MainWindowViewModel() : base("Order Entry System - Brytowski")
         {
-
+            this.repository = new Repository();
         }
 
         public ObservableCollection<WorkspaceViewModel> ViewModels
@@ -35,7 +38,7 @@ namespace OrderEntrySystem
         public void CreateNewProduct()
         {
             Product product = new Product { Location = "Main Warehouse" };
-            ProductViewModel pvm = new ProductViewModel(product);
+            ProductViewModel pvm = new ProductViewModel(product, this.repository);
 
             pvm.RequestClose += OnWorkspaceRequestClose;
 
@@ -46,7 +49,7 @@ namespace OrderEntrySystem
         public void CreateNewCustomer()
         {
             Customer customer = new Customer();
-            CustomerViewModel cvm = new CustomerViewModel(customer);
+            CustomerViewModel cvm = new CustomerViewModel(customer, this.repository);
             cvm.RequestClose += this.OnWorkspaceRequestClose;
 
             viewModels.Add(cvm);
@@ -72,6 +75,8 @@ namespace OrderEntrySystem
         {
             this.Commands.Add(new CommandViewModel("New Product", new DelegateCommand(p => this.CreateNewProduct())));
             this.Commands.Add(new CommandViewModel("New Customer", new DelegateCommand(p => this.CreateNewCustomer())));
+            this.Commands.Add(new CommandViewModel("View All Products", new DelegateCommand(p => this.ShowAllProducts())));
+            this.Commands.Add(new CommandViewModel("View All Customers", new DelegateCommand(p => this.ShowAllCustomers())));
         }
 
         public void ShowAllProducts()
@@ -80,8 +85,24 @@ namespace OrderEntrySystem
                 (vm => vm is MultiProductViewModel) as MultiProductViewModel;
             if (viewModel == null)
             {
-                MultiProductViewModel mpvm
+                viewModel = new MultiProductViewModel(this.repository);
+                viewModel.RequestClose += OnWorkspaceRequestClose;
             }
+
+            this.ActivateViewModel(viewModel);
+        }
+
+        public void ShowAllCustomers()
+        {
+            MultiCustomerViewModel viewModel = this.ViewModels.FirstOrDefault
+                (vm => vm is MultiCustomerViewModel) as MultiCustomerViewModel;
+            if (viewModel == null)
+            {
+                viewModel = new MultiCustomerViewModel(this.repository);
+                viewModel.RequestClose += OnWorkspaceRequestClose;
+            }
+
+            this.ActivateViewModel(viewModel);
         }
     }
 }

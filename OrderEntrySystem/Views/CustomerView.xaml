@@ -23,6 +23,8 @@
         <TextBox Height="Auto" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="10" Width="120"/>
         <TextBox Height="Auto" Text="{Binding Path=State, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="12" Width="120"/>
 
+        <Button Content="Save" Command="{Binding SaveCommand}" Grid.ColumnSpan="2" Margin="4,5,0,-31" Grid.Row="14"/>
+
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />

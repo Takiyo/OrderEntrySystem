@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderEntrySystem", "orderen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderEntryEngine", "OrderEntryEngine\OrderEntryEngine.csproj", "{BD1EED41-BD90-4FC8-894B-4EB5E2EC8784}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderEntryDataAccess", "OrderEntryDataAccess\OrderEntryDataAccess.csproj", "{B113BC0D-850F-4FFB-84FB-8A0088ECA647}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BD1EED41-BD90-4FC8-894B-4EB5E2EC8784}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD1EED41-BD90-4FC8-894B-4EB5E2EC8784}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD1EED41-BD90-4FC8-894B-4EB5E2EC8784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B113BC0D-850F-4FFB-84FB-8A0088ECA647}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B113BC0D-850F-4FFB-84FB-8A0088ECA647}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B113BC0D-850F-4FFB-84FB-8A0088ECA647}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B113BC0D-850F-4FFB-84FB-8A0088ECA647}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
