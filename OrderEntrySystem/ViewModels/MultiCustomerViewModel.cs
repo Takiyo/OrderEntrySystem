@@ -13,17 +13,10 @@ namespace OrderEntrySystem
     {
         private Repository repository;
 
-        public MultiCustomerViewModel(Repository repository) : base("Customers") //placeholder
+        public MultiCustomerViewModel(Repository repository) : base("Customers")
         {
-            //this.AllCustomers = new ObservableCollection<CustomerViewModel>();
-            //CustomerViewModel cvm1 = new CustomerViewModel(new Customer());
-            //CustomerViewModel cvm2 = new CustomerViewModel(new Customer());
-            //CustomerViewModel cvm3 = new CustomerViewModel(new Customer());
-
-            //AllCustomers.Add(cvm1);
-            //AllCustomers.Add(cvm2);
-            //AllCustomers.Add(cvm3);
             this.repository = repository;
+            this.repository.CustomerAdded += OnCustomerAdded;
 
             IEnumerable<CustomerViewModel> customers =
     from p in this.repository.GetCustomers()
@@ -41,6 +34,12 @@ namespace OrderEntrySystem
         protected override void CreateCommands()
         {
 
+        }
+
+        private void OnCustomerAdded(object sender, CustomerEventArgs e)
+        {
+            CustomerViewModel viewModel = new CustomerViewModel(e.Customer, this.repository);
+            this.AllCustomers.Add(viewModel);
         }
     }
 }

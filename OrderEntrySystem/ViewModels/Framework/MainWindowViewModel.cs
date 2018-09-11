@@ -89,6 +89,7 @@ namespace OrderEntrySystem
                 viewModel.RequestClose += OnWorkspaceRequestClose;
             }
 
+            this.viewModels.Add(viewModel);
             this.ActivateViewModel(viewModel);
         }
 
@@ -102,6 +103,7 @@ namespace OrderEntrySystem
                 viewModel.RequestClose += OnWorkspaceRequestClose;
             }
 
+            this.viewModels.Add(viewModel);
             this.ActivateViewModel(viewModel);
         }
     }

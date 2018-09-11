@@ -17,14 +17,7 @@ namespace OrderEntrySystem
         public MultiProductViewModel(Repository repository) : base("Products") //placeholder
         {
             this.repository = repository;
-
-
-            //ProductViewModel pvm1 = new ProductViewModel(new Product(), this.repository);
-            //ProductViewModel pvm2 = new ProductViewModel(new Product(), this.repository);
-            //ProductViewModel pvm3 = new ProductViewModel(new Product(), this.repository);
-            //AllProducts.Add(pvm1);
-            //AllProducts.Add(pvm2);
-            //AllProducts.Add(pvm3);
+            this.repository.ProductAdded += OnProductAdded;
 
             IEnumerable<ProductViewModel> products =
     from p in this.repository.GetProducts()
@@ -41,6 +34,12 @@ namespace OrderEntrySystem
         protected override void CreateCommands()
         {
 
+        }
+
+        private void OnProductAdded(object sender, ProductEventArgs e)
+        {
+            ProductViewModel viewModel = new ProductViewModel(e.Product, this.repository);
+            this.AllProducts.Add(viewModel);
         }
     }
 }

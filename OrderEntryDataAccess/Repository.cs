@@ -15,19 +15,30 @@ namespace OrderEntryDataAccess
 
         public event EventHandler<ProductEventArgs> ProductAdded;
 
+        public event EventHandler<CustomerEventArgs> CustomerAdded;
+
         public Repository()
         {
+            // Create & add default products
             var products = new List<Product>
             {
                 new Product { Name = "Stuff" },
                 new Product { Name = "Things" },
                 new Product { Name = "Malarky" }
             };
-
+            
             this.products.AddRange(products);
 
-            this.ProductAdded(this, new ProductEventArgs(products));
+            // Run ProductAdded event for each product in products list.
+            if (this.ProductAdded != null)
+            {
+                foreach (Product p in products)
+                {
+                    this.ProductAdded(this, new ProductEventArgs(p));
+                }
+            }
 
+            // Create & add default customers.
             var customers = new List<Customer>
             {
                 new Customer { FirstName = "Guy" },
@@ -36,6 +47,15 @@ namespace OrderEntryDataAccess
             };
 
             this.products.AddRange(products);
+
+            // Run CustomerAdded event for each customer in customers list.
+            if (this.CustomerAdded != null)
+            {
+                foreach (Customer c in customers)
+                {
+                    this.CustomerAdded(this, new CustomerEventArgs(c));
+                }
+            }
         }
 
         //products

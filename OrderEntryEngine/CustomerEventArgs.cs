@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace OrderEntryEngine
 {
-    public class ProductEventArgs
+    public class CustomerEventArgs
     {
-        public ProductEventArgs(Product product)
+        public CustomerEventArgs(Customer customer)
         {
-            this.Product = product;
+            this.Customer = customer;
         }
 
-        public Product Product { get; private set; }
+        public Customer Customer{ get; private set; }
     }
 }
