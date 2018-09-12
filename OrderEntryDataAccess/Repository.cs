@@ -46,7 +46,7 @@ namespace OrderEntryDataAccess
                 new Customer { FirstName = "M'Boy" }
             };
 
-            this.products.AddRange(products);
+            this.customers.AddRange(customers);
 
             // Run CustomerAdded event for each customer in customers list.
             if (this.CustomerAdded != null)

@@ -17,6 +17,8 @@ namespace OrderEntrySystem
 
         private ICommand saveCommand;
 
+        private bool isSelected;
+
         public ProductViewModel(Product product, Repository repository) : base("Product")
         {
             this.product = product;
@@ -32,6 +34,7 @@ namespace OrderEntrySystem
             set
             {
                 this.product.Location = value;
+                this.OnPropertyChanged("Location");
             }
         }
 
@@ -45,6 +48,7 @@ namespace OrderEntrySystem
             set
             {
                 this.product.Name = value;
+                this.OnPropertyChanged("Name");
             }
         }
 
@@ -58,6 +62,7 @@ namespace OrderEntrySystem
             set
             {
                 this.product.Description = value;
+                this.OnPropertyChanged("Description");
             }
         }
 
@@ -71,6 +76,20 @@ namespace OrderEntrySystem
             set
             {
                 this.product.Price = value;
+                this.OnPropertyChanged("Price");
+            }
+        }
+
+        public bool IsSelected
+        {
+            get
+            {
+                return this.isSelected;
+            }
+            set
+            {
+                this.isSelected = value;
+                this.OnPropertyChanged("IsSelected");
             }
         }
 

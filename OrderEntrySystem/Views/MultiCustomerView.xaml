@@ -6,7 +6,19 @@
              xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="SharedResources.xaml"/>
+    </UserControl.Resources>
+    
     <Grid>
-        <ListView ItemsSource="{Binding Path=AllCustomers}" />
+        <DockPanel>
+            <Grid DockPanel.Dock="Bottom">
+                <local:SelectedItemsView />
+            </Grid>
+            <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllCustomers}"/>
+        </DockPanel>
     </Grid>
+
+
 </UserControl>

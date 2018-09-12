@@ -18,6 +18,8 @@ namespace OrderEntrySystem
 
         private ICommand saveCommand;
 
+        private bool isSelected;
+
         public CustomerViewModel(Customer customer, Repository repository) : base("Customer")
         {
             this.customer = customer;
@@ -33,6 +35,7 @@ namespace OrderEntrySystem
             set
             {
                 customer.FirstName = value;
+                this.OnPropertyChanged("FirstName");
             }
         }
 
@@ -45,6 +48,7 @@ namespace OrderEntrySystem
             set
             {
                 customer.LastName = value;
+                this.OnPropertyChanged("LastName");
             }
         }
 
@@ -57,6 +61,7 @@ namespace OrderEntrySystem
             set
             {
                 customer.Phone = value;
+                this.OnPropertyChanged("Phone");
             }
         }
 
@@ -69,6 +74,7 @@ namespace OrderEntrySystem
             set
             {
                 customer.Email = value;
+                this.OnPropertyChanged("Email");
             }
         }
 
@@ -81,6 +87,7 @@ namespace OrderEntrySystem
             set
             {
                 customer.Address = value;
+                this.OnPropertyChanged("Address");
             }
         }
 
@@ -93,6 +100,7 @@ namespace OrderEntrySystem
             set
             {
                 customer.City = value;
+                this.OnPropertyChanged("City");
             }
         }
 
@@ -105,6 +113,20 @@ namespace OrderEntrySystem
             set
             {
                 customer.State = value;
+                this.OnPropertyChanged("State");
+            }
+        }
+
+        public bool IsSelected
+        {
+            get
+            {
+                return this.isSelected;
+            }
+            set
+            {
+                this.isSelected = value;
+                this.OnPropertyChanged("IsSelected");
             }
         }
 
