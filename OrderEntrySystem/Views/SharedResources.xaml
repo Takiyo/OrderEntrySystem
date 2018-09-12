@@ -9,6 +9,10 @@
     <DataTemplate DataType="{x:Type local:CustomerViewModel}">
         <local:CustomerView/>
     </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type local:LocationViewModel}">
+        <local:LocationView/>
+    </DataTemplate>
 
     <DataTemplate DataType="{x:Type local:MultiProductViewModel}">
         <local:MultiProductView/>
@@ -17,6 +21,11 @@
     <DataTemplate DataType="{x:Type local:MultiCustomerViewModel}">
         <local:MultiCustomerView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local:MultiLocationViewModel}">
+        <local:MultiLocationView/>
+    </DataTemplate>
+
 
     <Style x:Key="ListViewStyle" TargetType="{x:Type ListViewItem}">
         <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />

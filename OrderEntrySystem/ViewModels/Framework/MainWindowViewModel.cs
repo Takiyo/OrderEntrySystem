@@ -56,6 +56,16 @@ namespace OrderEntrySystem
             this.ActivateViewModel(cvm);
         }
 
+        public void CreateNewLocation()
+        {
+            Location location = new Location();
+            LocationViewModel lvm = new LocationViewModel(location, this.repository);
+            lvm.RequestClose += this.OnWorkspaceRequestClose;
+
+            viewModels.Add(lvm);
+            this.ActivateViewModel(lvm);
+        }
+
         private void ActivateViewModel(WorkspaceViewModel viewModel)
         {
             ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.viewModels);
@@ -75,8 +85,10 @@ namespace OrderEntrySystem
         {
             this.Commands.Add(new CommandViewModel("New Product", new DelegateCommand(p => this.CreateNewProduct())));
             this.Commands.Add(new CommandViewModel("New Customer", new DelegateCommand(p => this.CreateNewCustomer())));
+            this.Commands.Add(new CommandViewModel("New Location", new DelegateCommand(p => this.CreateNewLocation())));
             this.Commands.Add(new CommandViewModel("View All Products", new DelegateCommand(p => this.ShowAllProducts())));
             this.Commands.Add(new CommandViewModel("View All Customers", new DelegateCommand(p => this.ShowAllCustomers())));
+            this.Commands.Add(new CommandViewModel("View All Locations", new DelegateCommand(p => this.ShowAllLocations())));
         }
 
         public void ShowAllProducts()
@@ -100,6 +112,20 @@ namespace OrderEntrySystem
             if (viewModel == null)
             {
                 viewModel = new MultiCustomerViewModel(this.repository);
+                viewModel.RequestClose += OnWorkspaceRequestClose;
+            }
+
+            this.viewModels.Add(viewModel);
+            this.ActivateViewModel(viewModel);
+        }
+
+        public void ShowAllLocations()
+        {
+            MultiLocationViewModel viewModel = this.ViewModels.FirstOrDefault
+                (vm => vm is MultiLocationViewModel) as MultiLocationViewModel;
+            if (viewModel == null)
+            {
+                viewModel = new MultiLocationViewModel(this.repository);
                 viewModel.RequestClose += OnWorkspaceRequestClose;
             }
 

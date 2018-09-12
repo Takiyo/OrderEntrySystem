@@ -13,9 +13,13 @@ namespace OrderEntryDataAccess
 
         private List<Customer> customers = new List<Customer>();
 
+        private List<Location> locations = new List<Location>();
+
         public event EventHandler<ProductEventArgs> ProductAdded;
 
         public event EventHandler<CustomerEventArgs> CustomerAdded;
+
+        public event EventHandler<LocationEventArgs> LocationAdded;
 
         public Repository()
         {
@@ -56,15 +60,33 @@ namespace OrderEntryDataAccess
                     this.CustomerAdded(this, new CustomerEventArgs(c));
                 }
             }
+
+            // Create & add default locations.
+            var locations = new List<Location>
+            {
+                new Location {City = "Stevens Point" },
+                new Location {State = "WI" }
+            };
+
+            this.locations.AddRange(locations);
+
+            // Run LocationAdded event for each location in locations list.
+            if (this.LocationAdded != null)
+            {
+                foreach (Location l in locations)
+                {
+                    this.LocationAdded(this, new LocationEventArgs(l));
+                }
+            }
         }
 
-        //products
+        // product
         
         public void AddProduct(Product product)
         {
             if (this.ContainsProduct(product) == false)
             {
-                products.Add(product);
+                this.products.Add(product);
             }
         }
 
@@ -78,13 +100,13 @@ namespace OrderEntryDataAccess
             return this.products;
         }
 
-        //customers
+        // customer
 
         public void AddCustomer(Customer customer)
         {
             if (this.ContainsCustomer(customer) == false)
             {
-                customers.Add(customer);
+                this.customers.Add(customer);
             }
         }
 
@@ -96,6 +118,25 @@ namespace OrderEntryDataAccess
         public List<Customer> GetCustomers()
         {
             return this.customers;
+        }
+
+        // location
+        public void AddLocation(Location location)
+        {
+            if (this.ContainsLocation(location) == false)
+            {
+                this.locations.Add(location);
+            }
+        }
+
+        private bool ContainsLocation(Location location)
+        {
+            return this.locations.Contains(location);
+        }
+
+        public List<Location> GetLocations()
+        {
+            return this.locations;
         }
     }
 }

@@ -60,14 +60,22 @@
     <Compile Include="ViewModels\Framework\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Framework\ViewModel.cs" />
     <Compile Include="ViewModels\Framework\WorkspaceViewModel.cs" />
+    <Compile Include="ViewModels\LocationViewModel.cs" />
     <Compile Include="ViewModels\MultiCustomerViewModel.cs" />
+    <Compile Include="ViewModels\MultiLocationViewModel.cs" />
     <Compile Include="ViewModels\MultiProductViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\LocationView.xaml.cs">
+      <DependentUpon>LocationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MultiCustomerView.xaml.cs">
       <DependentUpon>MultiCustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiLocationView.xaml.cs">
+      <DependentUpon>MultiLocationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MultiProductView.xaml.cs">
       <DependentUpon>MultiProductView.xaml</DependentUpon>
@@ -79,6 +87,10 @@
       <DependentUpon>SelectedItemsView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LocationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,6 +107,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\MultiCustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MultiLocationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
