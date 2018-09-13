@@ -57,15 +57,6 @@ namespace OrderEntryDataAccess
             
             this.products.AddRange(products);
 
-            // Run ProductAdded event for each product in products list.
-            if (this.ProductAdded != null)
-            {
-                foreach (Product p in products)
-                {
-                    this.ProductAdded(this, new ProductEventArgs(p));
-                }
-            }
-
             // Create & add default customers.
             var customers = new List<Customer>
             {
@@ -76,15 +67,6 @@ namespace OrderEntryDataAccess
 
             this.customers.AddRange(customers);
 
-            // Run CustomerAdded event for each customer in customers list.
-            if (this.CustomerAdded != null)
-            {
-                foreach (Customer c in customers)
-                {
-                    this.CustomerAdded(this, new CustomerEventArgs(c));
-                }
-            }
-
             // Create & add default locations.
             var locations = new List<Location>
             {
@@ -93,15 +75,6 @@ namespace OrderEntryDataAccess
             };
 
             this.locations.AddRange(locations);
-
-            // Run LocationAdded event for each location in locations list.
-            if (this.LocationAdded != null)
-            {
-                foreach (Location l in locations)
-                {
-                    this.LocationAdded(this, new LocationEventArgs(l));
-                }
-            }
         }
 
         // --- Product Methods
@@ -115,6 +88,7 @@ namespace OrderEntryDataAccess
             if (this.ContainsProduct(product) == false)
             {
                 this.products.Add(product);
+                this.ProductAdded?.Invoke(this, new ProductEventArgs(product));
             }
         }
 
@@ -145,9 +119,10 @@ namespace OrderEntryDataAccess
         /// <param name="customer">To be added.</param>
         public void AddCustomer(Customer customer)
         {
-            if (this.ContainsCustomer(customer) == false)
+            if (!this.ContainsCustomer(customer))
             {
                 this.customers.Add(customer);
+                this.CustomerAdded?.Invoke(this, new CustomerEventArgs(customer));
             }
         }
 
@@ -182,6 +157,7 @@ namespace OrderEntryDataAccess
             if (this.ContainsLocation(location) == false)
             {
                 this.locations.Add(location);
+                this.LocationAdded?.Invoke(this, new LocationEventArgs(location));
             }
         }
 
