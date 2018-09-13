@@ -9,23 +9,45 @@ using System.Windows.Input;
 
 namespace OrderEntrySystem
 {
+    /// <summary>
+    /// Class used to represent a customer view model.
+    /// </summary>
     public class CustomerViewModel : WorkspaceViewModel
     {
-
+        /// <summary>
+        /// The vm's customer field.
+        /// </summary>
         private Customer customer;
 
+        /// <summary>
+        /// The vm's repository field.
+        /// </summary>
         private Repository repository;
 
+        /// <summary>
+        /// The save command functionality.
+        /// </summary>
         private ICommand saveCommand;
 
+        /// <summary>
+        /// Indicates whether the item is selected.
+        /// </summary>
         private bool isSelected;
 
+        /// <summary>
+        /// Initializes a new instance of the CustomerViewModel class.
+        /// </summary>
+        /// <param name="customer">Customer object to be shown in the vm.</param>
+        /// <param name="repository">The repository that customers are saved and loaded to.</param>
         public CustomerViewModel(Customer customer, Repository repository) : base("Customer")
         {
             this.customer = customer;
             this.repository = repository;
         }
-
+        
+        /// <summary>
+        /// Gets or sets the customer's FirstName field.
+        /// </summary>
         public string FirstName
         {
             get
@@ -39,6 +61,9 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's LastName field.
+        /// </summary>
         public string LastName
         {
             get
@@ -52,6 +77,9 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's Phone field.
+        /// </summary>
         public string Phone
         {
             get
@@ -65,6 +93,9 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's Email field.
+        /// </summary>
         public string Email
         {
             get
@@ -78,6 +109,9 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's Address field.
+        /// </summary>
         public string Address
         {
             get
@@ -91,6 +125,9 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's City field.
+        /// </summary>
         public string City
         {
             get
@@ -104,6 +141,9 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's State field.
+        /// </summary>
         public string State
         {
             get
@@ -117,6 +157,9 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Gets or sets the customer's IsSelected field.
+        /// </summary>
         public bool IsSelected
         {
             get
@@ -130,10 +173,16 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Overrides the WorkSpaceViewModel's create commands method.
+        /// </summary>
         protected override void CreateCommands()
         {
         }
 
+        /// <summary>
+        /// Gets customer view model's save command.
+        /// </summary>
         public ICommand SaveCommand
         {
             get
@@ -147,6 +196,9 @@ namespace OrderEntrySystem
             }
         }
 
+        /// <summary>
+        /// Adds the selected customer object to the repository's saved list of customers.
+        /// </summary>
         public void Save()
         {
             this.repository.AddCustomer(this.customer);

@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace OrderEntrySystem
 {
+    /// <summary>
+    /// Class used to represent seeing multiple customers at once in the view model.
+    /// </summary>
     public class MultiCustomerViewModel : WorkspaceViewModel
     {
         private Repository repository;

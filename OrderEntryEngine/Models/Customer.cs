@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace OrderEntryEngine
 {
+    /// <summary>
+    /// Class used to represent a customer.
+    /// </summary>
     public class Customer
     {
         public string FirstName { get; set; }
