@@ -43,6 +43,11 @@ namespace OrderEntryDataAccess
         public event EventHandler<LocationEventArgs> LocationAdded;
 
         /// <summary>
+        /// The application's database context.
+        /// </summary>
+        public OrderEntryContext context = new OrderEntryContext();
+
+        /// <summary>
         /// Initializes a new instance of the Repository class.
         /// </summary>
         public Repository()
