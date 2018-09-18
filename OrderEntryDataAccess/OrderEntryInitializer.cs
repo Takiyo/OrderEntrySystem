@@ -23,6 +23,7 @@ namespace OrderEntryDataAccess
             };
 
             context.Products.AddRange(products);
+            context.SaveChanges();
 
             // Create & add default customers.
             var customers = new List<Customer>
@@ -33,6 +34,8 @@ namespace OrderEntryDataAccess
             };
 
             context.Customers.AddRange(customers);
+            context.SaveChanges();
+
 
             // Create & add default locations.
             var locations = new List<Location>
@@ -42,6 +45,7 @@ namespace OrderEntryDataAccess
             };
 
             context.Locations.AddRange(locations);
+            context.SaveChanges();
         }
     }
 }
