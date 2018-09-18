@@ -47,41 +47,6 @@ namespace OrderEntryDataAccess
         /// </summary>
         public OrderEntryContext context = new OrderEntryContext();
 
-        /// <summary>
-        /// Initializes a new instance of the Repository class.
-        /// </summary>
-        public Repository()
-        {
-            // Create & add default products
-            var products = new List<Product>
-            {
-                new Product { Name = "Stuff" },
-                new Product { Name = "Things" },
-                new Product { Name = "Malarky" }
-            };
-            
-            this.products.AddRange(products);
-
-            // Create & add default customers.
-            var customers = new List<Customer>
-            {
-                new Customer { FirstName = "Guy" },
-                new Customer { FirstName = "Dude" },
-                new Customer { FirstName = "M'Boy" }
-            };
-
-            this.customers.AddRange(customers);
-
-            // Create & add default locations.
-            var locations = new List<Location>
-            {
-                new Location {City = "Stevens Point" },
-                new Location {State = "WI" }
-            };
-
-            this.locations.AddRange(locations);
-        }
-
         // --- Product Methods
         
         /// <summary>

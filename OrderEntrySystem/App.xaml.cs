@@ -21,7 +21,6 @@ namespace OrderEntrySystem
 
             window.DataContext = window;
 
-            //window.DataContext = new ViewModel("Order Entry System - Brytowski(via ViewModel)");
             window.DataContext = new MainWindowViewModel();
         }
     }
