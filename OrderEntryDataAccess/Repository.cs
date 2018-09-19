@@ -13,21 +13,6 @@ namespace OrderEntryDataAccess
     public class Repository
     {
         /// <summary>
-        /// The list of products.
-        /// </summary>
-        private List<Product> products = new List<Product>();
-
-        /// <summary>
-        /// List of customers.
-        /// </summary>
-        private List<Customer> customers = new List<Customer>();
-
-        /// <summary>
-        /// List of locations.
-        /// </summary>
-        private List<Location> locations = new List<Location>();
-
-        /// <summary>
         /// An event handler to be called when each product is added to the list.
         /// </summary>
         public event EventHandler<ProductEventArgs> ProductAdded;
@@ -57,7 +42,7 @@ namespace OrderEntryDataAccess
         {
             if (this.ContainsProduct(product) == false)
             {
-                this.products.Add(product);
+                this.context.Products.Add(product);
                 this.ProductAdded?.Invoke(this, new ProductEventArgs(product));
             }
         }
@@ -69,7 +54,7 @@ namespace OrderEntryDataAccess
         /// <returns>Bool indicating if list contains product or not.</returns>
         private bool ContainsProduct(Product product)
         {
-            return this.products.Contains(product);
+            return this.GetProduct(product.Id) != null;
         }
 
         /// <summary>
@@ -78,7 +63,7 @@ namespace OrderEntryDataAccess
         /// <returns>The found list.</returns>
         public List<Product> GetProducts()
         {
-            return this.products;
+            return this.context.Products.ToList();
         }
 
         // --- Customer Methods
@@ -91,7 +76,7 @@ namespace OrderEntryDataAccess
         {
             if (!this.ContainsCustomer(customer))
             {
-                this.customers.Add(customer);
+                this.context.Customers.Add(customer); ;
                 this.CustomerAdded?.Invoke(this, new CustomerEventArgs(customer));
             }
         }
@@ -103,7 +88,7 @@ namespace OrderEntryDataAccess
         /// <returns>Bool indicating if list contains customer or not.</returns>
         private bool ContainsCustomer(Customer customer)
         {
-            return this.customers.Contains(customer);
+            return this.GetCustomer(customer.Id) != null;
         }
 
         /// <summary>
@@ -112,7 +97,7 @@ namespace OrderEntryDataAccess
         /// <returns>The found list.</returns>
         public List<Customer> GetCustomers()
         {
-            return this.customers;
+            return this.context.Customers.ToList();
         }
 
         // --- Location Methods
@@ -126,7 +111,7 @@ namespace OrderEntryDataAccess
         {
             if (this.ContainsLocation(location) == false)
             {
-                this.locations.Add(location);
+                this.context.Locations.Add(location);
                 this.LocationAdded?.Invoke(this, new LocationEventArgs(location));
             }
         }
@@ -138,7 +123,7 @@ namespace OrderEntryDataAccess
         /// <returns>Bool indicating if list contains location or not.</returns>
         private bool ContainsLocation(Location location)
         {
-            return this.locations.Contains(location);
+            return this.GetLocation(location.Id) != null;
         }
 
         /// <summary>
@@ -147,7 +132,27 @@ namespace OrderEntryDataAccess
         /// <returns>The found list.</returns>
         public List<Location> GetLocations()
         {
-            return this.locations;
+            return this.context.Locations.ToList();
+        }
+
+        public void SaveToDatabase()
+        {
+            context.SaveChanges();
+        }
+
+        private Product GetProduct(int id)
+        {
+            return this.context.Products.Find(id);
+        }
+
+        private Customer GetCustomer(int id)
+        {
+            return this.context.Customers.Find(id);
+        }
+
+        private Location GetLocation(int id)
+        {
+            return this.context.Locations.Find(id);
         }
     }
 }

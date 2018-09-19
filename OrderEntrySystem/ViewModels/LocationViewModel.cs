@@ -157,6 +157,7 @@ namespace OrderEntrySystem
         public void Save()
         {
             this.repository.AddLocation(this.location);
+            this.repository.SaveToDatabase();
         }
     }
 }

@@ -202,6 +202,7 @@ namespace OrderEntrySystem
         public void Save()
         {
             this.repository.AddCustomer(this.customer);
+            this.repository.SaveToDatabase();
         }
     }
 }

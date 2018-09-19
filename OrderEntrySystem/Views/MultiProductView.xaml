@@ -16,7 +16,17 @@
             <Grid DockPanel.Dock="Bottom">
                 <local:SelectedItemsView />
             </Grid>
-            <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllProducts}" />
+            <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllProducts}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding Path=Name}" />
+                        <GridViewColumn Header="Price" Width="55" DisplayMemberBinding="{Binding Path=Price}" />
+                        <GridViewColumn Header="Location" Width="55" DisplayMemberBinding="{Binding Path=Location}" />
+                        <GridViewColumn Header="Description" Width="65" DisplayMemberBinding="{Binding Path=Description}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </DockPanel>
+        
     </Grid>
 </UserControl>

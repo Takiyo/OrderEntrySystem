@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace OrderEntryDataAccess
 {
-    public class OrderEntryInitializer : DropCreateDatabaseAlways<OrderEntryContext>
+    public class OrderEntryInitializer : DropCreateDatabaseIfModelChanges<OrderEntryContext>
     {
         protected override void Seed(OrderEntryContext context)
         {

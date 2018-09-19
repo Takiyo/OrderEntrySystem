@@ -114,6 +114,7 @@ namespace OrderEntrySystem
         public void Save()
         {
             this.repository.AddProduct(this.product);
+            this.repository.SaveToDatabase();
         }
     }
 }
