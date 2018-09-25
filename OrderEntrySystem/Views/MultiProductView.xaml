@@ -23,6 +23,8 @@
                         <GridViewColumn Header="Price" Width="auto" DisplayMemberBinding="{Binding Path=Price}" />
                         <GridViewColumn Header="Location" Width="auto" DisplayMemberBinding="{Binding Path=Location}" />
                         <GridViewColumn Header="Description" Width="auto" DisplayMemberBinding="{Binding Path=Description}" />
+                        <GridViewColumn Header="Condition" Width="auto" DisplayMemberBinding="{Binding Path=Condition}" />
+
                     </GridView>
                 </ListView.View>
             </ListView>

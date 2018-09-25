@@ -25,7 +25,36 @@ namespace OrderEntrySystem
             this.repository = repository;
         }
 
-        public string Location
+        public Condition Condition
+        {
+            get
+            {
+                return this.product.Condition;
+            }
+            set
+            {
+                this.product.Condition = value;
+                this.OnPropertyChanged("Condition");
+            }
+        }
+
+        public IEnumerable<Condition> Conditions
+        {
+            get
+            {
+                return Enum.GetValues(typeof(Condition)) as IEnumerable<Condition>;
+            }
+        }
+
+        public IEnumerable<Location> Locations
+        {
+            get
+            {
+                return this.repository.GetLocations();
+            }   
+        }
+
+        public Location Location
         {
             get
             {

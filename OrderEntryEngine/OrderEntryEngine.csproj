@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Condition.cs" />
     <Compile Include="EventArgs\CustomerEventArgs.cs" />
     <Compile Include="EventArgs\LocationEventArgs.cs" />
     <Compile Include="EventArgs\ProductEventArgs.cs" />

@@ -37,7 +37,7 @@ namespace OrderEntrySystem
 
         public void CreateNewProduct()
         {
-            Product product = new Product { Location = "Main Warehouse" };
+            Product product = new Product();
             ProductViewModel pvm = new ProductViewModel(product, this.repository);
 
             pvm.RequestClose += OnWorkspaceRequestClose;

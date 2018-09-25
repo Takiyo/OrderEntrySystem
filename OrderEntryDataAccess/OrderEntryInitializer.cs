@@ -14,12 +14,21 @@ namespace OrderEntryDataAccess
         {
             base.Seed(context);
 
+            // Create & add default locations.
+            var locations = new List<Location>
+            {
+                new Location {City = "Stevens Point", Description="ITS POINT", Name="Home", State="WI", Id=1},
+                new Location {City = "Waupaca", Description="ITS NOT POINT", Name="Other", State="WI", Id=2}
+            };
+
+            context.Locations.AddRange(locations);
+            context.SaveChanges();
+
             // Create & add default products
             var products = new List<Product>
             {
-                new Product { Name = "Stuff" },
-                new Product { Name = "Things" },
-                new Product { Name = "Malarky" }
+                new Product { Name = "Stuff", LocationId=1, Condition=Condition.Poor, Description="It's stuff.", Price=1, Id=1 },
+                new Product { Name = "dasdsa", LocationId=1, Condition=Condition.Poor, Description="It's stuff.", Price=1, Id=2 }
             };
 
             context.Products.AddRange(products);
@@ -34,17 +43,6 @@ namespace OrderEntryDataAccess
             };
 
             context.Customers.AddRange(customers);
-            context.SaveChanges();
-
-
-            // Create & add default locations.
-            var locations = new List<Location>
-            {
-                new Location {City = "Stevens Point" },
-                new Location {State = "WI" }
-            };
-
-            context.Locations.AddRange(locations);
             context.SaveChanges();
         }
     }

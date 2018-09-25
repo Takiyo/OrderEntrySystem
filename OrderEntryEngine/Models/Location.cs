@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ namespace OrderEntryEngine
     /// </summary>
     public class Location
     {
+        [Key]
         public int Id { get; set; }
 
         public string Name { get; set; }
@@ -20,5 +22,12 @@ namespace OrderEntryEngine
         public string City { get; set; }
 
         public string State { get; set; }
+
+        public virtual ICollection<Product> Products { get; set; }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

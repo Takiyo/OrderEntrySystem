@@ -12,16 +12,19 @@ namespace OrderEntryEngine
     /// </summary>
     public class Product
     {
+        public Condition Condition { get; set; }
+
         public int Id { get; set; }
 
-        [MaxLength(100)]
-        public string Location { get; set; }
+        public int LocationId { get; set; }
+
+        public virtual Location Location { get; set; }
 
         [Required]
-        [MaxLength(100)]
+        [MaxLength(101)]
         public string Name { get; set; }
 
-        [MaxLength(500)]
+        [MaxLength(501)]
         public string Description { get; set; }
 
         [Required]
