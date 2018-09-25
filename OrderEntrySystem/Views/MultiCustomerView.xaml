@@ -19,13 +19,13 @@
             <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllCustomers}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="First Name" Width="60" DisplayMemberBinding="{Binding Path=FirstName}" />
-                        <GridViewColumn Header="Last Name" Width="60" DisplayMemberBinding="{Binding Path=LastName}" />
-                        <GridViewColumn Header="Phone" Width="37" DisplayMemberBinding="{Binding Path=Phone}" />
-                        <GridViewColumn Header="Email" Width="35.5" DisplayMemberBinding="{Binding Path=Email}" />
-                        <GridViewColumn Header="Address" Width="47.5" DisplayMemberBinding="{Binding Path=Address}" />
-                        <GridViewColumn Header="City" Width="25" DisplayMemberBinding="{Binding Path=City}" />
-                        <GridViewColumn Header="State" Width="30" DisplayMemberBinding="{Binding Path=State}" />
+                        <GridViewColumn Header="First Name" Width="auto" DisplayMemberBinding="{Binding Path=FirstName}" />
+                        <GridViewColumn Header="Last Name" Width="auto" DisplayMemberBinding="{Binding Path=LastName}" />
+                        <GridViewColumn Header="Phone" Width="auto" DisplayMemberBinding="{Binding Path=Phone}" />
+                        <GridViewColumn Header="Email" Width="auto" DisplayMemberBinding="{Binding Path=Email}" />
+                        <GridViewColumn Header="Address" Width="auto" DisplayMemberBinding="{Binding Path=Address}" />
+                        <GridViewColumn Header="City" Width="auto" DisplayMemberBinding="{Binding Path=City}" />
+                        <GridViewColumn Header="State" Width="auto" DisplayMemberBinding="{Binding Path=State}" />
                     </GridView>
                 </ListView.View>
             </ListView>
