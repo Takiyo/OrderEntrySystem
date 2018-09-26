@@ -20,7 +20,6 @@
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Path=Name}" />
-                        <GridViewColumn Header="Products" Width="auto" DisplayMemberBinding="{Binding Path=Products}" />
                     </GridView>
                 </ListView.View>
             </ListView>

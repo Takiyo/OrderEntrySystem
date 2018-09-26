@@ -13,12 +13,10 @@
 
     <Grid Background="White">
         <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
-        <Label Content="Products" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="2"/>
 
         <TextBox Height="Auto" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="0" Width="120"/>
-        <ComboBox Height="Auto" ItemsSource="{Binding Products}" SelectedItem="{Binding Path=Product}" Grid.Column="2" Grid.Row="2" Width="120"/>
 
-        <ContentControl Content="{Binding Commands}" ContentTemplate="{StaticResource HorizontalCommandsTemplate}" Grid.Row="4"/>
+        <ContentControl Content="{Binding Commands}" ContentTemplate="{StaticResource HorizontalCommandsTemplate}" Grid.Row="2"/>
 
 
         <Grid.ColumnDefinitions>
@@ -28,8 +26,6 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="4" />
             <RowDefinition Height="Auto" />
