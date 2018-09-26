@@ -62,21 +62,29 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\Framework\CommandViewModel.cs" />
     <Compile Include="ViewModels\Framework\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\Framework\ViewModel.cs" />
     <Compile Include="ViewModels\Framework\WorkspaceViewModel.cs" />
     <Compile Include="ViewModels\LocationViewModel.cs" />
+    <Compile Include="ViewModels\MultiCategoryViewModel.cs" />
     <Compile Include="ViewModels\MultiCustomerViewModel.cs" />
     <Compile Include="ViewModels\MultiLocationViewModel.cs" />
     <Compile Include="ViewModels\MultiProductViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="Views\CategoryView.xaml.cs">
+      <DependentUpon>CategoryView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LocationView.xaml.cs">
       <DependentUpon>LocationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MultiCategoryView.xaml.cs">
+      <DependentUpon>MultiCategoryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MultiCustomerView.xaml.cs">
       <DependentUpon>MultiCustomerView.xaml</DependentUpon>
@@ -93,6 +101,13 @@
     <Compile Include="Views\SelectedItemsView.xaml.cs">
       <DependentUpon>SelectedItemsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WorkspaceWindow.xaml.cs">
+      <DependentUpon>WorkspaceWindow.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\CategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +128,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\MultiCategoryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MultiCustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -134,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SharedResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WorkspaceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

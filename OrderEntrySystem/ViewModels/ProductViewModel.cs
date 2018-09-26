@@ -51,7 +51,7 @@ namespace OrderEntrySystem
             get
             {
                 return this.repository.GetLocations();
-            }   
+            }
         }
 
         public Location Location
@@ -64,6 +64,27 @@ namespace OrderEntrySystem
             {
                 this.product.Location = value;
                 this.OnPropertyChanged("Location");
+            }
+        }
+
+        public IEnumerable<Category> Categories
+        {
+            get
+            {
+                return this.repository.GetCategories();
+            }
+        }
+
+        public Category Category
+        {
+            get
+            {
+                return this.product.Category;
+            }
+            set
+            {
+                this.product.Category = value;
+                this.OnPropertyChanged("Category");
             }
         }
 
@@ -124,7 +145,8 @@ namespace OrderEntrySystem
 
         protected override void CreateCommands()
         {
-
+            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
+            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
         }
 
         public ICommand SaveCommand
@@ -144,6 +166,17 @@ namespace OrderEntrySystem
         {
             this.repository.AddProduct(this.product);
             this.repository.SaveToDatabase();
+        }
+
+        private void OkExecute()
+        {
+            this.Save();
+            this.CloseAction(true);
+        }
+
+        private void CancelExecute()
+        {
+            this.CloseAction(false);
         }
     }
 }

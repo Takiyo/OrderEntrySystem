@@ -14,6 +14,10 @@
         <local:LocationView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type local:CategoryViewModel}">
+        <local:CategoryView/>
+    </DataTemplate>
+
     <DataTemplate DataType="{x:Type local:MultiProductViewModel}">
         <local:MultiProductView/>
     </DataTemplate>
@@ -24,6 +28,26 @@
 
     <DataTemplate DataType="{x:Type local:MultiLocationViewModel}">
         <local:MultiLocationView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type local:MultiCategoryViewModel}">
+        <local:MultiCategoryView/>
+    </DataTemplate>
+
+
+    <DataTemplate x:Key="HorizontalCommandsTemplate">
+        <ItemsControl ItemsSource="{Binding}" HorizontalAlignment="Right">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Command="{Binding Path=Command}" Content="{Binding Path=DisplayName}" Height="23" Width="75" Margin="4,4,0,0" />
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
     </DataTemplate>
 
 

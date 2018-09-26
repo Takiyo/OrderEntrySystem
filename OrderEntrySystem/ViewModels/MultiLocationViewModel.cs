@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace OrderEntrySystem
 {
@@ -34,7 +35,43 @@ namespace OrderEntrySystem
 
         protected override void CreateCommands()
         {
+            this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(p => this.CreateNewLocationExecute())));
+            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(p => this.EditLocationExecute())));
+        }
 
+        private void CreateNewLocationExecute()
+        {
+            LocationViewModel viewModel = new LocationViewModel(new Location(), this.repository);
+
+            ShowLocation(viewModel);
+        }
+
+        private static void ShowLocation(LocationViewModel viewModel)
+        {
+            WorkspaceWindow window = new WorkspaceWindow();
+            window.Width = 400;
+            window.Title = viewModel.DisplayName;
+
+            viewModel.CloseAction = b => window.DialogResult = b;
+
+            LocationView view = new LocationView();
+            view.DataContext = viewModel;
+
+            window.Content = view;
+            window.ShowDialog();
+        }
+
+        private void EditLocationExecute()
+        {
+            LocationViewModel viewModel = this.AllLocations.SingleOrDefault(vm => vm.IsSelected);
+            if (viewModel != null)
+            {
+                ShowLocation(viewModel);
+            }
+            else
+            {
+                MessageBox.Show("Select only one location to edit it.");
+            }
         }
 
         private void OnLocationAdded(object sender, LocationEventArgs e)

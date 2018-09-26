@@ -1,4 +1,5 @@
 ﻿using OrderEntryEngine;
+using OrderEntryEngine.EventArgs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,8 @@ namespace OrderEntryDataAccess
         /// An event handler to be called when each location is added to the list.
         /// </summary>
         public event EventHandler<LocationEventArgs> LocationAdded;
+
+        public event EventHandler<CategoryEventArgs> CategoryAdded;
 
         /// <summary>
         /// The application's database context.
@@ -57,6 +60,8 @@ namespace OrderEntryDataAccess
             return this.GetProduct(product.Id) != null;
         }
 
+        // --- Category Methods
+
         /// <summary>
         /// Wrapper method to retrieve field of products.
         /// </summary>
@@ -64,6 +69,25 @@ namespace OrderEntryDataAccess
         public List<Product> GetProducts()
         {
             return this.context.Products.ToList();
+        }
+
+        public void AddCategory(Category category)
+        {
+            if (!this.ContainsCategory(category))
+            {
+                this.context.Categories.Add(category); ;
+                this.CategoryAdded?.Invoke(this, new CategoryEventArgs(category));
+            }
+        }
+
+        private bool ContainsCategory(Category category)
+        {
+            return this.GetCategory(category.Id) != null;
+        }
+
+        public List<Category> GetCategories()
+        {
+            return this.context.Categories.ToList();
         }
 
         // --- Customer Methods
@@ -148,6 +172,11 @@ namespace OrderEntryDataAccess
         private Customer GetCustomer(int id)
         {
             return this.context.Customers.Find(id);
+        }
+
+        private Category GetCategory(int id)
+        {
+            return this.context.Categories.Find(id);
         }
 
         private Location GetLocation(int id)

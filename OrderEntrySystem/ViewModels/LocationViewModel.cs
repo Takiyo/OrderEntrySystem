@@ -148,7 +148,8 @@ namespace OrderEntrySystem
         /// </summary>
         protected override void CreateCommands()
         {
-
+            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
+            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
         }
 
         /// <summary>
@@ -158,6 +159,17 @@ namespace OrderEntrySystem
         {
             this.repository.AddLocation(this.location);
             this.repository.SaveToDatabase();
+        }
+
+        private void OkExecute()
+        {
+            this.Save();
+            this.CloseAction(true);
+        }
+
+        private void CancelExecute()
+        {
+            this.CloseAction(false);
         }
     }
 }

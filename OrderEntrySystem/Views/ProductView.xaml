@@ -6,12 +6,18 @@
              xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="SharedResources.xaml" />
+    </UserControl.Resources>
+
     <Grid Background="White">
         <Label Content="Location" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
         <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="2"/>
         <Label Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="4"/>
         <Label Content="Price" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="6"/>
         <Label Content="Condition" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="8"/>
+        <Label Content="Category" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="10"/>
 
 
         <ComboBox Height="Auto" ItemsSource="{Binding Locations}" SelectedItem="{Binding Path=Location}" Grid.Column="2" Grid.Row="0" Width="120"/>
@@ -19,8 +25,9 @@
         <TextBox Height="Auto" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="4" Width="120"/>
         <TextBox Height="Auto" Text="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="6" Width="120"/>
         <ComboBox ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition}" Grid.Column="2" Grid.Row="8"/>
+        <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding Category}" Grid.Column="2" Grid.Row="10"/>
 
-        <Button Content="Save" Command="{Binding SaveCommand}" Margin="4,5,6,-9" Grid.Row="10"/>
+        <ContentControl Content="{Binding Commands}" ContentTemplate="{StaticResource HorizontalCommandsTemplate}" Grid.Row="12"/>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
@@ -29,6 +36,10 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="4" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="4" />
             <RowDefinition Height="Auto" />

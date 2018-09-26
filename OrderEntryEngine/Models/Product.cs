@@ -14,17 +14,22 @@ namespace OrderEntryEngine
     {
         public Condition Condition { get; set; }
 
+        [Key]
         public int Id { get; set; }
 
         public int LocationId { get; set; }
 
         public virtual Location Location { get; set; }
 
+        public virtual Category Category { get; set; }
+
+        public int CategoryId { get; set; }
+
         [Required]
-        [MaxLength(101)]
+        [MaxLength(100)]
         public string Name { get; set; }
 
-        [MaxLength(501)]
+        [MaxLength(500)]
         public string Description { get; set; }
 
         [Required]

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace OrderEntrySystem
 {
@@ -37,7 +38,43 @@ namespace OrderEntrySystem
 
         protected override void CreateCommands()
         {
+            this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(p => this.CreateNewCustomerExecute())));
+            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(p => this.EditCustomerExecute())));
+        }
 
+        private void CreateNewCustomerExecute()
+        {
+            CustomerViewModel viewModel = new CustomerViewModel(new Customer(), this.repository);
+
+            ShowCustomer(viewModel);
+        }
+
+        private static void ShowCustomer(CustomerViewModel viewModel)
+        {
+            WorkspaceWindow window = new WorkspaceWindow();
+            window.Width = 400;
+            window.Title = viewModel.DisplayName;
+
+            viewModel.CloseAction = b => window.DialogResult = b;
+
+            CustomerView view = new CustomerView();
+            view.DataContext = viewModel;
+
+            window.Content = view;
+            window.ShowDialog();
+        }
+
+        private void EditCustomerExecute()
+        {
+            CustomerViewModel viewModel = this.AllCustomers.SingleOrDefault(vm => vm.IsSelected);
+            if (viewModel != null)
+            {
+                ShowCustomer(viewModel);
+            }
+            else
+            {
+                MessageBox.Show("Select only one customer to edit it.");
+            }
         }
 
         private void OnCustomerAdded(object sender, CustomerEventArgs e)

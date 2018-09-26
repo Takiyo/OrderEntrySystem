@@ -42,6 +42,8 @@ namespace OrderEntrySystem
             }
         }
 
+        public Action<bool> CloseAction { get; set; }
+
         protected abstract void CreateCommands();
 
         private void OnRequestClose()

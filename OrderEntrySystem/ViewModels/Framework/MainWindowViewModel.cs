@@ -83,12 +83,10 @@ namespace OrderEntrySystem
 
         protected override void CreateCommands()
         {
-            this.Commands.Add(new CommandViewModel("New Product", new DelegateCommand(p => this.CreateNewProduct())));
-            this.Commands.Add(new CommandViewModel("New Customer", new DelegateCommand(p => this.CreateNewCustomer())));
-            this.Commands.Add(new CommandViewModel("New Location", new DelegateCommand(p => this.CreateNewLocation())));
             this.Commands.Add(new CommandViewModel("View All Products", new DelegateCommand(p => this.ShowAllProducts())));
             this.Commands.Add(new CommandViewModel("View All Customers", new DelegateCommand(p => this.ShowAllCustomers())));
             this.Commands.Add(new CommandViewModel("View All Locations", new DelegateCommand(p => this.ShowAllLocations())));
+            this.Commands.Add(new CommandViewModel("View All Categories", new DelegateCommand(p => this.ShowAllCategories())));
         }
 
         public void ShowAllProducts()
@@ -126,6 +124,20 @@ namespace OrderEntrySystem
             if (viewModel == null)
             {
                 viewModel = new MultiLocationViewModel(this.repository);
+                viewModel.RequestClose += OnWorkspaceRequestClose;
+            }
+
+            this.viewModels.Add(viewModel);
+            this.ActivateViewModel(viewModel);
+        }
+
+        public void ShowAllCategories()
+        {
+            MultiCategoryViewModel viewModel = this.ViewModels.FirstOrDefault
+                (vm => vm is MultiCategoryViewModel) as MultiCategoryViewModel;
+            if (viewModel == null)
+            {
+                viewModel = new MultiCategoryViewModel(this.repository);
                 viewModel.RequestClose += OnWorkspaceRequestClose;
             }
 

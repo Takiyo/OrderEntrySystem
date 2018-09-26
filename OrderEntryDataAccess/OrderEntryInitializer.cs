@@ -24,11 +24,21 @@ namespace OrderEntryDataAccess
             context.Locations.AddRange(locations);
             context.SaveChanges();
 
+            // Create & add default categories
+            var categories = new List<Category>
+            {
+                new Category{ Name = "Cool Junk", Id=1},
+                new Category{ Name = "Jank Junk", Id=2}
+            };
+
+            context.Categories.AddRange(categories);
+            context.SaveChanges();
+
             // Create & add default products
             var products = new List<Product>
             {
-                new Product { Name = "Stuff", LocationId=1, Condition=Condition.Poor, Description="It's stuff.", Price=1, Id=1 },
-                new Product { Name = "dasdsa", LocationId=1, Condition=Condition.Poor, Description="It's stuff.", Price=1, Id=2 }
+                new Product { Name = "Thing", LocationId=1, Condition=Condition.Poor, Description="It's stuff.", Price=1, Id=1, CategoryId=1 },
+                new Product { Name = "Item?", LocationId=1, Condition=Condition.Poor, Description="It's stuff.", Price=1, Id=2, CategoryId=2 }
             };
 
             context.Products.AddRange(products);
