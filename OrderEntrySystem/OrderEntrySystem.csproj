@@ -73,6 +73,7 @@
     <Compile Include="ViewModels\MultiCustomerViewModel.cs" />
     <Compile Include="ViewModels\MultiLocationViewModel.cs" />
     <Compile Include="ViewModels\MultiProductViewModel.cs" />
+    <Compile Include="ViewModels\OrderViewModel.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
     <Compile Include="Views\CategoryView.xaml.cs">
       <DependentUpon>CategoryView.xaml</DependentUpon>

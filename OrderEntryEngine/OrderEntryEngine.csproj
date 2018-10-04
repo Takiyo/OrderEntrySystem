@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArgs\OrderEventArgs.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Condition.cs" />
     <Compile Include="EventArgs\CategoryEventArgs.cs" />
@@ -56,6 +57,8 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Orders.cs" />
+    <Compile Include="OrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
