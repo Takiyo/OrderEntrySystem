@@ -16,7 +16,7 @@ namespace OrderEntrySystem
 
         private Repository repository;
 
-        public MultiProductViewModel(Repository repository) : base("Products") //placeholder
+        public MultiProductViewModel(Repository repository) : base("Products")
         {
             this.repository = repository;
             this.repository.ProductAdded += OnProductAdded;

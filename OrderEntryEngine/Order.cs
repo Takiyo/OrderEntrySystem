@@ -13,5 +13,7 @@ namespace OrderEntryEngine
         public int CustomerId { get; set; }
 
         public virtual Customer Customer { get; set; }
+
+        public OrderStatus Status { get; set; }
     }
 }

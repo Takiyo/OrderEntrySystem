@@ -87,6 +87,8 @@ namespace OrderEntrySystem
             this.Commands.Add(new CommandViewModel("View All Customers", new DelegateCommand(p => this.ShowAllCustomers())));
             this.Commands.Add(new CommandViewModel("View All Locations", new DelegateCommand(p => this.ShowAllLocations())));
             this.Commands.Add(new CommandViewModel("View All Categories", new DelegateCommand(p => this.ShowAllCategories())));
+            this.Commands.Add(new CommandViewModel("View All Orders", new DelegateCommand(p => this.ShowAllOrders())));
+
         }
 
         public void ShowAllProducts()
@@ -138,6 +140,20 @@ namespace OrderEntrySystem
             if (viewModel == null)
             {
                 viewModel = new MultiCategoryViewModel(this.repository);
+                viewModel.RequestClose += OnWorkspaceRequestClose;
+            }
+
+            this.viewModels.Add(viewModel);
+            this.ActivateViewModel(viewModel);
+        }
+
+        public void ShowAllOrders()
+        {
+            MultiOrderViewModel viewModel = this.ViewModels.FirstOrDefault
+                (vm => vm is MultiOrderViewModel) as MultiOrderViewModel;
+            if (viewModel == null)
+            {
+                viewModel = new MultiOrderViewModel(this.repository);
                 viewModel.RequestClose += OnWorkspaceRequestClose;
             }
 

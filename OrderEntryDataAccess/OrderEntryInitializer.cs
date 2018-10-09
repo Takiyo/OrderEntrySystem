@@ -54,6 +54,14 @@ namespace OrderEntryDataAccess
 
             context.Customers.AddRange(customers);
             context.SaveChanges();
+
+            // Create and add default orders.
+            var orders = new List<Order>
+            {
+                new Order { CustomerId = 1 },
+                new Order { CustomerId = 2 },
+                new Order {CustomerId = 3 }
+            };
         }
     }
 }

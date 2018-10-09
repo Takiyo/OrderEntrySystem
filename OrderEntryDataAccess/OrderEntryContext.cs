@@ -25,5 +25,7 @@ namespace OrderEntryDataAccess
         public DbSet<Location> Locations { get; set; }
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
     }
 }

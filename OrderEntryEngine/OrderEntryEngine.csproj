@@ -57,7 +57,7 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Location.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Orders.cs" />
+    <Compile Include="Order.cs" />
     <Compile Include="OrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

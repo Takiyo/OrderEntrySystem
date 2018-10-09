@@ -18,6 +18,7 @@ namespace OrderEntryDataAccess
         /// </summary>
         public event EventHandler<ProductEventArgs> ProductAdded;
 
+
         /// <summary>
         /// An event handler to be called when each customer is added to the list.
         /// </summary>
@@ -30,13 +31,34 @@ namespace OrderEntryDataAccess
 
         public event EventHandler<CategoryEventArgs> CategoryAdded;
 
+        public event EventHandler<OrderEventArgs> OrderAdded;
+
         /// <summary>
         /// The application's database context.
         /// </summary>
         public OrderEntryContext context = new OrderEntryContext();
 
+        public void AddOrder(Order order)
+        {
+            if (this.ContainsOrder(order) == false)
+            {
+                this.context.Orders.Add(order);
+                this.OrderAdded?.Invoke(this, new OrderEventArgs(order));
+            }
+        }
+
+        private bool ContainsOrder(Order order)
+        {
+            return this.GetOrder(order.Id) != null;
+        }
+
+        public List<Order> GetOrders()
+        {
+            return this.context.Orders.ToList();
+        }
+
         // --- Product Methods
-        
+
         /// <summary>
         /// Adds a product to the list.
         /// </summary>
@@ -60,8 +82,6 @@ namespace OrderEntryDataAccess
             return this.GetProduct(product.Id) != null;
         }
 
-        // --- Category Methods
-
         /// <summary>
         /// Wrapper method to retrieve field of products.
         /// </summary>
@@ -70,6 +90,8 @@ namespace OrderEntryDataAccess
         {
             return this.context.Products.ToList();
         }
+
+        // --- Category Methods
 
         public void AddCategory(Category category)
         {
@@ -182,6 +204,11 @@ namespace OrderEntryDataAccess
         private Location GetLocation(int id)
         {
             return this.context.Locations.Find(id);
+        }
+
+        private Order GetOrder(int id)
+        {
+            return this.context.Orders.Find(id);
         }
     }
 }
