@@ -60,7 +60,7 @@ namespace OrderEntryDataAccess
             {
                 new Order { CustomerId = 1 },
                 new Order { CustomerId = 2 },
-                new Order {CustomerId = 3 }
+                new Order { CustomerId = 3 }
             };
         }
     }
