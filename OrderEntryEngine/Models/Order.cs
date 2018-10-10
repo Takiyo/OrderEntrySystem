@@ -15,5 +15,12 @@ namespace OrderEntryEngine
         public virtual Customer Customer { get; set; }
 
         public OrderStatus Status { get; set; }
+
+        public virtual ICollection<OrderLine> Lines { get; set; }
+
+        public Order()
+        {
+            this.Lines = new List<OrderLine>();
+        }
     }
 }

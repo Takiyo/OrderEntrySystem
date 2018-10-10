@@ -48,17 +48,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventArgs\OrderEventArgs.cs" />
+    <Compile Include="EventArgs\OrderLineEventArgs.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Condition.cs" />
+    <Compile Include="Models\Condition.cs" />
     <Compile Include="EventArgs\CategoryEventArgs.cs" />
     <Compile Include="EventArgs\CustomerEventArgs.cs" />
     <Compile Include="EventArgs\LocationEventArgs.cs" />
     <Compile Include="EventArgs\ProductEventArgs.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\OrderLine.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Order.cs" />
-    <Compile Include="OrderStatus.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

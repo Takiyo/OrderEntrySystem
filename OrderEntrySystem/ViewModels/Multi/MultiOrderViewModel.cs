@@ -15,18 +15,32 @@ namespace OrderEntrySystem
     {
         private Repository repository;
 
-        public MultiOrderViewModel(Repository repository) : base("Orders")
+        private Customer customer;
+
+        public MultiOrderViewModel(Repository repository, Customer customer) : base("Orders")
         {
+            this.customer = customer;
             this.repository = repository;
             this.repository.OrderAdded += OnOrderAdded;
 
-            List<OrderViewModel> orders=
-    (from o in this.repository.GetOrders()
-     select new OrderViewModel(o, this.repository)).ToList();
+            this.Commands.Clear();
+            this.CreateCommands();
 
-            orders.ForEach(ovm => ovm.PropertyChanged += this.OnOrderViewModelPropertyChanged);
+
+            List<OrderViewModel> orders=
+                (from o in this.repository.GetOrders()
+                 select new OrderViewModel(o, this.repository)).ToList();
+
+            AddPropertyChangedEvent(orders);
+
             this.AllOrders = new ObservableCollection<OrderViewModel>(orders);
 
+            repository.OrderAdded += this.OnOrderAdded;
+        }
+
+        public void AddPropertyChangedEvent (List<OrderViewModel> orders)
+        {
+            orders.ForEach(ovm => ovm.PropertyChanged += this.OnOrderViewModelPropertyChanged);
         }
 
         public ObservableCollection<OrderViewModel> AllOrders { get; set; }
@@ -41,8 +55,11 @@ namespace OrderEntrySystem
 
         protected override void CreateCommands()
         {
-            this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(p => this.CreateNewOrderExecute())));
-            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(p => this.EditOrderExecute())));
+            if (customer != null)
+            {
+                this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(p => this.CreateNewOrderExecute())));
+                this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(p => this.EditOrderExecute())));
+            }
         }
 
         private void OnOrderAdded(object sender, OrderEventArgs e)
@@ -62,7 +79,7 @@ namespace OrderEntrySystem
 
         private void CreateNewOrderExecute()
         {
-            OrderViewModel viewModel = new OrderViewModel(new Order(), this.repository);
+            OrderViewModel viewModel = new OrderViewModel(new Order { Customer = this.customer }, this.repository);
 
             ShowOrder(viewModel);
         }
@@ -73,6 +90,8 @@ namespace OrderEntrySystem
             if (viewModel != null)
             {
                 ShowOrder(viewModel);
+
+                this.repository.SaveToDatabase();
             }
             else
             {

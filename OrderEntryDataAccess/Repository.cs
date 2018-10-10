@@ -33,6 +33,48 @@ namespace OrderEntryDataAccess
 
         public event EventHandler<OrderEventArgs> OrderAdded;
 
+        public event EventHandler<OrderLineEventArgs> OrderLineAdded;
+
+        /// <summary>
+        /// When you add order lines.
+        /// </summary>
+        /// <param name="line">The order line being added.</param>
+        public void AddOrderLine(OrderLine line)
+        {
+            if (!this.ContainsLines(line))
+            {
+                this.context.OrderLines.Add(line);
+
+                if (this.OrderLineAdded != null)
+                {
+                    this.OrderLineAdded(this, new OrderLineEventArgs(line));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets the list of customers.
+        /// </summary>
+        /// <returns>The list of customers.</returns>
+        /// <param name="id">The id of the customer.</param>
+        private OrderLine GetOrderLines(int id)
+        {
+            return this.context.OrderLines.Find(id);
+        }
+
+
+        /// <summary>
+        /// Checks if contains a location.
+        /// </summary>
+        /// <param name="location">The location being checked.</param>
+        /// <returns>True or false.</returns>
+        private bool ContainsLines(OrderLine line)
+        {
+            return this.GetOrderLines(line.Id) != null;
+        }
+
+
+
         /// <summary>
         /// The application's database context.
         /// </summary>

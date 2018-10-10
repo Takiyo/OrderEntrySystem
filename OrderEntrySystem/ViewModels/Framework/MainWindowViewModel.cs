@@ -153,7 +153,7 @@ namespace OrderEntrySystem
                 (vm => vm is MultiOrderViewModel) as MultiOrderViewModel;
             if (viewModel == null)
             {
-                viewModel = new MultiOrderViewModel(this.repository);
+                viewModel = new MultiOrderViewModel(this.repository, null);
                 viewModel.RequestClose += OnWorkspaceRequestClose;
             }
 

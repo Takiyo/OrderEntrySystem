@@ -58,10 +58,13 @@ namespace OrderEntryDataAccess
             // Create and add default orders.
             var orders = new List<Order>
             {
-                new Order { CustomerId = 1 },
-                new Order { CustomerId = 2 },
-                new Order { CustomerId = 3 }
+                new Order { CustomerId = 1, Status=OrderStatus.Pending },
+                new Order { CustomerId = 2, Status=OrderStatus.Shipped },
+                new Order { CustomerId = 3, Status=OrderStatus.Placed }
             };
+
+            context.Orders.AddRange(orders);
+            context.SaveChanges();
         }
     }
 }

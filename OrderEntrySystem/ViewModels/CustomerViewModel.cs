@@ -2,6 +2,7 @@
 using OrderEntryEngine;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,8 @@ namespace OrderEntrySystem
         /// </summary>
         private bool isSelected;
 
+        private MultiOrderViewModel filteredOrderViewModel;
+
         /// <summary>
         /// Initializes a new instance of the CustomerViewModel class.
         /// </summary>
@@ -43,8 +46,35 @@ namespace OrderEntrySystem
         {
             this.customer = customer;
             this.repository = repository;
+
+            this.filteredOrderViewModel = new MultiOrderViewModel(this.repository, this.customer);
+            this.filteredOrderViewModel.AllOrders = FilteredOrders;
         }
-        
+
+        public MultiOrderViewModel FilteredOrderViewModel
+        {
+            get
+            {
+                return this.filteredOrderViewModel;
+            }
+        }
+
+        public ObservableCollection<OrderViewModel> FilteredOrders
+        {
+            get
+            {
+                var orders =
+                  (from o in this.customer.Orders
+                   select new OrderViewModel(o, this.repository)).ToList();
+
+                this.FilteredOrderViewModel.AddPropertyChangedEvent(orders);
+
+                return new ObservableCollection<OrderViewModel>(orders);
+            }
+
+        }
+    
+
         /// <summary>
         /// Gets or sets the customer's FirstName field.
         /// </summary>

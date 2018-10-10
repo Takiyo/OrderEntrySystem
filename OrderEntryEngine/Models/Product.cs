@@ -14,6 +14,8 @@ namespace OrderEntryEngine
     {
         public Condition Condition { get; set; }
 
+        public virtual ICollection<OrderLine> Orders { get; set; }
+
         [Key]
         public int Id { get; set; }
 

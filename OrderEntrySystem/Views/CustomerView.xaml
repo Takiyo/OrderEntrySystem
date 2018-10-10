@@ -29,7 +29,7 @@
         <TextBox Height="Auto" Text="{Binding Path=State, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="12" Width="120"/>
 
         <ContentControl Content="{Binding Commands}" ContentTemplate="{StaticResource HorizontalCommandsTemplate}" Grid.Row="10"/>
-
+        <local:MultiOrderView Grid.Row="16" Grid.Column="2" Margin="0,29,0,-29" DataContext="{Binding FilteredOrderViewModel}"></local:MultiOrderView>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
