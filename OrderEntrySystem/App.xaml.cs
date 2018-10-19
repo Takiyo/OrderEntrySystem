@@ -16,12 +16,14 @@ namespace OrderEntrySystem
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
             MainWindow window = new MainWindow();
+
+            var viewModel = new MainWindowViewModel();
+
+            window.DataContext = viewModel;
+
             window.Show();
-
-            window.DataContext = window;
-
-            window.DataContext = new MainWindowViewModel();
         }
     }
 }

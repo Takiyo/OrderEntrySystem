@@ -1,49 +1,187 @@
-﻿using OrderEntryEngine;
-using OrderEntryEngine.EventArgs;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OrderEntryEngine;
 
 namespace OrderEntryDataAccess
 {
-    /// <summary>
-    /// The class that represents the repository.
-    /// </summary>
     public class Repository
     {
-        /// <summary>
-        /// An event handler to be called when each product is added to the list.
-        /// </summary>
+        private OrderEntryContext db = new OrderEntryContext();
+
         public event EventHandler<ProductEventArgs> ProductAdded;
 
-
-        /// <summary>
-        /// An event handler to be called when each customer is added to the list.
-        /// </summary>
         public event EventHandler<CustomerEventArgs> CustomerAdded;
 
-        /// <summary>
-        /// An event handler to be called when each location is added to the list.
-        /// </summary>
         public event EventHandler<LocationEventArgs> LocationAdded;
 
         public event EventHandler<CategoryEventArgs> CategoryAdded;
+
+        public event EventHandler<ProductCategoryEventArgs> ProductCategoryAdded;
 
         public event EventHandler<OrderEventArgs> OrderAdded;
 
         public event EventHandler<OrderLineEventArgs> OrderLineAdded;
 
-        /// <summary>
-        /// When you add order lines.
-        /// </summary>
-        /// <param name="line">The order line being added.</param>
-        public void AddOrderLine(OrderLine line)
+        public event EventHandler<ProductEventArgs> ProductRemoved;
+
+        public event EventHandler<LocationEventArgs> LocationRemoved;
+
+        public event EventHandler<OrderEventArgs> OrderRemoved;
+
+        public event EventHandler<CustomerEventArgs> CustomerRemoved;
+
+        public event EventHandler<CategoryEventArgs> CategoryRemoved;
+
+        public event EventHandler<ProductCategoryEventArgs> ProductCategoryRemoved;
+
+        public event EventHandler<OrderLineEventArgs> OrderLineRemoved;
+
+        public void AddProduct(Product product)
         {
-            if (!this.ContainsLines(line))
+            if (!this.ContainsProduct(product))
             {
-                this.context.OrderLines.Add(line);
+                this.db.Products.Add(product);
+
+                if (this.ProductAdded != null)
+                {
+                    this.ProductAdded(this, new ProductEventArgs(product));
+                }
+            }
+        }
+
+        public bool ContainsProduct(Product product)
+        {
+            return this.GetProduct(product.Id) != null;
+        }
+
+        public Product GetProduct(int id)
+        {
+            return this.db.Products.Find(id);
+        }
+
+        public List<Product> GetProducts()
+        {
+            return this.db.Products.Where(p => !p.IsArchived).ToList();
+        }
+
+        public void AddCustomer(Customer customer)
+        {
+            if (!this.ContainsCustomer(customer))
+            {
+                this.db.Customers.Add(customer);
+
+                if (this.CustomerAdded != null)
+                {
+                    this.CustomerAdded(this, new CustomerEventArgs(customer));
+                }
+            }
+        }
+
+        public bool ContainsCustomer(Customer customer)
+        {
+            return this.GetCustomer(customer.Id) != null;
+        }
+
+        public Customer GetCustomer(int id)
+        {
+            return this.db.Customers.Find(id);
+        }
+
+        public List<Customer> GetCustomers()
+        {
+            return this.db.Customers.Where(c => !c.IsArchived).ToList();
+        }
+
+        public void AddLocation(Location location)
+        {
+            if (!this.ContainsLocation(location))
+            {
+                this.db.Locations.Add(location);
+
+                if (this.LocationAdded != null)
+                {
+                    this.LocationAdded(this, new LocationEventArgs(location));
+                }
+            }
+        }
+
+        public bool ContainsLocation(Location location)
+        {
+            return this.GetLocation(location.Id) != null;
+        }
+
+        public Location GetLocation(int id)
+        {
+            return this.db.Locations.Find(id);
+        }
+
+        public List<Location> GetLocations()
+        {
+            return this.db.Locations.Where(l => !l.IsArchived).ToList();
+        }
+
+        public void AddCategory(Category category)
+        {
+            if (!this.ContainsCategory(category))
+            {
+                this.db.Categories.Add(category);
+
+                if (this.CategoryAdded != null)
+                {
+                    this.CategoryAdded(this, new CategoryEventArgs(category));
+                }
+            }
+        }
+
+        public bool ContainsCategory(Category category)
+        {
+            return this.GetCategory(category.Id) != null;
+        }
+
+        public Category GetCategory(int id)
+        {
+            return this.db.Categories.Find(id);
+        }
+
+        public List<Category> GetCategories()
+        {
+            return this.db.Categories.Where(c => !c.IsArchived).ToList();
+        }
+
+        public void AddOrder(Order order)
+        {
+            if (!this.ContainsOrder(order))
+            {
+                this.db.Orders.Add(order);
+
+                if (this.OrderAdded != null)
+                {
+                    this.OrderAdded(this, new OrderEventArgs(order));
+                }
+            }
+        }
+
+        public bool ContainsOrder(Order order)
+        {
+            return this.GetOrder(order.Id) != null;
+        }
+
+        public Order GetOrder(int id)
+        {
+            return this.db.Orders.Find(id);
+        }
+
+        public List<Order> GetOrders()
+        {
+            return this.db.Orders.Where(o => !o.IsArchived).ToList();
+        }
+
+        public void AddLine(OrderLine line)
+        {
+            if (!this.ContainsLine(line))
+            {
+                this.db.Lines.Add(line);
 
                 if (this.OrderLineAdded != null)
                 {
@@ -52,205 +190,162 @@ namespace OrderEntryDataAccess
             }
         }
 
-        /// <summary>
-        /// Gets the list of customers.
-        /// </summary>
-        /// <returns>The list of customers.</returns>
-        /// <param name="id">The id of the customer.</param>
-        private OrderLine GetOrderLines(int id)
+        public bool ContainsLine(OrderLine line)
         {
-            return this.context.OrderLines.Find(id);
+            return this.GetLine(line.Id) != null;
         }
 
-
-        /// <summary>
-        /// Checks if contains a location.
-        /// </summary>
-        /// <param name="location">The location being checked.</param>
-        /// <returns>True or false.</returns>
-        private bool ContainsLines(OrderLine line)
+        public OrderLine GetLine(int id)
         {
-            return this.GetOrderLines(line.Id) != null;
+            return this.db.Lines.Find(id);
         }
 
-
-
-        /// <summary>
-        /// The application's database context.
-        /// </summary>
-        public OrderEntryContext context = new OrderEntryContext();
-
-        public void AddOrder(Order order)
+        public List<OrderLine> GetLines()
         {
-            if (this.ContainsOrder(order) == false)
+            return this.db.Lines.Where(l => !l.IsArchived).ToList();
+        }
+
+        public void AddProductCategory(ProductCategory pc)
+        {
+            if (!this.ContainsProductCategory(pc))
             {
-                this.context.Orders.Add(order);
-                this.OrderAdded?.Invoke(this, new OrderEventArgs(order));
+                this.db.ProductCategories.Add(pc);
+
+                if (this.ProductCategoryAdded != null)
+                {
+                    this.ProductCategoryAdded(this, new ProductCategoryEventArgs(pc.Category, pc.Product));
+                }
+
+                if (this.ProductAdded != null)
+                {
+                    this.ProductAdded(this, new ProductEventArgs(pc.Product));
+                }
             }
         }
 
-        private bool ContainsOrder(Order order)
+        public bool ContainsProductCategory(ProductCategory pc)
         {
-            return this.GetOrder(order.Id) != null;
+            return this.GetProductCategory(pc.Id) != null;
         }
 
-        public List<Order> GetOrders()
+        public ProductCategory GetProductCategory(int id)
         {
-            return this.context.Orders.ToList();
+            return this.db.ProductCategories.Find(id);
         }
 
-        // --- Product Methods
-
-        /// <summary>
-        /// Adds a product to the list.
-        /// </summary>
-        /// <param name="product">To be added.</param>
-        public void AddProduct(Product product)
+        public List<ProductCategory> GetProductCategories()
         {
-            if (this.ContainsProduct(product) == false)
+            return this.db.ProductCategories.Where(pc => !pc.IsArchived).ToList();
+        }
+
+        public void RemoveCustomer(Customer customer)
+        {
+            if (customer == null)
             {
-                this.context.Products.Add(product);
-                this.ProductAdded?.Invoke(this, new ProductEventArgs(product));
+                throw new ArgumentNullException("customer");
+            }
+
+            customer.IsArchived = true;
+
+            if (this.CustomerRemoved != null)
+            {
+                this.CustomerRemoved(this, new CustomerEventArgs(customer));
             }
         }
 
-        /// <summary>
-        /// Checks if field contains passed in product.
-        /// </summary>
-        /// <param name="product">To be checked for.</param>
-        /// <returns>Bool indicating if list contains product or not.</returns>
-        private bool ContainsProduct(Product product)
+        public void RemoveProduct(Product product)
         {
-            return this.GetProduct(product.Id) != null;
-        }
-
-        /// <summary>
-        /// Wrapper method to retrieve field of products.
-        /// </summary>
-        /// <returns>The found list.</returns>
-        public List<Product> GetProducts()
-        {
-            return this.context.Products.ToList();
-        }
-
-        // --- Category Methods
-
-        public void AddCategory(Category category)
-        {
-            if (!this.ContainsCategory(category))
+            if (product == null)
             {
-                this.context.Categories.Add(category); ;
-                this.CategoryAdded?.Invoke(this, new CategoryEventArgs(category));
+                throw new ArgumentNullException("product");
+            }
+
+            product.IsArchived = true;
+
+            if (this.ProductRemoved != null)
+            {
+                this.ProductRemoved(this, new ProductEventArgs(product));
             }
         }
 
-        private bool ContainsCategory(Category category)
+        public void RemoveLine(OrderLine line)
         {
-            return this.GetCategory(category.Id) != null;
-        }
-
-        public List<Category> GetCategories()
-        {
-            return this.context.Categories.ToList();
-        }
-
-        // --- Customer Methods
-
-        /// <summary>
-        /// Adds a customer to the list.
-        /// </summary>
-        /// <param name="customer">To be added.</param>
-        public void AddCustomer(Customer customer)
-        {
-            if (!this.ContainsCustomer(customer))
+            if (line == null)
             {
-                this.context.Customers.Add(customer); ;
-                this.CustomerAdded?.Invoke(this, new CustomerEventArgs(customer));
+                throw new ArgumentNullException("line");
+            }
+
+            line.IsArchived = true;
+
+            if (this.OrderLineRemoved != null)
+            {
+                this.OrderLineRemoved(this, new OrderLineEventArgs(line));
             }
         }
 
-        /// <summary>
-        /// Checks if field contains passed in customer.
-        /// </summary>
-        /// <param name="customer">To be checked for.</param>
-        /// <returns>Bool indicating if list contains customer or not.</returns>
-        private bool ContainsCustomer(Customer customer)
+        public void RemoveLocation(Location location)
         {
-            return this.GetCustomer(customer.Id) != null;
-        }
-
-        /// <summary>
-        /// Wrapper method to retrieve field of customers.
-        /// </summary>
-        /// <returns>The found list.</returns>
-        public List<Customer> GetCustomers()
-        {
-            return this.context.Customers.ToList();
-        }
-
-        // --- Location Methods
-
-
-        /// <summary>
-        /// Adds a customer to the list.
-        /// </summary>
-        /// <param name="location">To be added.</param>
-        public void AddLocation(Location location)
-        {
-            if (this.ContainsLocation(location) == false)
+            if (location == null)
             {
-                this.context.Locations.Add(location);
-                this.LocationAdded?.Invoke(this, new LocationEventArgs(location));
+                throw new ArgumentNullException("location");
+            }
+
+            location.IsArchived = true;
+
+            if (this.LocationRemoved != null)
+            {
+                this.LocationRemoved(this, new LocationEventArgs(location));
             }
         }
 
-        /// <summary>
-        /// Checks if field contains passed in location.
-        /// </summary>
-        /// <param name="location">To be checked for.</param>
-        /// <returns>Bool indicating if list contains location or not.</returns>
-        private bool ContainsLocation(Location location)
+        public void RemoveOrder(Order order)
         {
-            return this.GetLocation(location.Id) != null;
+            if (order == null)
+            {
+                throw new ArgumentNullException("order");
+            }
+
+            order.IsArchived = true;
+
+            if (this.OrderRemoved != null)
+            {
+                this.OrderRemoved(this, new OrderEventArgs(order));
+            }
         }
 
-        /// <summary>
-        /// Wrapper method to retrieve field of locations.
-        /// </summary>
-        /// <returns>The found list.</returns>
-        public List<Location> GetLocations()
+        public void RemoveCategory(Category category)
         {
-            return this.context.Locations.ToList();
+            if (category == null)
+            {
+                throw new ArgumentNullException("category");
+            }
+
+            category.IsArchived = true;
+
+            if (this.CategoryRemoved != null)
+            {
+                this.CategoryRemoved(this, new CategoryEventArgs(category));
+            }
+        }
+
+        public void RemoveProductCategory(ProductCategory pc)
+        {
+            if (pc == null)
+            {
+                throw new ArgumentNullException("pc");
+            }
+
+            pc.IsArchived = true;
+
+            if (this.ProductCategoryRemoved != null)
+            {
+                this.ProductCategoryRemoved(this, new ProductCategoryEventArgs(pc.Category, pc.Product));
+            }
         }
 
         public void SaveToDatabase()
         {
-            context.SaveChanges();
-        }
-
-        private Product GetProduct(int id)
-        {
-            return this.context.Products.Find(id);
-        }
-
-        private Customer GetCustomer(int id)
-        {
-            return this.context.Customers.Find(id);
-        }
-
-        private Category GetCategory(int id)
-        {
-            return this.context.Categories.Find(id);
-        }
-
-        private Location GetLocation(int id)
-        {
-            return this.context.Locations.Find(id);
-        }
-
-        private Order GetOrder(int id)
-        {
-            return this.context.Orders.Find(id);
+            this.db.SaveChanges();
         }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using OrderEntryDataAccess;
 using OrderEntryEngine;
 
@@ -15,118 +13,43 @@ namespace OrderEntrySystem
 
         private Repository repository;
 
-        private ICommand saveCommand;
-
         private bool isSelected;
 
-        public ProductViewModel(Product product, Repository repository) : base("Product")
+        private MultiCategoryViewModel filteredCategoryViewModel;
+
+        public ProductViewModel(Product product, Repository repository)
+            : base("New product")
         {
             this.product = product;
             this.repository = repository;
+            this.filteredCategoryViewModel = new MultiCategoryViewModel(this.repository, this.product);
+            this.filteredCategoryViewModel.AllCategories = this.FilteredCategories;
         }
 
-        public Condition Condition
+        public MultiCategoryViewModel FilteredCategoryViewModel
         {
             get
             {
-                return this.product.Condition;
-            }
-            set
-            {
-                this.product.Condition = value;
-                this.OnPropertyChanged("Condition");
+                return this.filteredCategoryViewModel;
             }
         }
 
-        public IEnumerable<Condition> Conditions
+        public ObservableCollection<CategoryViewModel> FilteredCategories
         {
             get
             {
-                return Enum.GetValues(typeof(Condition)) as IEnumerable<Condition>;
-            }
-        }
+                List<CategoryViewModel> categories = new List<CategoryViewModel>();
 
-        public IEnumerable<Location> Locations
-        {
-            get
-            {
-                return this.repository.GetLocations();
-            }
-        }
+                if (this.product.ProductCategories != null)
+                {
+                    categories =
+                        (from c in this.product.ProductCategories
+                        select new CategoryViewModel(c.Category, this.repository)).ToList();
+                }
 
-        public Location Location
-        {
-            get
-            {
-                return this.product.Location;
-            }
-            set
-            {
-                this.product.Location = value;
-                this.OnPropertyChanged("Location");
-            }
-        }
+                this.FilteredCategoryViewModel.AddPropertyChangedEvent(categories);
 
-        public IEnumerable<Category> Categories
-        {
-            get
-            {
-                return this.repository.GetCategories();
-            }
-        }
-
-        public Category Category
-        {
-            get
-            {
-                return this.product.Category;
-            }
-            set
-            {
-                this.product.Category = value;
-                this.OnPropertyChanged("Category");
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return this.product.Name;
-            }
-
-            set
-            {
-                this.product.Name = value;
-                this.OnPropertyChanged("Name");
-            }
-        }
-
-        public string Description
-        {
-            get
-            {
-                return this.product.Description;
-            }
-
-            set
-            {
-                this.product.Description = value;
-                this.OnPropertyChanged("Description");
-            }
-        }
-
-        public decimal Price
-        {
-            get
-            {
-                return this.product.Price;
-            }
-
-            set
-            {
-                this.product.Price = value;
-                this.OnPropertyChanged("Price");
+                return new ObservableCollection<CategoryViewModel>(categories);
             }
         }
 
@@ -143,28 +66,117 @@ namespace OrderEntrySystem
             }
         }
 
+        public string Name
+        {
+            get
+            {
+                return this.product.Name;
+            }
+            set
+            {
+                this.product.Name = value;
+                this.OnPropertyChanged("Name");
+            }
+        }
+
+        public Condition Condition
+        {
+            get
+            {
+                return this.product.Condition;
+            }
+            set
+            {
+                this.product.Condition = value;
+                this.OnPropertyChanged("Condition");
+            }
+        }
+
+        public ICollection<Condition> Conditions
+        {
+            get
+            {
+                return Enum.GetValues(typeof(Condition)) as ICollection<Condition>;
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return this.product.Description;
+            }
+            set
+            {
+                this.product.Description = value;
+                this.OnPropertyChanged("Description");
+            }
+        }
+
+        public Product Product
+        {
+            get
+            {
+                return this.product;
+            }
+        }
+
+        public decimal Price
+        {
+            get
+            {
+                return this.product.Price;
+            }
+            set
+            {
+                this.product.Price = value;
+                this.OnPropertyChanged("Price");
+            }
+        }
+
+        public Location Location
+        {
+            get
+            {
+                return this.product.Location;
+            }
+            set
+            {
+                this.product.Location = value;
+                this.OnPropertyChanged("Location");
+            }
+        }
+
+        public ICollection<Location> Locations
+        {
+            get
+            {
+                return this.repository.GetLocations();
+            }
+        }
+
+        public IEnumerable<Category> Categories
+        {
+            get
+            {
+                return this.repository.GetCategories() as IEnumerable<Category>;
+            }
+        }
+
+        /// <summary>
+        /// Creates the commands needed for the product view model.
+        /// </summary>
         protected override void CreateCommands()
         {
             this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
             this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
         }
 
-        public ICommand SaveCommand
+        private void Save()
         {
-            get
-            {
-                if (this.saveCommand == null)
-                {
-                    this.saveCommand = new DelegateCommand(p => this.Save());
-                }
-
-                return this.saveCommand;
-            }
-        }
-
-        public void Save()
-        {
+            // Add product to repository.
             this.repository.AddProduct(this.product);
+
             this.repository.SaveToDatabase();
         }
 
@@ -174,6 +186,9 @@ namespace OrderEntrySystem
             this.CloseAction(true);
         }
 
+        /// <summary>
+        /// Closes the new Item window without saving.
+        /// </summary>
         private void CancelExecute()
         {
             this.CloseAction(false);

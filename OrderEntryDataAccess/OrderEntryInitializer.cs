@@ -1,69 +1,78 @@
-﻿using OrderEntryEngine;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OrderEntryEngine;
 
 namespace OrderEntryDataAccess
 {
-    public class OrderEntryInitializer : DropCreateDatabaseIfModelChanges<OrderEntryContext>
+    public class OrderEntryInitializer : DropCreateDatabaseAlways<OrderEntryContext>
     {
         protected override void Seed(OrderEntryContext context)
         {
-            base.Seed(context);
-
-            // Create & add default locations.
             var locations = new List<Location>
             {
-                new Location {City = "Stevens Point", Description="ITS POINT", Name="Home", State="WI", Id=1},
-                new Location {City = "Waupaca", Description="ITS NOT POINT", Name="Other", State="WI", Id=2}
+                new Location { Name = "NTC Bookstore", City = "Wausau", State = "WI", Description = "The school bookstore." },
+                new Location { Name = "Warehouse", City = "Wausau", State = "WI", Description = "The school bookstore's storage warehouse." },
             };
 
             context.Locations.AddRange(locations);
             context.SaveChanges();
 
-            // Create & add default categories
             var categories = new List<Category>
             {
-                new Category{ Name = "Cool Junk", Id=1},
-                new Category{ Name = "Jank Junk", Id=2}
+                new Category { Name = "Electronics" },
+                new Category { Name = "Apparel" },
+                new Category { Name = "Household" }
             };
 
             context.Categories.AddRange(categories);
             context.SaveChanges();
 
-            // Create & add default products
             var products = new List<Product>
             {
-                new Product { Name = "Thing", LocationId=1, Condition=Condition.Poor, Description="It's stuff.", Price=1, Id=1, CategoryId=1 },
-                new Product { Name = "Item?", LocationId=1, Condition=Condition.Poor, Description="It's stuff.", Price=1, Id=2, CategoryId=2 }
+                new Product { Name = "16GB Flash Drive", Condition = Condition.Poor, Description = "A portable flash drive adorned with the NTC logo.", Price = 15.00m, LocationId = 1 },
+                new Product { Name = "Coffee Mug", Condition = Condition.Poor, Description = "A sleek mug adorned with the NTC logo.", Price = 9.50m, LocationId = 1 },
+                new Product { Name = "T-Shirt", Condition = Condition.Poor, Description = "A stylish t-shirt showing off your school pride, adorned with an NTC logo.", Price = 18.50m, LocationId = 2 }
             };
 
             context.Products.AddRange(products);
             context.SaveChanges();
 
-            // Create & add default customers.
+            var productCategories = new List<ProductCategory>
+            {
+                new ProductCategory { ProductId = 1, CategoryId = 1 },
+                new ProductCategory { ProductId = 2, CategoryId = 3 },
+                new ProductCategory { ProductId = 3, CategoryId = 2 }
+            };
+
+            context.ProductCategories.AddRange(productCategories);
+            context.SaveChanges();
+
             var customers = new List<Customer>
             {
-                new Customer { FirstName = "Guy" },
-                new Customer { FirstName = "Dude" },
-                new Customer { FirstName = "M'Boy" }
+                new Customer { FirstName = "Billy", LastName = "Buyer", Phone = "555-555-1234", Email = "billybuyer@example.com", Address = "111 Red Road", City = "Wausau", State = "WI" },
+                new Customer { FirstName = "Sally", LastName = "Ride", Phone = "555-555-9876", Email = "astronautlady@nasa.gov", Address = "222 Orange Street", City = "Wausau", State = "WI" }
             };
 
             context.Customers.AddRange(customers);
             context.SaveChanges();
 
-            // Create and add default orders.
             var orders = new List<Order>
             {
-                new Order { CustomerId = 1, Status=OrderStatus.Pending },
-                new Order { CustomerId = 2, Status=OrderStatus.Shipped },
-                new Order { CustomerId = 3, Status=OrderStatus.Placed }
+                new Order { CustomerId = 1, Status = OrderStatus.Processing },
+                new Order { CustomerId = 2, Status = OrderStatus.Processing }
             };
 
             context.Orders.AddRange(orders);
+            context.SaveChanges();
+
+            var lines = new List<OrderLine>
+            {
+                new OrderLine { OrderId = 1, ProductId = 1, Quantity = 2 },
+                new OrderLine { OrderId = 2, ProductId = 2, Quantity = 1 },
+                new OrderLine { OrderId = 2, ProductId = 3, Quantity = 1 }
+            };
+
+            context.Lines.AddRange(lines);
             context.SaveChanges();
         }
     }

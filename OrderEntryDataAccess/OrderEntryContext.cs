@@ -1,19 +1,12 @@
-﻿using OrderEntryEngine;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
+using OrderEntryEngine;
 
 namespace OrderEntryDataAccess
 {
-    /// <summary>
-    /// Class used to represent database context for our order entry data.
-    /// </summary>
     public class OrderEntryContext : DbContext
     {
-        public OrderEntryContext() : base("OrderEntryContext")
+        public OrderEntryContext()
+            : base("OrderEntryContext")
         {
             Database.Initialize(true);
         }
@@ -28,7 +21,8 @@ namespace OrderEntryDataAccess
 
         public DbSet<Order> Orders { get; set; }
 
-        public DbSet<OrderLine> OrderLines { get; set; }
+        public DbSet<OrderLine> Lines { get; set; }
 
+        public DbSet<ProductCategory> ProductCategories { get; set; }
     }
 }

@@ -6,33 +6,34 @@
              xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
     <UserControl.Resources>
         <ResourceDictionary Source="SharedResources.xaml" />
     </UserControl.Resources>
-
-
-    <Grid Background="White">
-        <Label Content="Order Status" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="0"/>
-
-        <ComboBox ItemsSource="{Binding OrderStatuses}" SelectedItem="{Binding Status}" Grid.Column="2" Grid.Row="0"/>
-
-        <local:MultiOrderLineView Grid.Column="2" Grid.Row="2" DataContext="{Binding Path=FilteredLineViewModel}"></local:MultiOrderLineView>
-
-        <ContentControl Content="{Binding Commands}" ContentTemplate="{StaticResource HorizontalCommandsTemplate}" Grid.Column="2" Grid.Row="4"></ContentControl>
-
-
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="4" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="4" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Order status:" HorizontalAlignment="Right" Target="{Binding ElementName=statusComboBox}" />
+            <ComboBox x:Name="statusComboBox" Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Path=OrderStatuses}" SelectedItem="{Binding Path=Status}" />
+            <local:MultiOrderLineView Grid.Row="2" Grid.Column="2" DataContext="{Binding Path=FilteredLineViewModel}" />
+        </Grid>
+        <ContentControl Grid.Row="1" Content="{Binding Path=Commands}" ContentTemplate="{StaticResource NestedCommandTemplate}" VerticalAlignment="Bottom" Margin="0,0,4,4" />
     </Grid>
 </UserControl>

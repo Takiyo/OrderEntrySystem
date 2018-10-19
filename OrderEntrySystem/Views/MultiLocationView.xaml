@@ -6,28 +6,24 @@
              xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
-    <UserControl.Resources>
-        <ResourceDictionary Source="SharedResources.xaml"/>
-    </UserControl.Resources>
-
-
-    <Grid>
-        <DockPanel>
-            <Grid DockPanel.Dock="Bottom">
-                <local:SelectedItemsView />
-            </Grid>
-            <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllLocations}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Path=Name}" />
-                        <GridViewColumn Header="Description" Width="auto" DisplayMemberBinding="{Binding Path=Description}" />
-                        <GridViewColumn Header="City" Width="auto" DisplayMemberBinding="{Binding Path=City}" />
-                        <GridViewColumn Header="State" Width="auto" DisplayMemberBinding="{Binding Path=State}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </DockPanel>
-    </Grid>
-    
+        <UserControl.Resources>
+            <ResourceDictionary Source="SharedResources.xaml" />
+        </UserControl.Resources>
+        <Grid>
+            <DockPanel>
+                <Grid DockPanel.Dock="Bottom">
+                    <local:NumberOfItemsSelectedView/>
+                </Grid>
+                <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllLocations}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding Path=Name}" />
+                            <GridViewColumn Header="City" Width="35" DisplayMemberBinding="{Binding Path=City}" />
+                            <GridViewColumn Header="State" Width="55" DisplayMemberBinding="{Binding Path=State}"/>
+                            <GridViewColumn Header="Description" Width="100" DisplayMemberBinding="{Binding Path=Description}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </DockPanel>
+        </Grid>
 </UserControl>

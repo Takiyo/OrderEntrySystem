@@ -5,52 +5,46 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-
+             d:DesignWidth="300">
     <UserControl.Resources>
         <ResourceDictionary Source="SharedResources.xaml" />
     </UserControl.Resources>
-
-    <Grid Background="White">
-        <Label Content="Location" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Grid.Row="0"/>
-        <Label Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="2"/>
-        <Label Content="Description" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="4"/>
-        <Label Content="Price" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="6"/>
-        <Label Content="Condition" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="8"/>
-        <Label Content="Category" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Grid.Column="0" Grid.Row="10"/>
-
-
-        <ComboBox Height="Auto" ItemsSource="{Binding Locations}" SelectedItem="{Binding Path=Location}" Grid.Column="2" Grid.Row="0" Width="120"/>
-        <TextBox Height="Auto" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="2" Width="120"/>
-        <TextBox Height="Auto" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="4" Width="120"/>
-        <TextBox Height="Auto" Text="{Binding Path=Price, UpdateSourceTrigger=PropertyChanged}" Grid.Column="2" Grid.Row="6" Width="120"/>
-        <ComboBox ItemsSource="{Binding Conditions}" SelectedItem="{Binding Condition}" Grid.Column="2" Grid.Row="8"/>
-        <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding Category}" Grid.Column="2" Grid.Row="10"/>
-
-        <ContentControl Content="{Binding Commands}" ContentTemplate="{StaticResource HorizontalCommandsTemplate}" Grid.Row="12"/>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="4" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="4" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Name:" HorizontalAlignment="Right" Target="{Binding ElementName=nameTextBox}" />
+            <TextBox x:Name="nameTextBox" Grid.Row="0" Grid.Column="2" Text="{Binding Path=Name}" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Description:" HorizontalAlignment="Right" Target="{Binding ElementName=descriptionTextBox}" />
+            <TextBox x:Name="descriptionTextBox" Grid.Row="2" Grid.Column="2" Text="{Binding Path=Description}" />
+            <Label Grid.Row="4" Grid.Column="0" Content="Price:" HorizontalAlignment="Right" Target="{Binding ElementName=priceTextBox}" />
+            <TextBox x:Name="priceTextBox" Grid.Row="4" Grid.Column="2" Text="{Binding Path=Price}" />
+            <Label Grid.Row="6" Grid.Column="0" Content="Location:" HorizontalAlignment="Right" Target="{Binding ElementName=locationComboBox}" />
+            <ComboBox x:Name="locationComboBox" Grid.Row="6" Grid.Column="2" ItemsSource="{Binding Path=Locations}" SelectedItem="{Binding Path=Location}" />
+            <Label Grid.Row="8" Grid.Column="0" Content="Condition:" HorizontalAlignment="Right" Target="{Binding ElementName=conditionComboBox}" />
+            <ComboBox x:Name="conditionComboBox" Grid.Row="8" Grid.Column="2" ItemsSource="{Binding Path=Conditions}" SelectedItem="{Binding Path=Condition}" />
+            <local:MultiCategoryView Grid.Row="10" Grid.Column="2" DataContext="{Binding Path=FilteredCategoryViewModel}" />
+        </Grid>
+        <ContentControl Grid.Row="1" Grid.Column="2" Content="{Binding Path=Commands}" ContentTemplate="{StaticResource NestedCommandTemplate}" VerticalAlignment="Bottom" Margin="0,0,4,4" />
     </Grid>
 </UserControl>

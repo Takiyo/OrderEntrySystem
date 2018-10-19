@@ -22,7 +22,7 @@ namespace OrderEntrySystem
     {
         public MultiOrderView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

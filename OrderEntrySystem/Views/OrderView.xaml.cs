@@ -22,7 +22,7 @@ namespace OrderEntrySystem
     {
         public OrderView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }

@@ -6,26 +6,22 @@
              xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
     <UserControl.Resources>
-        <ResourceDictionary Source="SharedResources.xaml"/>
+        <ResourceDictionary Source="SharedResources.xaml" />
     </UserControl.Resources>
-
     <Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Bottom">
-                <local:SelectedItemsView />
+                <local:NumberOfItemsSelectedView/>
             </Grid>
             <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllOrders}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Order Status" Width="auto" DisplayMemberBinding="{Binding Path=OrderStatus}" />
-                        <GridViewColumn Header="Customer" Width="auto" DisplayMemberBinding="{Binding Path=Customer}" />
+                        <GridViewColumn Header="Customer" Width="55" DisplayMemberBinding="{Binding Path=Customer}" />
+                        <GridViewColumn Header="Order Status" Width="100" DisplayMemberBinding="{Binding Path=Status}" />
                     </GridView>
                 </ListView.View>
             </ListView>
         </DockPanel>
-
     </Grid>
-
 </UserControl>

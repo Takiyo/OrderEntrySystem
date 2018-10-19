@@ -6,31 +6,25 @@
              xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
     <UserControl.Resources>
-        <ResourceDictionary Source="SharedResources.xaml"/>
+        <ResourceDictionary Source="SharedResources.xaml" />
     </UserControl.Resources>
-
     <Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Bottom">
-                <local:SelectedItemsView />
+                <local:NumberOfItemsSelectedView/>
             </Grid>
             <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllProducts}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Path=Name}" />
-                        <GridViewColumn Header="Price" Width="auto" DisplayMemberBinding="{Binding Path=Price}" />
-                        <GridViewColumn Header="Location" Width="auto" DisplayMemberBinding="{Binding Path=Location}" />
-                        <GridViewColumn Header="Description" Width="auto" DisplayMemberBinding="{Binding Path=Description}" />
-                        <GridViewColumn Header="Condition" Width="auto" DisplayMemberBinding="{Binding Path=Condition}" />
-                        <GridViewColumn Header="Category" Width="auto" DisplayMemberBinding="{Binding Path=Category}" />
-
-
+                        <GridViewColumn Header="Name" Width="75" DisplayMemberBinding="{Binding Path=Name}" />
+                        <GridViewColumn Header="Price" Width="45" DisplayMemberBinding="{Binding Path=Price}" />
+                        <GridViewColumn Header="Condition" Width="75" DisplayMemberBinding="{Binding Path=Condition}" />
+                        <GridViewColumn Header="Location" Width="55" DisplayMemberBinding="{Binding Path=Location}"/>
+                        <GridViewColumn Header="Description" Width="100" DisplayMemberBinding="{Binding Path=Description}" />
                     </GridView>
                 </ListView.View>
             </ListView>
         </DockPanel>
-        
     </Grid>
 </UserControl>

@@ -3,39 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-
     <UserControl.Resources>
-        <ResourceDictionary Source="SharedResources.xaml" />
+        <ResourceDictionary Source="SharedResources.xaml"/>
     </UserControl.Resources>
-
-
     <Grid>
-
-        <Label Content="Products:" Grid.Column="0" Grid.Row="0"></Label>
-        <ComboBox ItemsSource="{Binding Products}" SelectedItem="{Binding Product}" Grid.Column="2" Grid.Row="0"></ComboBox>
-
-        <Label Content="Quantity:" Grid.Column="0" Grid.Row="2"></Label>
-        <TextBox Grid.Column="2" Grid.Row="2" HorizontalAlignment="Left" Height="23" Margin="1.4,5.2,0,7.8" TextWrapping="Wrap" Text="{Binding Path=Quantity, UpdateSourceTrigger=PropertyChanged}" Width="120"></TextBox>
-
-
-        <ContentControl Content="{Binding Commands}" ContentTemplate="{StaticResource HorizontalCommandsTemplate}" Grid.Column="2" Grid.Row="4"></ContentControl>
-
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="4" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="4" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <Grid Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="4" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Product:" HorizontalAlignment="Right" Target="{Binding ElementName=productComboBox}" />
+            <ComboBox x:Name="productComboBox" Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Path=Products}" SelectedItem="{Binding Path=Product}" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Quantity:" HorizontalAlignment="Right" Target="{Binding ElementName=quantityTextBox}" />
+            <TextBox x:Name="quantityTextBox" Grid.Row="2" Grid.Column="2" Text="{Binding Path=Quantity}" />
+        </Grid>
+        <ContentControl Grid.Row="1" Content="{Binding Path=Commands}" ContentTemplate="{StaticResource NestedCommandTemplate}" VerticalAlignment="Bottom" Margin="0,0,4,4" />
     </Grid>
 </UserControl>

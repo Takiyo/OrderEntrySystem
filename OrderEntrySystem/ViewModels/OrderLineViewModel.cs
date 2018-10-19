@@ -1,10 +1,6 @@
-﻿using OrderEntryDataAccess;
+﻿using System.Collections.Generic;
+using OrderEntryDataAccess;
 using OrderEntryEngine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderEntrySystem
 {
@@ -12,39 +8,39 @@ namespace OrderEntrySystem
     {
         private OrderLine line;
 
+        /// <summary>
+        /// The order line view model's database repository.
+        /// </summary>
         private Repository repository;
 
-        /// <summary>
-        /// The is selected field. 
-        /// </summary>
         private bool isSelected;
 
+        /// <summary>
+        /// Initializes a new instance.
+        /// </summary>
+        /// <param name="line">The line to be shown.</param>
+        /// <param name="repository">The order line repository.</param>
         public OrderLineViewModel(OrderLine line, Repository repository)
-            : base("Order Line")
+            : base("New order line")
         {
             this.line = line;
             this.repository = repository;
         }
 
-        public Order Order
+        public OrderLine Line
         {
             get
             {
-                return this.line.Order;
+                return this.line;
             }
         }
 
-
-        /// <summary>
-        /// Gets or sets a value indicating whether its selected or not.
-        /// </summary>
         public bool IsSelected
         {
             get
             {
                 return this.isSelected;
             }
-
             set
             {
                 this.isSelected = value;
@@ -58,7 +54,6 @@ namespace OrderEntrySystem
             {
                 return this.line.Product;
             }
-
             set
             {
                 this.line.Product = value;
@@ -74,9 +69,38 @@ namespace OrderEntrySystem
             }
         }
 
-        public int Quantity { get; set; }
+        public int Quantity
+        {
+            get
+            {
+                return this.line.Quantity;
+            }
+            set
+            {
+                this.line.Quantity = value;
+                this.OnPropertyChanged("Quantity");
+            }
+        }
 
+        public decimal ProductPrice
+        {
+            get
+            {
+                return this.line.Product.Price;
+            }
+        }
 
+        public string ProductDescription
+        {
+            get
+            {
+                return this.line.Product.Description;
+            }
+        }
+
+        /// <summary>
+        /// Creates the commands needed for the order line view model.
+        /// </summary>
         protected override void CreateCommands()
         {
             this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
@@ -84,17 +108,21 @@ namespace OrderEntrySystem
         }
 
         /// <summary>
-        /// Saves the order lines.
+        /// Saves the view model's order line to the repository.
         /// </summary>
-        public void Save()
+        private void Save()
         {
-            this.repository.AddOrder(this.Order);
-            this.repository.AddOrderLine(this.line);
+            // This is a hack, and will add once for each line, but EF doesn't allow the same instance to be added multiple times.
+            this.repository.AddOrder(this.line.Order);
+
+            // Add line to repository.
+            this.repository.AddLine(this.line);
+
             this.repository.SaveToDatabase();
         }
 
         /// <summary>
-        /// This is the OK execute.
+        /// Saves the order line and closes the new order line window.
         /// </summary>
         private void OkExecute()
         {
@@ -103,7 +131,7 @@ namespace OrderEntrySystem
         }
 
         /// <summary>
-        /// This is the cancel execute.
+        /// Closes the new order line window without saving.
         /// </summary>
         private void CancelExecute()
         {

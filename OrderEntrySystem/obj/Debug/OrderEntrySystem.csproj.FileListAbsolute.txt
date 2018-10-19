@@ -1,0 +1,113 @@
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\OrderEntrySystem.exe.config
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\OrderEntrySystem.exe
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\OrderEntrySystem.pdb
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\EntityFramework.dll
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\OrderEntryDataAccess.dll
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\OrderEntryEngine.dll
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\OrderEntryDataAccess.pdb
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\OrderEntryEngine.pdb
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\EntityFramework.xml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem.csprojAssemblyReference.cache
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\AddCategoryView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\NumberOfItemsSelectedView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\OrderLineView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\CategoryView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\LocationView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\WorkspaceWindow.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\App.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\AddCategoryView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiOrderLineView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiCategoryView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\NumberOfItemsSelectedView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\OrderLineView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\CustomerView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\CategoryView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\ProductView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\LocationView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MainWindow.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiCustomerView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiProductView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiLocationView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiOrderView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\OrderView.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\WorkspaceWindow.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\App.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem_MarkupCompile.cache
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem_MarkupCompile.lref
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiOrderLineView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiCategoryView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\CustomerView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\ProductView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MainWindow.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiCustomerView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiProductView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiLocationView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\MultiOrderView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\OrderView.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\Views\SharedResources.baml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem.g.resources
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem.Properties.Resources.resources
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem.csproj.GenerateResource.cache
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem.csproj.CoreCompileInputs.cache
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem.csproj.CopyComplete
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem.exe
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\OrderEntrySystem.pdb
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\OrderEntrySystem.exe.config
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\OrderEntrySystem.exe
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\OrderEntrySystem.pdb
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\EntityFramework.dll
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\EntityFramework.SqlServer.dll
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\OrderEntryDataAccess.dll
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\OrderEntryEngine.dll
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\OrderEntryDataAccess.pdb
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\OrderEntryEngine.pdb
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\EntityFramework.xml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\EntityFramework.SqlServer.xml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem.csprojResolveAssemblyReference.cache
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\AddCategoryView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\NumberOfItemsSelectedView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\OrderLineView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\CategoryView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\LocationView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\WorkspaceWindow.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\App.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\AddCategoryView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiOrderLineView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiCategoryView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\NumberOfItemsSelectedView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\OrderLineView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\CustomerView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\CategoryView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\ProductView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\LocationView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MainWindow.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiCustomerView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiProductView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiLocationView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiOrderView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\OrderView.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\WorkspaceWindow.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\App.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem_MarkupCompile.cache
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem_MarkupCompile.lref
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiOrderLineView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiCategoryView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\CustomerView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\ProductView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MainWindow.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiCustomerView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiProductView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiLocationView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\MultiOrderView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\OrderView.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\SharedResources.baml
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem.g.resources
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem.Properties.Resources.resources
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem.csproj.GenerateResource.Cache
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem.csproj.CoreCompileInputs.cache
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem.exe
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\OrderEntrySystem.pdb

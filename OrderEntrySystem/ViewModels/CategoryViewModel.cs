@@ -1,43 +1,33 @@
-﻿using OrderEntryDataAccess;
-using OrderEntryEngine;
-using OrderEntrySystem;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+using OrderEntryDataAccess;
+using OrderEntryEngine;
 
 namespace OrderEntrySystem
 {
     public class CategoryViewModel : WorkspaceViewModel
     {
+        private Category category;
 
         private Repository repository;
 
-        private Category category;
-
-        private ICommand saveCommand;
-
         private bool isSelected;
 
-        public CategoryViewModel(Category category, Repository repository) : base("Category")
+        public CategoryViewModel(Category category, Repository repository)
+            : base("New product category")
         {
             this.category = category;
             this.repository = repository;
         }
 
-        public string Name
+        public Category Category
         {
             get
             {
-                return this.category.Name;
-            }
-
-            set
-            {
-                this.category.Name = value;
-                this.OnPropertyChanged("Name");
+                return this.category;
             }
         }
 
@@ -54,28 +44,33 @@ namespace OrderEntrySystem
             }
         }
 
+        public string Name
+        {
+            get
+            {
+                return this.category.Name;
+            }
+            set
+            {
+                this.category.Name = value;
+                this.OnPropertyChanged("Name");
+            }
+        }
+
+        /// <summary>
+        /// Creates the commands needed for the product category view model.
+        /// </summary>
         protected override void CreateCommands()
         {
             this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
             this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
         }
 
-        public ICommand SaveCommand
+        private void Save()
         {
-            get
-            {
-                if (this.saveCommand == null)
-                {
-                    this.saveCommand = new DelegateCommand(p => this.Save());
-                }
-
-                return this.saveCommand;
-            }
-        }
-
-        public void Save()
-        {
+            // Add product category to repository.
             this.repository.AddCategory(this.category);
+
             this.repository.SaveToDatabase();
         }
 
@@ -85,6 +80,9 @@ namespace OrderEntrySystem
             this.CloseAction(true);
         }
 
+        /// <summary>
+        /// Closes the window without saving.
+        /// </summary>
         private void CancelExecute()
         {
             this.CloseAction(false);

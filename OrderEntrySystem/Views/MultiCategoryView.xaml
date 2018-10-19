@@ -5,21 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:OrderEntrySystem"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-
+             d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
-        <ResourceDictionary Source="SharedResources.xaml"/>
+        <ResourceDictionary Source="SharedResources.xaml" />
     </UserControl.Resources>
-
     <Grid>
         <DockPanel>
             <Grid DockPanel.Dock="Bottom">
-                <local:SelectedItemsView />
+                <local:NumberOfItemsSelectedView/>
             </Grid>
             <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllCategories}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Path=Name}" />
+                        <GridViewColumn Header="Name" Width="150" DisplayMemberBinding="{Binding Path=Name}" />
                     </GridView>
                 </ListView.View>
             </ListView>

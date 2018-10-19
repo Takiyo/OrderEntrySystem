@@ -1,13 +1,9 @@
-﻿using OrderEntryDataAccess;
-using OrderEntryEngine;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Data;
+using OrderEntryDataAccess;
 
 namespace OrderEntrySystem
 {
@@ -17,7 +13,8 @@ namespace OrderEntrySystem
 
         private Repository repository;
 
-        public MainWindowViewModel() : base("Order Entry System - Brytowski")
+        public MainWindowViewModel()
+            : base("Order Entry System - LastName")
         {
             this.repository = new Repository();
         }
@@ -35,130 +32,118 @@ namespace OrderEntrySystem
             }
         }
 
-        public void CreateNewProduct()
+        /// <summary>
+        /// Creates the commands required by the view model.
+        /// </summary>
+        protected override void CreateCommands()
         {
-            Product product = new Product();
-            ProductViewModel pvm = new ProductViewModel(product, this.repository);
-
-            pvm.RequestClose += OnWorkspaceRequestClose;
-
-            viewModels.Add(pvm);
-            this.ActivateViewModel(pvm);
+            this.Commands.Add(new CommandViewModel("View all products", new DelegateCommand(p => this.ShowAllProducts())));
+            this.Commands.Add(new CommandViewModel("View all customers", new DelegateCommand(p => this.ShowAllCustomers())));
+            this.Commands.Add(new CommandViewModel("View all locations", new DelegateCommand(p => this.ShowAllLocations())));
+            this.Commands.Add(new CommandViewModel("View all categories", new DelegateCommand(p => this.ShowAllProductCategories())));
+            this.Commands.Add(new CommandViewModel("View all orders", new DelegateCommand(p => this.ShowAllOrders())));
         }
 
-        public void CreateNewCustomer()
+        private void ShowAllProducts()
         {
-            Customer customer = new Customer();
-            CustomerViewModel cvm = new CustomerViewModel(customer, this.repository);
-            cvm.RequestClose += this.OnWorkspaceRequestClose;
+            MultiProductViewModel viewModel = this.ViewModels.FirstOrDefault(vm => vm is MultiProductViewModel) as MultiProductViewModel;
 
-            viewModels.Add(cvm);
-            this.ActivateViewModel(cvm);
+            if (viewModel == null)
+            {
+                viewModel = new MultiProductViewModel(this.repository);
+
+                viewModel.RequestClose += this.OnWorkspaceRequestClose;
+
+                this.ViewModels.Add(viewModel);
+            }
+
+            this.ActivateViewModel(viewModel);
         }
 
-        public void CreateNewLocation()
+        private void ShowAllCustomers()
         {
-            Location location = new Location();
-            LocationViewModel lvm = new LocationViewModel(location, this.repository);
-            lvm.RequestClose += this.OnWorkspaceRequestClose;
+            MultiCustomerViewModel viewModel = this.ViewModels.FirstOrDefault(vm => vm is MultiCustomerViewModel) as MultiCustomerViewModel;
 
-            viewModels.Add(lvm);
-            this.ActivateViewModel(lvm);
+            if (viewModel == null)
+            {
+                viewModel = new MultiCustomerViewModel(this.repository);
+
+                viewModel.RequestClose += this.OnWorkspaceRequestClose;
+
+                this.ViewModels.Add(viewModel);
+            }
+
+            this.ActivateViewModel(viewModel);
+        }
+
+        private void ShowAllLocations()
+        {
+            MultiLocationViewModel viewModel = this.ViewModels.FirstOrDefault(vm => vm is MultiLocationViewModel) as MultiLocationViewModel;
+
+            if (viewModel == null)
+            {
+                viewModel = new MultiLocationViewModel(this.repository);
+
+                viewModel.RequestClose += this.OnWorkspaceRequestClose;
+
+                this.ViewModels.Add(viewModel);
+            }
+
+            this.ActivateViewModel(viewModel);
+        }
+
+        private void ShowAllProductCategories()
+        {
+            MultiCategoryViewModel viewModel = this.ViewModels.FirstOrDefault(vm => vm is MultiCategoryViewModel) as MultiCategoryViewModel;
+
+            if (viewModel == null)
+            {
+                viewModel = new MultiCategoryViewModel(this.repository, null);
+
+                viewModel.RequestClose += this.OnWorkspaceRequestClose;
+
+                this.ViewModels.Add(viewModel);
+            }
+
+            this.ActivateViewModel(viewModel);
+        }
+
+        private void ShowAllOrders()
+        {
+            MultiOrderViewModel viewModel = this.ViewModels.FirstOrDefault(vm => vm is MultiOrderViewModel) as MultiOrderViewModel;
+
+            if (viewModel == null)
+            {
+                viewModel = new MultiOrderViewModel(this.repository, null);
+
+                viewModel.RequestClose += this.OnWorkspaceRequestClose;
+
+                this.ViewModels.Add(viewModel);
+            }
+
+            this.ActivateViewModel(viewModel);
+        }
+
+        /// <summary>
+        /// A handler which responds to a request to close a workspace.
+        /// </summary>
+        /// <param name="sender">The object that initiated the event.</param>
+        /// <param name="e">The arguments for the event.</param>
+        private void OnWorkspaceRequestClose(object sender, EventArgs e)
+        {
+            WorkspaceViewModel viewModel = sender as WorkspaceViewModel;
+
+            this.ViewModels.Remove(viewModel);
         }
 
         private void ActivateViewModel(WorkspaceViewModel viewModel)
         {
-            ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.viewModels);
+            ICollectionView collectionView = CollectionViewSource.GetDefaultView(this.ViewModels);
 
             if (collectionView != null)
             {
                 collectionView.MoveCurrentTo(viewModel);
             }
-        }
-
-        private void OnWorkspaceRequestClose(object sender, EventArgs e)
-        {
-            this.ViewModels.Remove(sender as WorkspaceViewModel);
-        }
-
-        protected override void CreateCommands()
-        {
-            this.Commands.Add(new CommandViewModel("View All Products", new DelegateCommand(p => this.ShowAllProducts())));
-            this.Commands.Add(new CommandViewModel("View All Customers", new DelegateCommand(p => this.ShowAllCustomers())));
-            this.Commands.Add(new CommandViewModel("View All Locations", new DelegateCommand(p => this.ShowAllLocations())));
-            this.Commands.Add(new CommandViewModel("View All Categories", new DelegateCommand(p => this.ShowAllCategories())));
-            this.Commands.Add(new CommandViewModel("View All Orders", new DelegateCommand(p => this.ShowAllOrders())));
-
-        }
-
-        public void ShowAllProducts()
-        {
-            MultiProductViewModel viewModel = this.ViewModels.FirstOrDefault
-                (vm => vm is MultiProductViewModel) as MultiProductViewModel;
-            if (viewModel == null)
-            {
-                viewModel = new MultiProductViewModel(this.repository);
-                viewModel.RequestClose += OnWorkspaceRequestClose;
-            }
-
-            this.viewModels.Add(viewModel);
-            this.ActivateViewModel(viewModel);
-        }
-
-        public void ShowAllCustomers()
-        {
-            MultiCustomerViewModel viewModel = this.ViewModels.FirstOrDefault
-                (vm => vm is MultiCustomerViewModel) as MultiCustomerViewModel;
-            if (viewModel == null)
-            {
-                viewModel = new MultiCustomerViewModel(this.repository);
-                viewModel.RequestClose += OnWorkspaceRequestClose;
-            }
-
-            this.viewModels.Add(viewModel);
-            this.ActivateViewModel(viewModel);
-        }
-
-        public void ShowAllLocations()
-        {
-            MultiLocationViewModel viewModel = this.ViewModels.FirstOrDefault
-                (vm => vm is MultiLocationViewModel) as MultiLocationViewModel;
-            if (viewModel == null)
-            {
-                viewModel = new MultiLocationViewModel(this.repository);
-                viewModel.RequestClose += OnWorkspaceRequestClose;
-            }
-
-            this.viewModels.Add(viewModel);
-            this.ActivateViewModel(viewModel);
-        }
-
-        public void ShowAllCategories()
-        {
-            MultiCategoryViewModel viewModel = this.ViewModels.FirstOrDefault
-                (vm => vm is MultiCategoryViewModel) as MultiCategoryViewModel;
-            if (viewModel == null)
-            {
-                viewModel = new MultiCategoryViewModel(this.repository);
-                viewModel.RequestClose += OnWorkspaceRequestClose;
-            }
-
-            this.viewModels.Add(viewModel);
-            this.ActivateViewModel(viewModel);
-        }
-
-        public void ShowAllOrders()
-        {
-            MultiOrderViewModel viewModel = this.ViewModels.FirstOrDefault
-                (vm => vm is MultiOrderViewModel) as MultiOrderViewModel;
-            if (viewModel == null)
-            {
-                viewModel = new MultiOrderViewModel(this.repository, null);
-                viewModel.RequestClose += OnWorkspaceRequestClose;
-            }
-
-            this.viewModels.Add(viewModel);
-            this.ActivateViewModel(viewModel);
         }
     }
 }

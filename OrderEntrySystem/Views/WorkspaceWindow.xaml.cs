@@ -21,7 +21,7 @@ namespace OrderEntrySystem
     {
         public WorkspaceWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
     }
 }
