@@ -67,8 +67,8 @@ namespace OrderEntrySystem
             if (this.product == null)
             {
                 this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewCategoryExecute())));
-                this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditCategoryExecute())));
-                this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteCategoryExecute())));
+            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditCategoryExecute(), p => this.NumberOfItemsSelected == 1)));
+            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteCategoryExecute(), p => this.NumberOfItemsSelected == 1)));
             }
             else
             {

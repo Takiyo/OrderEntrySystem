@@ -35,6 +35,8 @@ namespace OrderEntrySystem
             this.repository.OrderLineRemoved += this.OnOrderLineRemoved;
         }
 
+        public Action LineChanged { get; set; }
+
         public ObservableCollection<OrderLineViewModel> AllLines { get; set; }
 
         public int NumberOfItemsSelected
@@ -53,8 +55,8 @@ namespace OrderEntrySystem
         protected override void CreateCommands()
         {
             this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewOrderLineExecute())));
-            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditOrderLineExecute())));
-            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteOrderLineExecute())));
+            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditOrderLineExecute(), p => this.NumberOfItemsSelected == 1)));
+            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteOrderLineExecute(), p => this.NumberOfItemsSelected == 1)));
         }
 
         private void OnOrderLineAdded(object sender, OrderLineEventArgs e)

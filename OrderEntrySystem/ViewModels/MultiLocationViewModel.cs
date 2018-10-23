@@ -42,8 +42,8 @@ namespace OrderEntrySystem
         protected override void CreateCommands()
         {
             this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewLocationExecute())));
-            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditLocationExecute())));
-            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteLocationExecute())));
+            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditLocationExecute(), p => this.NumberOfItemsSelected == 1)));
+            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteLocationExecute(), p => this.NumberOfItemsSelected == 1)));
         }
 
         private void OnLocationAdded(object sender, LocationEventArgs e)

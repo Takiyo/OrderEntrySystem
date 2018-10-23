@@ -37,8 +37,68 @@ namespace OrderEntrySystem
         {
             this.order = order;
             this.repository = repository;
+
+            this.filteredLineViewModel.LineChanged += this.UpdateOrderTotals;
+
             this.filteredLineViewModel = new MultiOrderLineViewModel(this.repository, this.order);
             this.filteredLineViewModel.AllLines = this.FilteredLines;
+        }
+
+        public decimal ProductTotal
+        {
+            get
+            {
+                return this.order.ProductTotal;
+            }
+            set
+            {
+                this.order.ProductTotal = value;
+                this.UpdateOrderTotals();
+            }
+        }
+
+        public decimal TaxTotal
+        {
+            get
+            {
+                return this.order.TaxTotal;
+            }
+            set
+            {
+                this.order.TaxTotal = value;
+                this.UpdateOrderTotals();
+            }
+        }
+
+        public decimal Total
+        {
+            get
+            {
+                this.UpdateOrderTotals();
+                return this.order.Total;
+            }
+        }
+
+        public decimal ShippingAmount
+        {
+            get
+            {
+                return this.order.ShippingAmount;
+            }
+            set
+            {
+                this.order.ShippingAmount = value;
+                this.OnPropertyChanged("ShippingAmount");
+            }
+        }
+
+
+        public void UpdateOrderTotals()
+        {
+            this.OnPropertyChanged("Status");
+            this.OnPropertyChanged("ProductTotal");
+            this.OnPropertyChanged("TaxTotal");
+            this.OnPropertyChanged("Total");
         }
 
         public Order Order
@@ -151,6 +211,9 @@ namespace OrderEntrySystem
             this.repository.AddOrder(this.order);
 
             this.repository.SaveToDatabase();
+
+            this.order.CalculateTotals();
+            this.UpdateOrderTotals();
         }
 
         /// <summary>

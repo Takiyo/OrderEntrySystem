@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\obj\Debug\
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\
 OrderEntrySystem
 none
 false
 DEBUG;TRACE
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntrySystem\App.xaml
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\App.xaml
 17751595054
 
-42-1375598518
-19440355980
+42248165030
+201699412291
 Views\AddCategoryView.xaml;Views\MultiOrderLineView.xaml;Views\MultiCategoryView.xaml;Views\NumberOfItemsSelectedView.xaml;Views\OrderLineView.xaml;Views\CustomerView.xaml;Views\CategoryView.xaml;Views\ProductView.xaml;Views\LocationView.xaml;Views\MainWindow.xaml;Views\MultiCustomerView.xaml;Views\MultiProductView.xaml;Views\MultiLocationView.xaml;Views\MultiOrderView.xaml;Views\OrderView.xaml;Views\SharedResources.xaml;Views\WorkspaceWindow.xaml;
 
 True

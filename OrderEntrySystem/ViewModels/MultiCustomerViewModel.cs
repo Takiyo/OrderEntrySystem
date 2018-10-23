@@ -42,8 +42,8 @@ namespace OrderEntrySystem
         protected override void CreateCommands()
         {
             this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewCustomerExecute())));
-            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditCustomerExecute())));
-            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteCustomerExecute())));
+            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditCustomerExecute(), p => this.NumberOfItemsSelected == 1)));
+            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteCustomerExecute(), p => this.NumberOfItemsSelected == 1)));
         }
 
         private void OnCustomerAdded(object sender, CustomerEventArgs e)

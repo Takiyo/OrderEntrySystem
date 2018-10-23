@@ -25,13 +25,16 @@ namespace OrderEntrySystem
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler handler = this.PropertyChanged;
+            //PropertyChangedEventHandler handler = this.PropertyChanged;
 
-            // If there is a listener...
-            if (handler != null)
-            {
-                handler(this, new PropertyChangedEventArgs(propertyName));
-            }
+            //// If there is a listener...
+            //if (handler != null)
+            //{
+            //    handler(this, new PropertyChangedEventArgs(propertyName));
+            //}
+
+            this.PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
         }
     }
 }

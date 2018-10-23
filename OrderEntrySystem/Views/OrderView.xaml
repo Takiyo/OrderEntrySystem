@@ -32,7 +32,11 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Order status:" HorizontalAlignment="Right" Target="{Binding ElementName=statusComboBox}" />
             <ComboBox x:Name="statusComboBox" Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Path=OrderStatuses}" SelectedItem="{Binding Path=Status}" />
-            <local:MultiOrderLineView Grid.Row="2" Grid.Column="2" DataContext="{Binding Path=FilteredLineViewModel}" />
+            <Label Grid.Row="2" Grid.Column="0" Content="Shipping" HorizontalAlignment="Right" Target="{Binding ElementName=shippingTextBox}" />
+            <TextBox x:Name="shippingTextBox" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" Text="{Binding Path=ShippingAmount}" Width="200"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Total" HorizontalAlignment="Right" Target="{Binding ElementName=totalTextBox}" />
+            <TextBox x:Name="totalTextBox" IsEnabled="False" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Right" Text="{Binding Path=Total, Mode=OneWay}" Height="26" VerticalAlignment="Top" Width="200"/>
+            <local:MultiOrderLineView Grid.Row="6" Grid.Column="2" DataContext="{Binding Path=FilteredLineViewModel}" />
         </Grid>
         <ContentControl Grid.Row="1" Content="{Binding Path=Commands}" ContentTemplate="{StaticResource NestedCommandTemplate}" VerticalAlignment="Bottom" Margin="0,0,4,4" />
     </Grid>

@@ -23,3 +23,16 @@ D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\Orde
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CoreCompileInputs.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.pdb
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\OrderEntryDataAccess.dll
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\OrderEntryDataAccess.pdb
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\EntityFramework.dll
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.dll
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.pdb
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\EntityFramework.xml
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csprojAssemblyReference.cache
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CoreCompileInputs.cache
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CopyComplete
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.dll
+C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.pdb

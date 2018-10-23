@@ -79,6 +79,19 @@ namespace OrderEntrySystem
             }
         }
 
+        public int Quantity
+        {
+            get
+            {
+                return this.product.Quantity;
+            }
+            set
+            {
+                this.product.Quantity = value;
+                this.OnPropertyChanged("Quantity");
+            }
+        }
+
         public Condition Condition
         {
             get

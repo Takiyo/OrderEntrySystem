@@ -30,6 +30,8 @@ namespace OrderEntryEngine
 
         public bool IsArchived { get; set; }
 
+        public int Quantity { get; set; }
+
         public override string ToString()
         {
             return this.Name;

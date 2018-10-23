@@ -57,28 +57,20 @@ namespace OrderEntrySystem
             set
             {
                 this.line.Product = value;
+                this.line.ProductAmount = value.Price;
+                this.line.CalculateTax();
                 this.OnPropertyChanged("Product");
+                this.OnPropertyChanged("ProductAmount");
+                this.OnPropertyChanged("TaxPerProduct");
             }
         }
 
         public IEnumerable<Product> Products
         {
             get
+
             {
                 return this.repository.GetProducts();
-            }
-        }
-
-        public int Quantity
-        {
-            get
-            {
-                return this.line.Quantity;
-            }
-            set
-            {
-                this.line.Quantity = value;
-                this.OnPropertyChanged("Quantity");
             }
         }
 
@@ -95,6 +87,35 @@ namespace OrderEntrySystem
             get
             {
                 return this.line.Product.Description;
+            }
+        }
+
+        public int Quantity
+        {
+            get
+            {
+                return this.line.Quantity;
+            }
+            set
+            {
+                this.line.Quantity = value;
+                this.OnPropertyChanged("Quantity");
+            }
+        }
+
+        public decimal ProductTotal
+        {
+            get
+            {
+                return this.line.ExtendedProductAmount;
+            }
+        }
+
+        public decimal TaxTotal
+        {
+            get
+            {
+                return this.line.ExtendedTax;
             }
         }
 

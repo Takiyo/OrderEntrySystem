@@ -17,8 +17,8 @@
             <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllOrders}">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Customer" Width="55" DisplayMemberBinding="{Binding Path=Customer}" />
-                        <GridViewColumn Header="Order Status" Width="100" DisplayMemberBinding="{Binding Path=Status}" />
+                        <GridViewColumn Header="Customer" Width="auto" DisplayMemberBinding="{Binding Path=Customer}" />
+                        <GridViewColumn Header="Order Status" Width="auto" DisplayMemberBinding="{Binding Path=Status}" />
                     </GridView>
                 </ListView.View>
             </ListView>

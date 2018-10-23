@@ -19,3 +19,13 @@ D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\Orde
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CoreCompileInputs.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\OrderEntryEngine.dll
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\OrderEntryEngine.pdb
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\EntityFramework.dll
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\EntityFramework.xml
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CoreCompileInputs.cache
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CopyComplete
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb

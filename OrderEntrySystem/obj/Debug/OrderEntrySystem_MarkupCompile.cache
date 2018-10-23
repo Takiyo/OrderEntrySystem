@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\
 OrderEntrySystem
 none
 false
 DEBUG;TRACE
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\App.xaml
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\App.xaml
 17751595054
 
 38121337182
-19-1755653629
+201699412291
 Views\AddCategoryView.xaml;Views\MultiOrderLineView.xaml;Views\MultiCategoryView.xaml;Views\NumberOfItemsSelectedView.xaml;Views\OrderLineView.xaml;Views\CustomerView.xaml;Views\CategoryView.xaml;Views\ProductView.xaml;Views\LocationView.xaml;Views\MainWindow.xaml;Views\MultiCustomerView.xaml;Views\MultiProductView.xaml;Views\MultiLocationView.xaml;Views\MultiOrderView.xaml;Views\OrderView.xaml;Views\SharedResources.xaml;Views\WorkspaceWindow.xaml;
 
 False

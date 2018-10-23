@@ -32,6 +32,9 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="4" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="4" />
+                <RowDefinition Height="Auto" />
+
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Name:" HorizontalAlignment="Right" Target="{Binding ElementName=nameTextBox}" />
             <TextBox x:Name="nameTextBox" Grid.Row="0" Grid.Column="2" Text="{Binding Path=Name}" />
@@ -43,7 +46,9 @@
             <ComboBox x:Name="locationComboBox" Grid.Row="6" Grid.Column="2" ItemsSource="{Binding Path=Locations}" SelectedItem="{Binding Path=Location}" />
             <Label Grid.Row="8" Grid.Column="0" Content="Condition:" HorizontalAlignment="Right" Target="{Binding ElementName=conditionComboBox}" />
             <ComboBox x:Name="conditionComboBox" Grid.Row="8" Grid.Column="2" ItemsSource="{Binding Path=Conditions}" SelectedItem="{Binding Path=Condition}" />
-            <local:MultiCategoryView Grid.Row="10" Grid.Column="2" DataContext="{Binding Path=FilteredCategoryViewModel}" />
+            <Label Grid.Row="10" Grid.Column="0" Content="Quantity:" HorizontalAlignment="Right" Target="{Binding ElementName=quantityTextBox}" />
+            <TextBox x:Name="quantityTextBox" Grid.Row="10" Grid.Column="2" Text="{Binding Path=Quantity}" />
+            <local:MultiCategoryView Grid.Row="12" Grid.Column="2" DataContext="{Binding Path=FilteredCategoryViewModel}" />
         </Grid>
         <ContentControl Grid.Row="1" Grid.Column="2" Content="{Binding Path=Commands}" ContentTemplate="{StaticResource NestedCommandTemplate}" VerticalAlignment="Bottom" Margin="0,0,4,4" />
     </Grid>
