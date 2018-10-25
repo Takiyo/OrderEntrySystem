@@ -27,6 +27,8 @@ namespace OrderEntryEngine
 
         public OrderStatus Status { get; set; }
 
+        public bool IsArchived { get; set; }
+
         public decimal ShippingAmount
         {
             get
@@ -77,6 +79,13 @@ namespace OrderEntryEngine
             this.TaxTotal = this.Lines.Where(l => !l.IsArchived).Sum(l => l.ExtendedTax);
         }
 
-        public bool IsArchived { get; set; }
+        public void Post()
+        {
+            if (this.Status == OrderStatus.Processing)
+            {
+                this.Status = OrderStatus.Shipped;
+                this.CalculateTotals();
+            }
+        }
     }
 }

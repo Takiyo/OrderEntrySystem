@@ -97,6 +97,9 @@ namespace OrderEntrySystem
 
         private void CreateNewOrderLineExecute()
         {
+            this.order.CalculateTotals();
+            this.LineChanged();
+
             OrderLine orderLine = new OrderLine { Order = order, Quantity = 1 };
 
             OrderLineViewModel viewModel = new OrderLineViewModel(orderLine, this.repository);
@@ -106,6 +109,9 @@ namespace OrderEntrySystem
 
         private void EditOrderLineExecute()
         {
+            this.order.CalculateTotals();
+            this.LineChanged();
+
             OrderLineViewModel viewModel = this.GetOnlySelectedViewModel();
 
             if (viewModel != null)
@@ -122,6 +128,9 @@ namespace OrderEntrySystem
 
         private void DeleteOrderLineExecute()
         {
+            this.order.CalculateTotals();
+            this.LineChanged();
+
             OrderLineViewModel viewModel = this.GetOnlySelectedViewModel();
 
             if (viewModel != null)

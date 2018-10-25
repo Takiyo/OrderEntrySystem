@@ -57,6 +57,7 @@ namespace OrderEntrySystem
                 this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewOrderExecute())));
                 this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditOrderExecute(), p => this.NumberOfItemsSelected == 1)));
                 this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteOrderExecute(), p => this.NumberOfItemsSelected == 1)));
+                //this.Commands.Add(new CommandViewModel("Place", new DelegateCommand(this.PlaceOrder()));
             }
         }
 
@@ -166,6 +167,24 @@ namespace OrderEntrySystem
                 {
                     this.AllOrders.Remove(viewModel);
                 }
+            }
+        }
+
+        private void PlaceOrder()
+        {
+            OrderViewModel vm = this.GetOnlySelectedViewModel();
+            if (vm != null)
+            {
+                vm.Order.Post();
+                vm.UpdateOrderTotals();
+            }
+        }
+
+        public bool IsOrderPending
+        {
+            get
+            {
+                return this.AllOrders.SingleOrDefault(o => o.IsSelected).Order.Status == OrderStatus.Processing;
             }
         }
     }

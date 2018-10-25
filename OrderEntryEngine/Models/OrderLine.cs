@@ -21,6 +21,9 @@ namespace OrderEntryEngine
 
         public virtual Order Order { get; set; }
 
+        public bool IsArchived { get; set; }
+
+
         public decimal ProductAmount
         {
             get
@@ -57,6 +60,11 @@ namespace OrderEntryEngine
             this.TaxPerProduct = Math.Round(this.ProductAmount * taxRate, 2);
         }
 
-        public bool IsArchived { get; set; }
+        public void Post()
+        {
+            this.ProductAmount = this.Product.Price;
+            this.Product.Quantity -= this.Quantity;
+        }
+
     }
 }
