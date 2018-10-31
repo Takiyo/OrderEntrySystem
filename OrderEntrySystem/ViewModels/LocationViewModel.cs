@@ -1,9 +1,11 @@
-﻿using OrderEntryDataAccess;
+﻿using System.ComponentModel;
+using System.Windows;
+using OrderEntryDataAccess;
 using OrderEntryEngine;
 
 namespace OrderEntrySystem
 {
-    public class LocationViewModel : WorkspaceViewModel
+    public class LocationViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         private Location location;
 
@@ -16,6 +18,22 @@ namespace OrderEntrySystem
         {
             this.location = location;
             this.repository = repository;
+        }
+
+        public string Error
+        {
+            get
+            {
+                return this.location.Error;
+            }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                return this.location[propertyName];
+            }
         }
 
         public Location Location
@@ -92,30 +110,44 @@ namespace OrderEntrySystem
         }
 
         /// <summary>
-        /// Creates the commands needed for the customer view model.
+        /// Creates the commands needed for the car view model.
         /// </summary>
         protected override void CreateCommands()
         {
-            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
-            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
+            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute()), true, false));
+            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute()), false, true));
         }
 
-        private void Save()
+        private bool Save()
         {
-            // Add location to repository.
-            this.repository.AddLocation(this.location);
+            bool result = true;
 
-            this.repository.SaveToDatabase();
+            if (this.Location.IsValid)
+            {
+                // Add location to repository.
+                this.repository.AddLocation(this.location);
+
+                this.repository.SaveToDatabase();
+            }
+            else
+            {
+                MessageBox.Show("One or more properties are invalid. Location could not be saved.");
+                result = false;
+            }
+
+            return result;
         }
 
         private void OkExecute()
         {
-            this.Save();
-            this.CloseAction(true);
+            if (this.Save())
+            {
+                this.CloseAction(true);
+            }
         }
 
         /// <summary>
-        /// Closes the new location window without saving.
+        /// Closes the new car window without saving.
         /// </summary>
         private void CancelExecute()
         {

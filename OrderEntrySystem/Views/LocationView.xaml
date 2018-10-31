@@ -17,7 +17,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="4" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -31,13 +31,13 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Grid.Column="0" Content="Name:" HorizontalAlignment="Right" Target="{Binding ElementName=nameTextBox}" />
-            <TextBox x:Name="nameTextBox" Grid.Row="0" Grid.Column="2" Text="{Binding Path=Name}" />
+            <TextBox x:Name="nameTextBox" Grid.Row="0" Grid.Column="2" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource ResourceKey=ValidationStyleTextBox}" />
             <Label Grid.Row="2" Grid.Column="0" Content="Description:" HorizontalAlignment="Right" Target="{Binding ElementName=descriptionTextBox}" />
-            <TextBox x:Name="descriptionTextBox" Grid.Row="2" Grid.Column="2" Text="{Binding Path=Description}" />
+            <TextBox x:Name="descriptionTextBox" Grid.Row="2" Grid.Column="2" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource ResourceKey=ValidationStyleTextBox}" />
             <Label Grid.Row="4" Grid.Column="0" Content="City:" HorizontalAlignment="Right" Target="{Binding ElementName=cityTextBox}" />
-            <TextBox x:Name="cityTextBox" Grid.Row="4" Grid.Column="2" Text="{Binding Path=City}" />
+            <TextBox x:Name="cityTextBox" Grid.Row="4" Grid.Column="2" Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource ResourceKey=ValidationStyleTextBox}" />
             <Label Grid.Row="6" Grid.Column="0" Content="State:" HorizontalAlignment="Right" Target="{Binding ElementName=stateTextBox}" />
-            <TextBox x:Name="stateTextBox" Grid.Row="6" Grid.Column="2" Text="{Binding Path=State}" />
+            <TextBox x:Name="stateTextBox" Grid.Row="6" Grid.Column="2" Text="{Binding Path=State, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource ResourceKey=ValidationStyleTextBox}" />
         </Grid>
         <ContentControl Grid.Row="1" Content="{Binding Path=Commands}" ContentTemplate="{StaticResource NestedCommandTemplate}" VerticalAlignment="Bottom" Margin="0,0,4,4" />
     </Grid>

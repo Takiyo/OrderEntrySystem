@@ -131,7 +131,7 @@ namespace OrderEntrySystem
         /// <summary>
         /// Creates a new window to edit a car.
         /// </summary>
-        /// <param name="viewModel">The view model for the location to be edited.</param>
+        /// <param name="viewModel">The view model for the car to be edited.</param>
         private void ShowLocation(LocationViewModel viewModel)
         {
             WorkspaceWindow window = new WorkspaceWindow();

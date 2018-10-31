@@ -76,7 +76,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Button Command="{Binding Path=Command}" Content="{Binding Path=DisplayName}" Height="23" Width="75" Margin="4,4,0,0"/>
+                    <Button Command="{Binding Path=Command}" Content="{Binding Path=DisplayName}" IsDefault="{Binding Path=IsDefault}" IsCancel="{Binding Path=IsCancel}" Height="23" Width="75" Margin="4,4,0,0"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
@@ -115,6 +115,29 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="ValidationStyleTextBox" TargetType="{x:Type TextBox}">
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(Validation.Errors).CurrentItem.ErrorContent}" />
+                <Setter Property="Validation.ErrorTemplate">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <DockPanel LastChildFill="true">
+                                <TextBlock DockPanel.Dock="Right" VerticalAlignment="Center" Margin="5,0,0,0" Text="{Binding ElementName=customAdorner, Path=AdornedElement.(Validation.Errors).CurrentItem.ErrorContent}" />
+                                <Border Background="Red" DockPanel.Dock="right" Margin="5,0,0,0" Width="20" Height="20" CornerRadius="10">
+                                    <TextBlock Text="!" VerticalAlignment="center" HorizontalAlignment="center" FontWeight="Bold" Foreground="white" />
+                                </Border>
+                                <AdornedElementPlaceholder Name="customAdorner" VerticalAlignment="Center" >
+                                    <Border BorderBrush="red" BorderThickness="1" />
+                                </AdornedElementPlaceholder>
+                            </DockPanel>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

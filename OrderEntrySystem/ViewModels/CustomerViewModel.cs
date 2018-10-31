@@ -1,24 +1,26 @@
 ﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using OrderEntryDataAccess;
 using OrderEntryEngine;
 
 namespace OrderEntrySystem
 {
-    public class CustomerViewModel : WorkspaceViewModel
+    public class CustomerViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         /// <summary>
-        /// The customer being shown.
+        /// The car being shown.
         /// </summary>
         private Customer customer;
 
         /// <summary>
-        /// The customer view model's database repository.
+        /// The car view model's database repository.
         /// </summary>
         private Repository repository;
 
         /// <summary>
-        /// An indicator of whether or not an customer is selected.
+        /// An indicator of whether or not an car is selected.
         /// </summary>
         private bool isSelected;
 
@@ -27,8 +29,8 @@ namespace OrderEntrySystem
         /// <summary>
         /// Initializes a new instance.
         /// </summary>
-        /// <param name="customer">The customer to be shown.</param>
-        /// <param name="repository">The customer repository.</param>
+        /// <param name="customer">The car to be shown.</param>
+        /// <param name="repository">The car repository.</param>
         public CustomerViewModel(Customer customer, Repository repository)
             : base("New customer")
         {
@@ -38,8 +40,24 @@ namespace OrderEntrySystem
             this.filteredOrderViewModel.AllOrders = this.FilteredOrders;
         }
 
+        public string Error
+        {
+            get
+            {
+                return this.customer.Error;
+            }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                return this.customer[propertyName];
+            }
+        }
+
         /// <summary>
-        /// Gets or sets a value indicating whether this customer is selected in the UI.
+        /// Gets or sets a value indicating whether this car is selected in the UI.
         /// </summary>
         public bool IsSelected
         {
@@ -112,7 +130,6 @@ namespace OrderEntrySystem
             {
                 var orders =
                     (from o in this.customer.Orders
-                     where !o.IsArchived
                     select new OrderViewModel(o, this.repository)).ToList();
 
                 this.FilteredOrderViewModel.AddPropertyChangedEvent(orders);
@@ -177,32 +194,46 @@ namespace OrderEntrySystem
         }
 
         /// <summary>
-        /// Creates the commands needed for the customer view model.
+        /// Creates the commands needed for the car view model.
         /// </summary>
         protected override void CreateCommands()
         {
-            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
-            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
+            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute()), true, false));
+            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute()), false, true));
         }
 
         /// <summary>
-        /// Saves the customer view model's customer to the repository.
+        /// Saves the car view model's car to the repository.
         /// </summary>
-        private void Save()
+        private bool Save()
         {
-            // Add customer to repository.
-            this.repository.AddCustomer(this.customer);
+            bool result = true;
 
-            this.repository.SaveToDatabase();
+            if (this.Customer.IsValid)
+            {
+                // Add customer to repository.
+                this.repository.AddCustomer(this.customer);
+
+                this.repository.SaveToDatabase();
+            }
+            else
+            {
+                MessageBox.Show("One or more properties are invalid. Customer could not be saved.");
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>
-        /// Saves the customer and closes the new customer window.
+        /// Saves the car and closes the new car window.
         /// </summary>
         private void OkExecute()
         {
-            this.Save();
-            this.CloseAction(true);
+            if (this.Save())
+            {
+                this.CloseAction(true);
+            }
         }
 
         /// <summary>

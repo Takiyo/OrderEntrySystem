@@ -36,8 +36,8 @@ namespace OrderEntrySystem
         /// </summary>
         protected override void CreateCommands()
         {
-            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
-            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
+            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute()), true, false));
+            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute()), false, true));
         }
 
         private void Save()

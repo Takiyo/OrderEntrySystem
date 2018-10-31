@@ -17,7 +17,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="4" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="200" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -33,7 +33,7 @@
             <Label Grid.Row="0" Grid.Column="0" Content="Product:" HorizontalAlignment="Right" Target="{Binding ElementName=productComboBox}" />
             <ComboBox x:Name="productComboBox" Grid.Row="0" Grid.Column="2" ItemsSource="{Binding Path=Products}" SelectedItem="{Binding Path=Product}" />
             <Label Grid.Row="2" Grid.Column="0" Content="Quantity:" HorizontalAlignment="Right" Target="{Binding ElementName=quantityTextBox}" />
-            <TextBox x:Name="quantityTextBox" Grid.Row="2" Grid.Column="2" Text="{Binding Path=Quantity}" />
+            <TextBox x:Name="quantityTextBox" Grid.Row="2" Grid.Column="2" Text="{Binding Path=Quantity, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" Style="{StaticResource ResourceKey=ValidationStyleTextBox}" />
         </Grid>
         <ContentControl Grid.Row="1" Content="{Binding Path=Commands}" ContentTemplate="{StaticResource NestedCommandTemplate}" VerticalAlignment="Bottom" Margin="0,0,4,4" />
     </Grid>

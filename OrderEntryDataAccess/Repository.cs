@@ -17,8 +17,6 @@ namespace OrderEntryDataAccess
 
         public event EventHandler<CategoryEventArgs> CategoryAdded;
 
-        public event EventHandler<ProductCategoryEventArgs> ProductCategoryAdded;
-
         public event EventHandler<OrderEventArgs> OrderAdded;
 
         public event EventHandler<OrderLineEventArgs> OrderLineAdded;
@@ -32,8 +30,6 @@ namespace OrderEntryDataAccess
         public event EventHandler<CustomerEventArgs> CustomerRemoved;
 
         public event EventHandler<CategoryEventArgs> CategoryRemoved;
-
-        public event EventHandler<ProductCategoryEventArgs> ProductCategoryRemoved;
 
         public event EventHandler<OrderLineEventArgs> OrderLineRemoved;
 
@@ -211,14 +207,9 @@ namespace OrderEntryDataAccess
             {
                 this.db.ProductCategories.Add(pc);
 
-                if (this.ProductCategoryAdded != null)
+                if (this.CategoryAdded != null)
                 {
-                    this.ProductCategoryAdded(this, new ProductCategoryEventArgs(pc.Category, pc.Product));
-                }
-
-                if (this.ProductAdded != null)
-                {
-                    this.ProductAdded(this, new ProductEventArgs(pc.Product));
+                    this.CategoryAdded(this, new CategoryEventArgs(pc.Category));
                 }
             }
         }
@@ -337,9 +328,9 @@ namespace OrderEntryDataAccess
 
             pc.IsArchived = true;
 
-            if (this.ProductCategoryRemoved != null)
+            if (this.CategoryRemoved != null)
             {
-                this.ProductCategoryRemoved(this, new ProductCategoryEventArgs(pc.Category, pc.Product));
+                this.CategoryRemoved(this, new CategoryEventArgs(pc.Category));
             }
         }
 

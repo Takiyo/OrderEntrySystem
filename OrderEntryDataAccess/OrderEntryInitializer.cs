@@ -12,6 +12,7 @@ namespace OrderEntryDataAccess
             {
                 new Location { Name = "NTC Bookstore", City = "Wausau", State = "WI", Description = "The school bookstore." },
                 new Location { Name = "Warehouse", City = "Wausau", State = "WI", Description = "The school bookstore's storage warehouse." },
+                new Location { Name = "Processing room", City = "Wausau", State = "WI", Description = "The room for processing placed orders." }
             };
 
             context.Locations.AddRange(locations);
@@ -29,9 +30,9 @@ namespace OrderEntryDataAccess
 
             var products = new List<Product>
             {
-                new Product { Name = "16GB Flash Drive", Condition = Condition.Poor, Description = "A portable flash drive adorned with the NTC logo.", Price = 15.00m, LocationId = 1 },
-                new Product { Name = "Coffee Mug", Condition = Condition.Poor, Description = "A sleek mug adorned with the NTC logo.", Price = 9.50m, LocationId = 1 },
-                new Product { Name = "T-Shirt", Condition = Condition.Poor, Description = "A stylish t-shirt showing off your school pride, adorned with an NTC logo.", Price = 18.50m, LocationId = 2 }
+                new Product { Name = "16GB Flash Drive", Condition = Condition.Poor, Description = "A portable flash drive adorned with the NTC logo.", Price = 15.00m, LocationId = 1, Quantity = 5 },
+                new Product { Name = "Coffee Mug", Condition = Condition.Poor, Description = "A sleek mug adorned with the NTC logo.", Price = 9.50m, LocationId = 1, Quantity = 10 },
+                new Product { Name = "T-Shirt", Condition = Condition.Poor, Description = "A stylish t-shirt showing off your school pride, adorned with an NTC logo.", Price = 18.50m, LocationId = 2, Quantity = 12 }
             };
 
             context.Products.AddRange(products);
@@ -58,8 +59,8 @@ namespace OrderEntryDataAccess
 
             var orders = new List<Order>
             {
-                new Order { CustomerId = 1, Status = OrderStatus.Processing },
-                new Order { CustomerId = 2, Status = OrderStatus.Processing }
+                new Order { CustomerId = 1, Status = OrderStatus.Pending },
+                new Order { CustomerId = 2, Status = OrderStatus.Pending }
             };
 
             context.Orders.AddRange(orders);

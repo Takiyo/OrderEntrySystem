@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace OrderEntrySystem
 {
     /// <summary>
-    /// Interaction logic for ProductView.xaml
+    /// Interaction logic for CarView.xaml
     /// </summary>
     public partial class ProductView : UserControl
     {

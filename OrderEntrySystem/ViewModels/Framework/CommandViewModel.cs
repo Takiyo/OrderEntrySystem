@@ -18,6 +18,11 @@ namespace OrderEntrySystem
         /// <param name="displayName">The name of the command.</param>
         /// <param name="command">The logic of the command</param>
         public CommandViewModel(string displayName, ICommand command)
+            : this(displayName, command, false, false)
+        {
+        }
+
+        public CommandViewModel(string displayName, ICommand command, bool isDefault, bool isCancel)
             : base(displayName)
         {
             if (command == null)
@@ -26,11 +31,17 @@ namespace OrderEntrySystem
             }
 
             this.Command = command;
+            this.IsCancel = isCancel;
+            this.IsDefault = isDefault;
         }
 
         /// <summary>
         /// Gets the command to be viewed.
         /// </summary>
         public ICommand Command { get; private set; }
+
+        public bool IsDefault { get; private set; }
+
+        public bool IsCancel { get; private set; }
     }
 }

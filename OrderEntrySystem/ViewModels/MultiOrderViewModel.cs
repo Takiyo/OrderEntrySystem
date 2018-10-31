@@ -45,6 +45,14 @@ namespace OrderEntrySystem
             }
         }
 
+        public bool IsOrderPending
+        {
+            get
+            {
+                return this.AllOrders.SingleOrDefault(o => o.IsSelected).Order.Status == OrderStatus.Pending;
+            }
+        }
+
         public void AddPropertyChangedEvent(List<OrderViewModel> orders)
         {
             orders.ForEach(ovm => ovm.PropertyChanged += this.OnOrderViewModelPropertyChanged);
@@ -55,9 +63,20 @@ namespace OrderEntrySystem
             if (this.customer != null)
             {
                 this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewOrderExecute())));
-                this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditOrderExecute(), p => this.NumberOfItemsSelected == 1)));
-                this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteOrderExecute(), p => this.NumberOfItemsSelected == 1)));
-                //this.Commands.Add(new CommandViewModel("Place", new DelegateCommand(this.PlaceOrder()));
+                this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditOrderExecute(), p => this.NumberOfItemsSelected == 1 && this.IsOrderPending)));
+                this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteOrderExecute(), p => this.NumberOfItemsSelected ==1 && this.IsOrderPending)));
+                this.Commands.Add(new CommandViewModel("Place", new DelegateCommand(p => this.PlaceOrder(), p => this.NumberOfItemsSelected == 1 && this.IsOrderPending)));
+            }
+        }
+
+        private void PlaceOrder()
+        {
+            OrderViewModel ovm = this.AllOrders.SingleOrDefault(o => o.IsSelected);
+
+            if (ovm != null)
+            {
+                ovm.Order.Post();
+                ovm.UpdateOrderTotals();
             }
         }
 
@@ -97,6 +116,10 @@ namespace OrderEntrySystem
                 this.ShowOrder(viewModel);
 
                 this.repository.SaveToDatabase();
+
+                viewModel.Order.CalculateTotals();
+
+                viewModel.UpdateOrderTotals();
             }
             else
             {
@@ -167,24 +190,6 @@ namespace OrderEntrySystem
                 {
                     this.AllOrders.Remove(viewModel);
                 }
-            }
-        }
-
-        private void PlaceOrder()
-        {
-            OrderViewModel vm = this.GetOnlySelectedViewModel();
-            if (vm != null)
-            {
-                vm.Order.Post();
-                vm.UpdateOrderTotals();
-            }
-        }
-
-        public bool IsOrderPending
-        {
-            get
-            {
-                return this.AllOrders.SingleOrDefault(o => o.IsSelected).Order.Status == OrderStatus.Processing;
             }
         }
     }

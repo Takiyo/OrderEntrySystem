@@ -1,38 +1,12 @@
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\bin\Debug\OrderEntryDataAccess.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\bin\Debug\OrderEntryDataAccess.pdb
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\bin\Debug\EntityFramework.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.pdb
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\bin\Debug\EntityFramework.xml
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csprojAssemblyReference.cache
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CoreCompileInputs.cache
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CopyComplete
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.pdb
+D:\Downloadables\COLLEGE\Software Architecture\3.3 OES\SA OrderEntrySystem 3.3 End\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CoreCompileInputs.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\OrderEntryDataAccess.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\OrderEntryDataAccess.pdb
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\EntityFramework.dll
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\EntityFramework.SqlServer.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.pdb
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.dll.config
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\EntityFramework.xml
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\EntityFramework.SqlServer.xml
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csprojResolveAssemblyReference.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CoreCompileInputs.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.pdb
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\OrderEntryDataAccess.dll
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\OrderEntryDataAccess.pdb
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\EntityFramework.dll
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.dll
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.pdb
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\EntityFramework.xml
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csprojAssemblyReference.cache
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CoreCompileInputs.cache
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CopyComplete
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.dll
-C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.pdb

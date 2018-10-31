@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows;
 using OrderEntryDataAccess;
 using OrderEntryEngine;
 
 namespace OrderEntrySystem
 {
-    public class OrderLineViewModel : WorkspaceViewModel
+    public class OrderLineViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         private OrderLine line;
 
         /// <summary>
-        /// The order line view model's database repository.
+        /// The car view model's database repository.
         /// </summary>
         private Repository repository;
 
@@ -19,12 +21,28 @@ namespace OrderEntrySystem
         /// Initializes a new instance.
         /// </summary>
         /// <param name="line">The line to be shown.</param>
-        /// <param name="repository">The order line repository.</param>
+        /// <param name="repository">The car repository.</param>
         public OrderLineViewModel(OrderLine line, Repository repository)
             : base("New order line")
         {
             this.line = line;
             this.repository = repository;
+        }
+
+        public string Error
+        {
+            get
+            {
+                return this.line.Error;
+            }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                return this.line[propertyName];
+            }
         }
 
         public OrderLine Line
@@ -57,36 +75,19 @@ namespace OrderEntrySystem
             set
             {
                 this.line.Product = value;
-                this.line.ProductAmount = value.Price;
-                this.line.CalculateTax();
                 this.OnPropertyChanged("Product");
-                this.OnPropertyChanged("ProductAmount");
-                this.OnPropertyChanged("TaxPerProduct");
+                this.line.ProductAmount = value.Price;
+                this.OnPropertyChanged("ProductTotal");
+                this.line.CalculateTax();
+                this.OnPropertyChanged("TaxTotal");
             }
         }
 
         public IEnumerable<Product> Products
         {
             get
-
             {
                 return this.repository.GetProducts();
-            }
-        }
-
-        public decimal ProductPrice
-        {
-            get
-            {
-                return this.line.Product.Price;
-            }
-        }
-
-        public string ProductDescription
-        {
-            get
-            {
-                return this.line.Product.Description;
             }
         }
 
@@ -100,6 +101,9 @@ namespace OrderEntrySystem
             {
                 this.line.Quantity = value;
                 this.OnPropertyChanged("Quantity");
+                this.OnPropertyChanged("ProductTotal");
+                this.line.CalculateTax();
+                this.OnPropertyChanged("TaxTotal");
             }
         }
 
@@ -120,39 +124,50 @@ namespace OrderEntrySystem
         }
 
         /// <summary>
-        /// Creates the commands needed for the order line view model.
+        /// Creates the commands needed for the car view model.
         /// </summary>
         protected override void CreateCommands()
         {
-            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
-            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
+            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute()), true, false));
+            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute()), false, true));
         }
 
         /// <summary>
-        /// Saves the view model's order line to the repository.
+        /// Saves the car view model's car to the repository.
         /// </summary>
-        private void Save()
+        private bool Save()
         {
-            // This is a hack, and will add once for each line, but EF doesn't allow the same instance to be added multiple times.
-            this.repository.AddOrder(this.line.Order);
+            bool result = true;
 
-            // Add line to repository.
-            this.repository.AddLine(this.line);
+            if (this.Line.IsValid)
+            {
+                // Add line to repository.
+                this.repository.AddLine(this.line);
 
-            this.repository.SaveToDatabase();
+                this.repository.SaveToDatabase();
+            }
+            else
+            {
+                MessageBox.Show("One or more properties are invalid. Order line could not be saved.");
+                result = false;
+            }
+
+            return result;
         }
 
         /// <summary>
-        /// Saves the order line and closes the new order line window.
+        /// Saves the car and closes the new car window.
         /// </summary>
         private void OkExecute()
         {
-            this.Save();
-            this.CloseAction(true);
+            if (this.Save())
+            {
+                this.CloseAction(true);
+            }
         }
 
         /// <summary>
-        /// Closes the new order line window without saving.
+        /// Closes the new car window without saving.
         /// </summary>
         private void CancelExecute()
         {

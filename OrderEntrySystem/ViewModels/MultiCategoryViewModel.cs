@@ -35,16 +35,8 @@ namespace OrderEntrySystem
 
             this.AllCategories = new ObservableCollection<CategoryViewModel>(categories);
 
-            if (this.product == null)
-            {
-                this.repository.CategoryAdded += this.OnCategoryAdded;
-                this.repository.CategoryRemoved += this.OnCategoryRemoved;
-            }
-            else
-            {
-                this.repository.ProductCategoryAdded += this.OnProductCategoryAdded;
-                this.repository.ProductCategoryRemoved += this.OnProductCategoryRemoved;
-            }
+            this.repository.CategoryAdded += this.OnCategoryAdded;
+            this.repository.CategoryRemoved += this.OnCategoryRemoved;
         }
 
         public ObservableCollection<CategoryViewModel> AllCategories { get; set; }
@@ -67,13 +59,13 @@ namespace OrderEntrySystem
             if (this.product == null)
             {
                 this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewCategoryExecute())));
-            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditCategoryExecute(), p => this.NumberOfItemsSelected == 1)));
-            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteCategoryExecute(), p => this.NumberOfItemsSelected == 1)));
+                this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditCategoryExecute(), p => this.NumberOfItemsSelected == 1)));
+                this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteCategoryExecute(), p => this.NumberOfItemsSelected == 1)));
             }
             else
             {
                 this.Commands.Add(new CommandViewModel("Add...", new DelegateCommand(param => this.AddCategoryExecute())));
-                this.Commands.Add(new CommandViewModel("Remove", new DelegateCommand(param => this.RemoveCategoryExecute())));
+                this.Commands.Add(new CommandViewModel("Remove", new DelegateCommand(param => this.RemoveCategoryExecute(), p => this.NumberOfItemsSelected == 1)));
             }
         }
 
@@ -102,7 +94,7 @@ namespace OrderEntrySystem
             }
             else
             {
-                MessageBox.Show("Please select a category from the list.");
+                MessageBox.Show("Please select a car from the list.");
             }
         }
 
@@ -128,29 +120,6 @@ namespace OrderEntrySystem
             if (viewModel != null)
             {
                 if (viewModel.Category == e.Category)
-                {
-                    this.AllCategories.Remove(viewModel);
-                }
-            }
-        }
-
-        private void OnProductCategoryAdded(object sender, ProductCategoryEventArgs e)
-        {
-            CategoryViewModel vm = new CategoryViewModel(e.Category, this.repository);
-            vm.PropertyChanged += this.OnCategoryViewModelPropertyChanged;
-            if (e.Product == this.product)
-            {
-                this.AllCategories.Add(vm);
-            }
-        }
-
-        private void OnProductCategoryRemoved(object sender, ProductCategoryEventArgs e)
-        {
-            CategoryViewModel viewModel = this.AllCategories.FirstOrDefault(vm => vm.Category == e.Category);
-
-            if (viewModel != null)
-            {
-                if (this.product == e.Product)
                 {
                     this.AllCategories.Remove(viewModel);
                 }

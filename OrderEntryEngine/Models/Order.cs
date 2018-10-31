@@ -37,7 +37,7 @@ namespace OrderEntryEngine
             }
             set
             {
-                this.shippingAmount = Math.Round(value);
+                this.shippingAmount = Math.Round(value, 2);
             }
         }
 
@@ -49,7 +49,7 @@ namespace OrderEntryEngine
             }
             set
             {
-                this.productTotal = Math.Round(value);
+                this.productTotal = Math.Round(value, 2);
             }
         }
 
@@ -61,7 +61,7 @@ namespace OrderEntryEngine
             }
             set
             {
-                this.taxTotal = Math.Round(value);
+                this.taxTotal = Math.Round(value, 2);
             }
         }
 
@@ -75,16 +75,34 @@ namespace OrderEntryEngine
 
         public void CalculateTotals()
         {
-            this.ProductTotal = this.Lines.Where(l => !l.IsArchived).Sum(l => l.ExtendedProductAmount);
-            this.TaxTotal = this.Lines.Where(l => !l.IsArchived).Sum(l => l.ExtendedTax);
+            this.ProductTotal = this.Lines.Sum(l => l.ExtendedProductAmount);
+            this.TaxTotal = this.Lines.Sum(l => l.ExtendedTax);
         }
 
         public void Post()
         {
-            if (this.Status == OrderStatus.Processing)
+            switch (this.Status)
             {
-                this.Status = OrderStatus.Shipped;
-                this.CalculateTotals();
+                case OrderStatus.Pending:
+                    this.Status = OrderStatus.Placed;
+
+                    foreach (OrderLine line in this.Lines)
+                    {
+                        line.Post();
+                        line.CalculateTax();
+                    }
+
+                    this.CalculateTotals();
+
+                    break;
+                case OrderStatus.Placed:
+
+                    break;
+                case OrderStatus.Shipped:
+
+                    break;
+                default:
+                    break;
             }
         }
     }

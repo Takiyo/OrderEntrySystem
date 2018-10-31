@@ -1,31 +1,16 @@
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\bin\Debug\OrderEntryEngine.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\bin\Debug\OrderEntryEngine.pdb
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\bin\Debug\EntityFramework.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\bin\Debug\EntityFramework.xml
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojAssemblyReference.cache
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CoreCompileInputs.cache
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CopyComplete
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
-C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.1 local\SA OrderEntrySystem 3.1 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\OrderEntryEngine.dll
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\OrderEntryEngine.pdb
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\EntityFramework.dll
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.dll
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\EntityFramework.xml
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.3\SA OrderEntrySystem 3.3 End\OrderEntryEngine\bin\Debug\OrderEntryEngine.dll.config
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.3\SA OrderEntrySystem 3.3 End\OrderEntryEngine\bin\Debug\OrderEntryEngine.dll
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.3\SA OrderEntrySystem 3.3 End\OrderEntryEngine\bin\Debug\OrderEntryEngine.pdb
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.3\SA OrderEntrySystem 3.3 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojResolveAssemblyReference.cache
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.3\SA OrderEntrySystem 3.3 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
+C:\Users\Brent\Documents\git\10152175-software-architecture-mstc\Source\Assignments\Order Entry System\3.3\SA OrderEntrySystem 3.3 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
+D:\Downloadables\COLLEGE\Software Architecture\3.3 OES\SA OrderEntrySystem 3.3 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojResolveAssemblyReference.cache
+D:\Downloadables\COLLEGE\Software Architecture\3.3 OES\SA OrderEntrySystem 3.3 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CoreCompileInputs.cache
+D:\Downloadables\COLLEGE\Software Architecture\3.3 OES\SA OrderEntrySystem 3.3 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
+D:\Downloadables\COLLEGE\Software Architecture\3.3 OES\SA OrderEntrySystem 3.3 End\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojResolveAssemblyReference.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CoreCompileInputs.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\OrderEntryEngine.dll
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\OrderEntryEngine.pdb
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\EntityFramework.dll
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\EntityFramework.xml
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CoreCompileInputs.cache
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CopyComplete
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
-C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\OrderEntryEngine.dll
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\OrderEntryEngine.pdb

@@ -48,8 +48,8 @@ namespace OrderEntrySystem
         protected override void CreateCommands()
         {
             this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewProductExecute())));
-            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditProductExecute(), p => this.NumberOfItemsSelected == 1)));
-            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteProductExecute(), p => this.NumberOfItemsSelected == 1)));
+            this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditProductExecute(), param => this.NumberOfItemsSelected == 1)));
+            this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteProductExecute(), param => this.NumberOfItemsSelected == 1)));
         }
 
         private void OnProductAdded(object sender, ProductEventArgs e)
@@ -137,7 +137,7 @@ namespace OrderEntrySystem
         /// <summary>
         /// Creates a new window to edit a car.
         /// </summary>
-        /// <param name="viewModel">The view model for the product to be edited.</param>
+        /// <param name="viewModel">The view model for the car to be edited.</param>
         private void ShowProduct(WorkspaceViewModel viewModel)
         {
             WorkspaceWindow window = new WorkspaceWindow();

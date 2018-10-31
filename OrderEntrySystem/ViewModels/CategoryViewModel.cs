@@ -1,14 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using OrderEntryDataAccess;
 using OrderEntryEngine;
 
 namespace OrderEntrySystem
 {
-    public class CategoryViewModel : WorkspaceViewModel
+    public class CategoryViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         private Category category;
 
@@ -21,6 +23,22 @@ namespace OrderEntrySystem
         {
             this.category = category;
             this.repository = repository;
+        }
+
+        public string Error
+        {
+            get
+            {
+                return this.category.Error;
+            }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                return this.category[propertyName];
+            }
         }
 
         public Category Category
@@ -62,22 +80,36 @@ namespace OrderEntrySystem
         /// </summary>
         protected override void CreateCommands()
         {
-            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
-            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
+            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute()), true, false));
+            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute()), false, true));
         }
 
-        private void Save()
+        private bool Save()
         {
-            // Add product category to repository.
-            this.repository.AddCategory(this.category);
+            bool result = true;
 
-            this.repository.SaveToDatabase();
+            if (this.Category.IsValid)
+            {
+                // Add product category to repository.
+                this.repository.AddCategory(this.category);
+
+                this.repository.SaveToDatabase();
+            }
+            else
+            {
+                MessageBox.Show("One or more properties are invalid. Customer could not be saved.");
+                result = false;
+            }
+
+            return result;
         }
 
         private void OkExecute()
         {
-            this.Save();
-            this.CloseAction(true);
+            if (this.Save())
+            {
+                this.CloseAction(true);
+            }
         }
 
         /// <summary>

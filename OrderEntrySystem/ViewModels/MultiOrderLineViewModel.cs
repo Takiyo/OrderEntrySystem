@@ -35,8 +35,6 @@ namespace OrderEntrySystem
             this.repository.OrderLineRemoved += this.OnOrderLineRemoved;
         }
 
-        public Action LineChanged { get; set; }
-
         public ObservableCollection<OrderLineViewModel> AllLines { get; set; }
 
         public int NumberOfItemsSelected
@@ -97,21 +95,15 @@ namespace OrderEntrySystem
 
         private void CreateNewOrderLineExecute()
         {
-            this.order.CalculateTotals();
-            this.LineChanged();
+            OrderLine category = new OrderLine { Order = order, Quantity = 1 };
 
-            OrderLine orderLine = new OrderLine { Order = order, Quantity = 1 };
-
-            OrderLineViewModel viewModel = new OrderLineViewModel(orderLine, this.repository);
+            OrderLineViewModel viewModel = new OrderLineViewModel(category, this.repository);
 
             this.ShowOrderLine(viewModel);
         }
 
         private void EditOrderLineExecute()
         {
-            this.order.CalculateTotals();
-            this.LineChanged();
-
             OrderLineViewModel viewModel = this.GetOnlySelectedViewModel();
 
             if (viewModel != null)
@@ -128,9 +120,6 @@ namespace OrderEntrySystem
 
         private void DeleteOrderLineExecute()
         {
-            this.order.CalculateTotals();
-            this.LineChanged();
-
             OrderLineViewModel viewModel = this.GetOnlySelectedViewModel();
 
             if (viewModel != null)

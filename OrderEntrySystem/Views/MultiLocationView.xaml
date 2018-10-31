@@ -17,10 +17,10 @@
                 <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllLocations}">
                     <ListView.View>
                         <GridView>
-                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Path=Name}" />
-                        <GridViewColumn Header="City" Width="auto" DisplayMemberBinding="{Binding Path=City}" />
-                        <GridViewColumn Header="State" Width="auto" DisplayMemberBinding="{Binding Path=State}"/>
-                        <GridViewColumn Header="Description" Width="auto" DisplayMemberBinding="{Binding Path=Description}" />
+                            <GridViewColumn Header="Name" Width="55" DisplayMemberBinding="{Binding Path=Name}" />
+                            <GridViewColumn Header="City" Width="35" DisplayMemberBinding="{Binding Path=City}" />
+                            <GridViewColumn Header="State" Width="55" DisplayMemberBinding="{Binding Path=State}"/>
+                            <GridViewColumn Header="Description" Width="100" DisplayMemberBinding="{Binding Path=Description}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
