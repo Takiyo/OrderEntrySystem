@@ -36,3 +36,4 @@ C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAcc
 C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.csproj.CopyComplete
 C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.dll
 C:\Users\15766412\Downloads\OES\OrderEntryDataAccess\obj\Debug\OrderEntryDataAccess.pdb
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryDataAccess\bin\Debug\OrderEntryEngine.dll.config

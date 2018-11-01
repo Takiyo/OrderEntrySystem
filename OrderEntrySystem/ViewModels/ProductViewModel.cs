@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using OrderEntryDataAccess;
 using OrderEntryEngine;
 
 namespace OrderEntrySystem
 {
-    public class ProductViewModel : WorkspaceViewModel
+    public class ProductViewModel : WorkspaceViewModel, IDataErrorInfo
     {
         private Product product;
 
@@ -24,6 +26,22 @@ namespace OrderEntrySystem
             this.repository = repository;
             this.filteredCategoryViewModel = new MultiCategoryViewModel(this.repository, this.product);
             this.filteredCategoryViewModel.AllCategories = this.FilteredCategories;
+        }
+
+        public string Error
+        {
+            get
+            {
+                return this.product.Error;
+            }
+        }
+
+        public string this[string propertyName]
+        {
+            get
+            {
+                return this.product[propertyName];
+            }
         }
 
         public MultiCategoryViewModel FilteredCategoryViewModel
@@ -44,7 +62,7 @@ namespace OrderEntrySystem
                 {
                     categories =
                         (from c in this.product.ProductCategories
-                        select new CategoryViewModel(c.Category, this.repository)).ToList();
+                         select new CategoryViewModel(c.Category, this.repository)).ToList();
                 }
 
                 this.FilteredCategoryViewModel.AddPropertyChangedEvent(categories);
@@ -79,20 +97,7 @@ namespace OrderEntrySystem
             }
         }
 
-        public int Quantity
-        {
-            get
-            {
-                return this.product.Quantity;
-            }
-            set
-            {
-                this.product.Quantity = value;
-                this.OnPropertyChanged("Quantity");
-            }
-        }
-
-        public Condition Condition
+        public OrderEntryEngine.Condition Condition
         {
             get
             {
@@ -105,11 +110,11 @@ namespace OrderEntrySystem
             }
         }
 
-        public ICollection<Condition> Conditions
+        public ICollection<OrderEntryEngine.Condition> Conditions
         {
             get
             {
-                return Enum.GetValues(typeof(Condition)) as ICollection<Condition>;
+                return Enum.GetValues(typeof(OrderEntryEngine.Condition)) as ICollection<OrderEntryEngine.Condition>;
             }
         }
 
@@ -160,6 +165,18 @@ namespace OrderEntrySystem
             }
         }
 
+        public int Quantity
+        {
+            get
+            {
+                return this.product.Quantity;
+            }
+            set
+            {
+                this.product.Quantity = value;
+            }
+        }
+
         public ICollection<Location> Locations
         {
             get
@@ -181,22 +198,36 @@ namespace OrderEntrySystem
         /// </summary>
         protected override void CreateCommands()
         {
-            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute())));
-            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute())));
+            this.Commands.Add(new CommandViewModel("OK", new DelegateCommand(p => this.OkExecute()), true, false));
+            this.Commands.Add(new CommandViewModel("Cancel", new DelegateCommand(p => this.CancelExecute()), false, true));
         }
 
-        private void Save()
+        private bool Save()
         {
-            // Add product to repository.
-            this.repository.AddProduct(this.product);
+            bool result = true;
 
-            this.repository.SaveToDatabase();
+            if (this.Product.IsValid)
+            {
+                // Add product to repository.
+                this.repository.AddProduct(this.product);
+
+                this.repository.SaveToDatabase();
+            }
+            else
+            {
+                result = false;
+                MessageBox.Show("One or more fields are invalid. The product could not be saved.");
+            }
+
+            return result;
         }
 
         private void OkExecute()
         {
-            this.Save();
-            this.CloseAction(true);
+            if (this.Save())
+            {
+                this.CloseAction(true);
+            }
         }
 
         /// <summary>

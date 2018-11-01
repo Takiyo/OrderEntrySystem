@@ -168,3 +168,4 @@ C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\OrderEntrySystem.cspr
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\OrderEntrySystem.csproj.CopyComplete
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\OrderEntrySystem.exe
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\OrderEntrySystem.pdb
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\bin\Debug\OrderEntryEngine.dll.config
