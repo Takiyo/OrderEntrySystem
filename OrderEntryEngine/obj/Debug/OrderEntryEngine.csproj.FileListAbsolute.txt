@@ -29,3 +29,14 @@ C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.cspr
 C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CopyComplete
 C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
 C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\bin\Debug\OrderEntryEngine.dll
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\bin\Debug\OrderEntryEngine.pdb
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\bin\Debug\EntityFramework.dll
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\bin\Debug\EntityFramework.xml
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojAssemblyReference.cache
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CoreCompileInputs.cache
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CopyComplete
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb

@@ -10,22 +10,33 @@
         <ResourceDictionary Source="SharedResources.xaml" />
     </UserControl.Resources>
     <Grid>
-        <DockPanel>
-            <Grid DockPanel.Dock="Bottom">
-                <local:NumberOfItemsSelectedView/>
-            </Grid>
-            <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllProducts}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Path=Name}" />
-                        <GridViewColumn Header="Price" Width="auto" DisplayMemberBinding="{Binding Path=Price}" />
-                        <GridViewColumn Header="Condition" Width="auto" DisplayMemberBinding="{Binding Path=Condition}" />
-                        <GridViewColumn Header="Location" Width="auto" DisplayMemberBinding="{Binding Path=Location}"/>
-                        <GridViewColumn Header="Description" Width="auto" DisplayMemberBinding="{Binding Path=Description}" />
-                        <GridViewColumn Header="Quantity" Width="auto" DisplayMemberBinding="{Binding Path=Quantity}" />
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </DockPanel>
+        <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+            <TextBox Text="{Binding SearchText}"></TextBox>
+            <ComboBox ItemsSource="{Binding Conditions}" SelectedItem="{Binding FilterCondition}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4.5,0,0" Width="100" Height="23"/>
+            <ContentControl Content="{Binding FilterCommands}" ContentTemplate="{StaticResource NestedCommandTemplate}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        </StackPanel>
+
+        <Grid>
+            <DockPanel Margin="0,33,0,0">
+
+                <Grid DockPanel.Dock="Bottom">
+                    <local:NumberOfItemsSelectedView/>
+                </Grid>
+
+
+                <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllProducts}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Path=Name}" />
+                            <GridViewColumn Header="Price" Width="auto" DisplayMemberBinding="{Binding Path=Price}" />
+                            <GridViewColumn Header="Condition" Width="auto" DisplayMemberBinding="{Binding Path=Condition}" />
+                            <GridViewColumn Header="Location" Width="auto" DisplayMemberBinding="{Binding Path=Location}"/>
+                            <GridViewColumn Header="Description" Width="auto" DisplayMemberBinding="{Binding Path=Description}" />
+                            <GridViewColumn Header="Quantity" Width="auto" DisplayMemberBinding="{Binding Path=Quantity}" />
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </DockPanel>
+        </Grid>
     </Grid>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using OrderEntryDataAccess;
 using OrderEntryEngine;
+using Condition = OrderEntryEngine.Condition;
 
 namespace OrderEntrySystem
 {
@@ -45,11 +47,70 @@ namespace OrderEntrySystem
             products.ForEach(pvm => pvm.PropertyChanged += this.OnProductViewModelPropertyChanged);
         }
 
+        public ObservableCollection<CommandViewModel> FilterCommands
+        {
+            get; private set;
+        } = new ObservableCollection<CommandViewModel>();
+
+        public IEnumerable<Condition> Conditions
+        {
+            get
+            {
+                return Enum.GetValues(typeof(Condition)) as IEnumerable<Condition>;
+            }
+        }
+
+        public Condition FilterCondition { get; set; }
+
+        public string SearchText { get; set; }
+
+        private void Search()
+        {
+            this.AllProducts = new ObservableCollection<ProductViewModel>
+            (
+                (from p in this.repository.GetProducts()
+                 where p.Name.ToUpper().Contains(SearchText.ToUpper()) || p.Description.ToUpper().Contains(SearchText.ToUpper())
+                 select new ProductViewModel(p, this.repository)).ToList()
+            );
+            this.OnPropertyChanged("AllProducts");
+        }
+
+        private void Filter()
+        {
+            this.AllProducts = new ObservableCollection<ProductViewModel>
+                (
+                (from p in this.repository.GetProducts()
+                 where p.Condition == this.FilterCondition
+                 select new ProductViewModel(p, this.repository)).ToList()
+                 );
+            this.OnPropertyChanged("AllProducts");
+        }
+
+        private void ClearFilters()
+        {
+            this.FilterCondition = Condition.Poor;
+            this.OnPropertyChanged("FilterCondition");
+            this.SearchText = "";
+            this.OnPropertyChanged("SearchText");
+
+            List<ProductViewModel> products =
+    (from item in this.repository.GetProducts()
+     select new ProductViewModel(item, this.repository)).ToList();
+
+            this.AddPropertyChangedEvent(products);
+
+            this.AllProducts = new ObservableCollection<ProductViewModel>(products);;
+        }
+
+
         protected override void CreateCommands()
         {
             this.Commands.Add(new CommandViewModel("New...", new DelegateCommand(param => this.CreateNewProductExecute())));
             this.Commands.Add(new CommandViewModel("Edit...", new DelegateCommand(param => this.EditProductExecute(), p => this.NumberOfItemsSelected == 1)));
             this.Commands.Add(new CommandViewModel("Delete", new DelegateCommand(param => this.DeleteProductExecute(), p => this.NumberOfItemsSelected == 1)));
+            this.FilterCommands.Add(new CommandViewModel("Filter", new DelegateCommand(param => this.Filter())));
+            this.FilterCommands.Add(new CommandViewModel("Clear", new DelegateCommand(param => this.ClearFilters())));
+            this.FilterCommands.Add(new CommandViewModel("Search", new DelegateCommand(param => this.Search())));
         }
 
         private void OnProductAdded(object sender, ProductEventArgs e)
