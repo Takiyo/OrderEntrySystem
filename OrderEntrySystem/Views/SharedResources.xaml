@@ -36,6 +36,19 @@
     <DataTemplate DataType="{x:Type vm:MultiCategoryViewModel}">
         <vm:MultiCategoryView></vm:MultiCategoryView>
     </DataTemplate>
+    
+    
+    <Style x:Key="PagingButton" TargetType="{x:Type Button}">
+        <Setter Property="FontFamily" Value="Wedbings"></Setter>
+        <Setter Property="Height" Value="23"></Setter>
+        <Setter Property="Width" Value="45"></Setter>
+        <Setter Property="Margin" Value="4,0,4,0"></Setter>
+    </Style>
+
+    <Style x:Key="PagingTextBlock" TargetType="{x:Type TextBlock}">
+        <Setter Property="Margin" Value="4,0,4,0"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
 
     <Style x:Key="ListViewStyle" TargetType="{x:Type ListViewItem}">
         <Setter Property="HorizontalContentAlignment" Value="Stretch" />

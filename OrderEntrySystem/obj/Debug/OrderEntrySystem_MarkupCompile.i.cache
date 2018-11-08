@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\
 OrderEntrySystem
 none
 false
 DEBUG;TRACE
-C:\Users\15766412\Downloads\OES\OrderEntrySystem\App.xaml
-17751595054
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\App.xaml
+181176224829
 
-42248165030
-201699412291
-Views\AddCategoryView.xaml;Views\MultiOrderLineView.xaml;Views\MultiCategoryView.xaml;Views\NumberOfItemsSelectedView.xaml;Views\OrderLineView.xaml;Views\CustomerView.xaml;Views\CategoryView.xaml;Views\ProductView.xaml;Views\LocationView.xaml;Views\MainWindow.xaml;Views\MultiCustomerView.xaml;Views\MultiProductView.xaml;Views\MultiLocationView.xaml;Views\MultiOrderView.xaml;Views\OrderView.xaml;Views\SharedResources.xaml;Views\WorkspaceWindow.xaml;
+441000529957
+20-1447236811
+Views\AddCategoryView.xaml;Views\MultiOrderLineView.xaml;Views\MultiCategoryView.xaml;Views\NumberOfItemsSelectedView.xaml;Views\OrderLineView.xaml;Views\CustomerView.xaml;Views\CategoryView.xaml;Views\PagingView.xaml;Views\ProductView.xaml;Views\LocationView.xaml;Views\MainWindow.xaml;Views\MultiCustomerView.xaml;Views\MultiProductView.xaml;Views\MultiLocationView.xaml;Views\MultiOrderView.xaml;Views\OrderView.xaml;Views\SharedResources.xaml;Views\WorkspaceWindow.xaml;
 
-True
+False
 

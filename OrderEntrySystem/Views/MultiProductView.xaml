@@ -18,16 +18,20 @@
 
         <Grid>
             <DockPanel Margin="0,33,0,0">
-
+                
                 <Grid DockPanel.Dock="Bottom">
+                    <local:PagingView/>
                     <local:NumberOfItemsSelectedView/>
                 </Grid>
+                
 
 
-                <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=AllProducts}">
+                <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=SortedProducts}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Name" Width="auto" DisplayMemberBinding="{Binding Path=Name}" />
+                            <GridViewColumn Width="auto" DisplayMemberBinding="{Binding Path=Name}">
+                                <GridViewColumnHeader Content="Name" Command="{Binding SortCommand}" CommandParameter="Name"/>
+                            </GridViewColumn>
                             <GridViewColumn Header="Price" Width="auto" DisplayMemberBinding="{Binding Path=Price}" />
                             <GridViewColumn Header="Condition" Width="auto" DisplayMemberBinding="{Binding Path=Condition}" />
                             <GridViewColumn Header="Location" Width="auto" DisplayMemberBinding="{Binding Path=Location}"/>

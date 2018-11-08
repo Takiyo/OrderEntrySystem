@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Enumerations\Condition.cs" />
     <Compile Include="Enumerations\OrderStatus.cs" />
+    <Compile Include="EventArgs\CurrentPageChangeEventArgs.cs" />
     <Compile Include="EventArgs\ProductCategoryEventArgs.cs" />
     <Compile Include="EventArgs\CategoryEventArgs.cs" />
     <Compile Include="EventArgs\CustomerEventArgs.cs" />

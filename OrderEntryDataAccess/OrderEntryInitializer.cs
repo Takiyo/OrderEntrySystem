@@ -27,11 +27,15 @@ namespace OrderEntryDataAccess
             context.Categories.AddRange(categories);
             context.SaveChanges();
 
+            // TODO find why this isn't getting hit
             var products = new List<Product>
             {
                 new Product { Name = "16GB Flash Drive", Condition = Condition.Poor, Description = "A portable flash drive adorned with the NTC logo.", Price = 15.00m, LocationId = 1 },
                 new Product { Name = "Coffee Mug", Condition = Condition.Poor, Description = "A sleek mug adorned with the NTC logo.", Price = 9.50m, LocationId = 1 },
-                new Product { Name = "T-Shirt", Condition = Condition.Poor, Description = "A stylish t-shirt showing off your school pride, adorned with an NTC logo.", Price = 18.50m, LocationId = 2 }
+                new Product { Name = "T-Shirt", Condition = Condition.Poor, Description = "A stylish t-shirt showing off your school pride, adorned with an NTC logo.", Price = 18.50m, LocationId = 2 },
+                new Product { Name = "THING", Condition = Condition.Average, Description = "IT IS STUFF?", Price = 1m, LocationId = 1 },
+                new Product { Name = "Guitar", Condition = Condition.Excellent, Description = "Nice guitar.", Price = 100m, LocationId = 2 },
+                new Product { Name = "Used Computer", Condition = Condition.Average, Description = "It's apple.", Price = 1000m, LocationId = 2 }
             };
 
             context.Products.AddRange(products);

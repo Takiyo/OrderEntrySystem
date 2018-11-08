@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Input;
 using OrderEntryDataAccess;
 using OrderEntryEngine;
 using Condition = OrderEntryEngine.Condition;
@@ -14,6 +16,16 @@ namespace OrderEntrySystem
     public class MultiProductViewModel : WorkspaceViewModel
     {
         private Repository repository;
+
+        private ObservableCollection<ProductViewModel> displayedProjects;
+
+        private CollectionViewSource productViewSource;
+
+        private string sortColumnName;
+
+        private ListSortDirection sortDirection;
+
+        private List<ProductViewModel> allProductsSorted;
 
         public MultiProductViewModel(Repository repository)
             : base("All products")
@@ -30,9 +42,78 @@ namespace OrderEntrySystem
 
             this.repository.ProductAdded += this.OnProductAdded;
             this.repository.ProductRemoved += this.OnProductRemoved;
+
+            this.displayedProjects = new ObservableCollection<ProductViewModel>();
+            this.Pager = new PagingViewModel(this.AllProducts.Count);
+
+            this.Pager.CurrentPageChanged += this.OnPageChanged;
+
+            this.RebuildPageData();
+
+            this.productViewSource = new CollectionViewSource();
+            this.SortCommand = new DelegateCommand(this.Sort);
+
+            this.allProductsSorted = new List<ProductViewModel>(products);
+        }
+
+        public ListCollectionView SortedProducts
+        {
+            get
+            {
+                return this.productViewSource.View as ListCollectionView;
+            }
+        }
+
+        public ICommand SortCommand { get; private set; }
+
+        public void Sort(object parameter)
+        {
+            CollectionViewSource sortCollection = new CollectionViewSource();
+            sortCollection.Source = this.AllProducts;
+
+            var p = (string)parameter;
+
+            if (sortColumnName == p)
+            {
+                if (this.sortDirection == ListSortDirection.Ascending)
+                {
+                    this.sortDirection = ListSortDirection.Descending;
+                }
+                else
+                {
+                    this.sortDirection = ListSortDirection.Ascending;
+                }
+            }
+
+            sortCollection.GroupDescriptions.Clear();
+            sortCollection.SortDescriptions.Add(new SortDescription(sortColumnName, sortDirection));
+
+            var sc = sortCollection.View.Cast<ProductViewModel>().ToList();
+            this.allProductsSorted.Clear();
+           
+            foreach (ProductViewModel pvm in sc)
+            {
+                allProductsSorted.Add(pvm);
+            }
+
+            this.RebuildPageData();
         }
 
         public ObservableCollection<ProductViewModel> AllProducts { get; set; }
+
+        public ObservableCollection<ProductViewModel> DisplayedProducts
+        {
+            get
+            {
+                return this.displayedProjects;
+            }
+            set
+            {
+                this.displayedProjects = value;
+                this.productViewSource = new CollectionViewSource();
+                this.productViewSource.Source = this.DisplayedProducts;
+            }
+        }
 
         public int NumberOfItemsSelected
         {
@@ -46,6 +127,8 @@ namespace OrderEntrySystem
         {
             products.ForEach(pvm => pvm.PropertyChanged += this.OnProductViewModelPropertyChanged);
         }
+
+        public PagingViewModel Pager { get; private set; }
 
         public ObservableCollection<CommandViewModel> FilterCommands
         {
@@ -64,6 +147,27 @@ namespace OrderEntrySystem
 
         public string SearchText { get; set; }
 
+        public void RebuildPageData()
+        {
+            this.DisplayedProducts.Clear();
+
+            int i = Pager.PageSize * (Pager.CurrentPage - 1);
+            Pager.ItemCount = this.AllProducts.Count;
+            IEnumerable<ProductViewModel> products = this.allProductsSorted.Skip(i);
+            products = this.allProductsSorted.Take(this.Pager.PageSize);
+
+            foreach (ProductViewModel p in products)
+            {
+                DisplayedProducts.Add(p);
+            }
+        }
+
+        
+        private void OnPageChanged(object sender, CurrentPageChangeEventArgs e)
+        {
+            this.RebuildPageData();
+        }
+
         private void Search()
         {
             this.AllProducts = new ObservableCollection<ProductViewModel>
@@ -73,6 +177,8 @@ namespace OrderEntrySystem
                  select new ProductViewModel(p, this.repository)).ToList()
             );
             this.OnPropertyChanged("AllProducts");
+
+            this.allProductsSorted = new List<ProductViewModel>(this.AllProducts);
         }
 
         private void Filter()
@@ -100,6 +206,8 @@ namespace OrderEntrySystem
             this.AddPropertyChangedEvent(products);
 
             this.AllProducts = new ObservableCollection<ProductViewModel>(products);;
+
+            this.allProductsSorted = new List<ProductViewModel>(products);
         }
 
 
