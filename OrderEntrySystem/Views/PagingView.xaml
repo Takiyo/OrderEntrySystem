@@ -11,40 +11,16 @@
     </UserControl.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Grid Margin="4">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="4" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="4" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="4" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="4" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="4" />
-            </Grid.RowDefinitions>
-
-            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
-                <Button Content="9" Command="{Binding Pager.GoToFirstPage}"></Button>
-                <Button Content="7" Command="{Binding Pager.GoToPreviousPageCommand}"></Button>
-                <TextBlock Text="Page"></TextBlock>
-                <TextBlock Text="{Binding Pager.CurrentPage}"></TextBlock>
-                <TextBlock Text="of"></TextBlock>
-                <TextBlock Text="{Binding Pager.PageCount}"></TextBlock>
-                <Button Content="8" Command="{Binding Pager.GoToNextPage}"></Button>
-                <Button Content=":" Command="{Binding Pager.GoToLastPage}"></Button>
-            </StackPanel>
-
-
-
-        </Grid>
+        <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Content="9" Style="{StaticResource PagingButton}" Command="{Binding Pager.GoToFirstPage}"></Button>
+            <Button Content="7" Style="{StaticResource PagingButton}" Command="{Binding Pager.GoToPreviousPageCommand}"></Button>
+            <TextBlock Text="Page"></TextBlock>
+            <TextBlock Text="{Binding Pager.CurrentPage}"></TextBlock>
+            <TextBlock Text="of"></TextBlock>
+            <TextBlock Text="{Binding Pager.PageCount}"></TextBlock>
+            <Button Style="{StaticResource PagingButton}" Content="8" Command="{Binding Pager.GoToNextPage}"></Button>
+            <Button Style="{StaticResource PagingButton}" Content=":" Command="{Binding Pager.GoToLastPage}"></Button>
+        </StackPanel>
     </Grid>
+
 </UserControl>

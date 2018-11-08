@@ -98,7 +98,7 @@ namespace OrderEntrySystem
                 var e = this.CurrentPageChanged;
                 if (e != null)
                 {
-                    e.Invoke(this, new CurrentPageChangeEventArgs(this.CurrentPageStartIndex, this.PageSize));
+                    e(this, new CurrentPageChangeEventArgs(this.CurrentPageStartIndex, this.PageSize));
                 }
             }
         }

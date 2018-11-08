@@ -40,3 +40,4 @@ C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\Orde
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CopyComplete
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
+C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojAssemblyReference.cache

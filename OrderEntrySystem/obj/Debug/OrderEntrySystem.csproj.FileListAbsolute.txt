@@ -228,3 +228,5 @@ C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntrySystem\obj\Debug\Orde
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntrySystem\obj\Debug\OrderEntrySystem.pdb
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\PagingView.g.cs
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntrySystem\obj\Debug\Views\PagingView.baml
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\Views\PagingView.g.cs
+C:\Users\15766412\Downloads\OES\OrderEntrySystem\obj\Debug\Views\PagingView.baml

@@ -17,7 +17,7 @@ namespace OrderEntrySystem
     {
         private Repository repository;
 
-        private ObservableCollection<ProductViewModel> displayedProjects;
+        private ObservableCollection<ProductViewModel> displayedProducts;
 
         private CollectionViewSource productViewSource;
 
@@ -43,17 +43,17 @@ namespace OrderEntrySystem
             this.repository.ProductAdded += this.OnProductAdded;
             this.repository.ProductRemoved += this.OnProductRemoved;
 
-            this.displayedProjects = new ObservableCollection<ProductViewModel>();
+            this.displayedProducts = new ObservableCollection<ProductViewModel>();
             this.Pager = new PagingViewModel(this.AllProducts.Count);
 
             this.Pager.CurrentPageChanged += this.OnPageChanged;
 
+            this.allProductsSorted = new List<ProductViewModel>(products);
             this.RebuildPageData();
 
             this.productViewSource = new CollectionViewSource();
             this.SortCommand = new DelegateCommand(this.Sort);
 
-            this.allProductsSorted = new List<ProductViewModel>(products);
         }
 
         public ListCollectionView SortedProducts
@@ -105,11 +105,12 @@ namespace OrderEntrySystem
         {
             get
             {
-                return this.displayedProjects;
+                return this.displayedProducts;
             }
             set
             {
-                this.displayedProjects = value;
+                this.displayedProducts = value;
+
                 this.productViewSource = new CollectionViewSource();
                 this.productViewSource.Source = this.DisplayedProducts;
             }
@@ -153,8 +154,7 @@ namespace OrderEntrySystem
 
             int i = Pager.PageSize * (Pager.CurrentPage - 1);
             Pager.ItemCount = this.AllProducts.Count;
-            IEnumerable<ProductViewModel> products = this.allProductsSorted.Skip(i);
-            products = this.allProductsSorted.Take(this.Pager.PageSize);
+            IEnumerable<ProductViewModel> products = this.allProductsSorted.Skip(i).Take(this.Pager.PageSize);
 
             foreach (ProductViewModel p in products)
             {

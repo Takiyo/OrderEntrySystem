@@ -11,19 +11,28 @@
     </UserControl.Resources>
     <Grid>
         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-            <TextBox Text="{Binding SearchText}"></TextBox>
+            <TextBox Text="{Binding SearchText}" Margin="0,0,0,273" RenderTransformOrigin="0.5,0.5" Width="3">
+                <TextBox.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBox.RenderTransform>
+            </TextBox>
             <ComboBox ItemsSource="{Binding Conditions}" SelectedItem="{Binding FilterCondition}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4.5,0,0" Width="100" Height="23"/>
             <ContentControl Content="{Binding FilterCommands}" ContentTemplate="{StaticResource NestedCommandTemplate}" HorizontalAlignment="Right" VerticalAlignment="Top"/>
         </StackPanel>
 
         <Grid>
             <DockPanel Margin="0,33,0,0">
-                
+
                 <Grid DockPanel.Dock="Bottom">
                     <local:PagingView/>
                     <local:NumberOfItemsSelectedView/>
                 </Grid>
-                
+
 
 
                 <ListView ItemContainerStyle="{StaticResource ResourceKey=ListViewStyle}" ItemsSource="{Binding Path=SortedProducts}">

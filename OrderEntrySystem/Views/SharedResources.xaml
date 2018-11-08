@@ -39,7 +39,7 @@
     
     
     <Style x:Key="PagingButton" TargetType="{x:Type Button}">
-        <Setter Property="FontFamily" Value="Wedbings"></Setter>
+        <Setter Property="FontFamily" Value="Webdings"></Setter>
         <Setter Property="Height" Value="23"></Setter>
         <Setter Property="Width" Value="45"></Setter>
         <Setter Property="Margin" Value="4,0,4,0"></Setter>
