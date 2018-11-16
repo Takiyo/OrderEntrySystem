@@ -28,10 +28,18 @@
         <Grid>
             <DockPanel Margin="0,33,0,0">
 
-                <Grid DockPanel.Dock="Bottom">
-                    <local:PagingView/>
-                    <local:NumberOfItemsSelectedView/>
-                </Grid>
+            <Grid DockPanel.Dock="Bottom">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="4" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="4" />
+                </Grid.RowDefinitions>
+
+                <local:PagingView Grid.Row="0"/>
+                <local:NumberOfItemsSelectedView Grid.Row="2"/>
+                
+            </Grid>
 
 
 
