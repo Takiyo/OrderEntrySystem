@@ -28,14 +28,15 @@ namespace OrderEntrySystem
             //from p in this.repository.GetProducts()
             //where p.Condition == this.FilterCondition
             //select new ProductViewModel(p, this.repository)).ToList()
-            IEnumerable<Customer> customers = (
+            this.CustomerOrders = (
             from c in this.repository.GetCustomers()
             where c.IsArchived != true
             select new Customer
             {
                 FirstName = c.FirstName,
                 Orders = c.Orders,
-                TotalToBeSpent = c.Orders.
+                //TotalToBeSpent = c.Orders.Sum
+                //TotalSpent = c.Orders.Sum
             });
         }
     }

@@ -123,6 +123,9 @@
     <Compile Include="Views\PagingView.xaml.cs">
       <DependentUpon>PagingView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ReportView.xaml.cs">
+      <DependentUpon>ReportView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\WorkspaceWindow.xaml.cs">
       <DependentUpon>WorkspaceWindow.xaml</DependentUpon>
     </Compile>
@@ -200,6 +203,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OrderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
