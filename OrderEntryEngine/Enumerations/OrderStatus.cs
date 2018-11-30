@@ -8,8 +8,8 @@ namespace OrderEntryEngine
 {
     public enum OrderStatus
     {
-        Processing,
-        Shipped,
-        Received
+        Pending,
+        Placed,
+        Shipped
     }
 }

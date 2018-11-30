@@ -24,6 +24,8 @@ namespace OrderEntryEngine
             this.ProductCategories = new List<ProductCategory>();
         }
 
+        public decimal Cost { get; set; }
+
         public int Id { get; set; }
 
         [Required]

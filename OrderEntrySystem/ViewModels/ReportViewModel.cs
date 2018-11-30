@@ -12,8 +12,10 @@ namespace OrderEntrySystem
     {
         private Repository repository;
 
-        public ReportViewModel(Repository repository): base("Customer report")
+        public ReportViewModel(Repository repository): base("Reports")
         {
+            this.repository = repository;
+            this.LoadReport();
 
         }
 
@@ -21,7 +23,6 @@ namespace OrderEntrySystem
 
         protected override void CreateCommands()
         {
-
         }
         private void LoadReport()
         {
@@ -38,6 +39,18 @@ namespace OrderEntrySystem
                 //TotalToBeSpent = c.Orders.Sum
                 //TotalSpent = c.Orders.Sum
             });
+
+            var report =
+                from c in this.repository.GetCustomers()
+                select new
+                {
+                    Name = c.FirstName + " " + c.LastName, Orders = c.Orders,
+                    TotalToBeSpent = c.Orders.Sum(o => o.Total),
+                    TotalSpent = c.Orders.Where(o => o.Status == OrderEntryEngine.OrderStatus.Placed).Sum(o => o.Total)
+                };
+
+            this.CustomerOrders = report;
+
         }
     }
 }

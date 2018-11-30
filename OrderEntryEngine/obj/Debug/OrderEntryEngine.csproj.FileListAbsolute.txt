@@ -15,7 +15,6 @@ D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\Orde
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\EntityFramework.xml
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\bin\Debug\EntityFramework.SqlServer.xml
-D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojResolveAssemblyReference.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.csproj.CoreCompileInputs.cache
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
 D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
@@ -41,3 +40,4 @@ C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\Orde
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.dll
 C:\Users\15766412\Downloads\OES\OrderEntrySystem\OrderEntryEngine\obj\Debug\OrderEntryEngine.pdb
 C:\Users\15766412\Downloads\OES\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojAssemblyReference.cache
+D:\Downloadables\COLLEGE\Software Architecture\OrderEntrySystem - Brytowski\OrderEntryEngine\obj\Debug\OrderEntryEngine.csprojResolveAssemblyReference.cache

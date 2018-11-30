@@ -8,7 +8,6 @@ namespace OrderEntryDataAccess
         public OrderEntryContext()
             : base("OrderEntryContext")
         {
-            Database.Initialize(true);
         }
 
         public DbSet<Product> Products { get; set; }

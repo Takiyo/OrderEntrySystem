@@ -81,10 +81,28 @@ namespace OrderEntryEngine
 
         public void Post()
         {
-            if (this.Status == OrderStatus.Processing)
+            switch (this.Status)
             {
-                this.Status = OrderStatus.Shipped;
-                this.CalculateTotals();
+                case OrderStatus.Pending:
+                    this.Status = OrderStatus.Placed;
+
+                    foreach (OrderLine line in this.Lines)
+                    {
+                        line.Post();
+                        line.CalculateTax();
+                    }
+
+                    this.CalculateTotals();
+
+                    break;
+                case OrderStatus.Placed:
+
+                    break;
+                case OrderStatus.Shipped:
+
+                    break;
+                default:
+                    break;
             }
         }
     }

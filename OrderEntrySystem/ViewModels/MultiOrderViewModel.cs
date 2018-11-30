@@ -184,7 +184,7 @@ namespace OrderEntrySystem
         {
             get
             {
-                return this.AllOrders.SingleOrDefault(o => o.IsSelected).Order.Status == OrderStatus.Processing;
+                return this.AllOrders.SingleOrDefault(o => o.IsSelected).Order.Status == OrderStatus.Pending;
             }
         }
     }

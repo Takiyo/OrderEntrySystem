@@ -62,8 +62,8 @@ namespace OrderEntryDataAccess
 
             var orders = new List<Order>
             {
-                new Order { CustomerId = 1, Status = OrderStatus.Processing },
-                new Order { CustomerId = 2, Status = OrderStatus.Processing }
+                new Order { CustomerId = 1, Status = OrderStatus.Pending },
+                new Order { CustomerId = 2, Status = OrderStatus.Pending }
             };
 
             context.Orders.AddRange(orders);

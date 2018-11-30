@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace OrderEntrySystem.Views
+namespace OrderEntrySystem
 {
     /// <summary>
     /// Interaction logic for ReportView.xaml

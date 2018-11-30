@@ -42,6 +42,7 @@ namespace OrderEntrySystem
             this.Commands.Add(new CommandViewModel("View all locations", new DelegateCommand(p => this.ShowAllLocations())));
             this.Commands.Add(new CommandViewModel("View all categories", new DelegateCommand(p => this.ShowAllProductCategories())));
             this.Commands.Add(new CommandViewModel("View all orders", new DelegateCommand(p => this.ShowAllOrders())));
+            this.Commands.Add(new CommandViewModel("View reports", new DelegateCommand(p => this.ShowReport())));
         }
 
         private void ShowAllProducts()
@@ -123,6 +124,23 @@ namespace OrderEntrySystem
 
             this.ActivateViewModel(viewModel);
         }
+
+        private void ShowReport()
+        {
+            ReportViewModel viewModel = this.ViewModels.FirstOrDefault(vm => vm is ReportViewModel) as ReportViewModel;
+
+            if (viewModel == null)
+            {
+                viewModel = new ReportViewModel(this.repository);
+
+                viewModel.RequestClose += this.OnWorkspaceRequestClose;
+
+                this.ViewModels.Add(viewModel);
+            }
+
+            this.ActivateViewModel(viewModel);
+        }
+
 
         /// <summary>
         /// A handler which responds to a request to close a workspace.
